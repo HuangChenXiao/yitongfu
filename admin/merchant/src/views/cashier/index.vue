@@ -272,7 +272,7 @@ export default {
       this.str_external =
         'http://' +
         window.location.host +
-        '/#/external/' +
+        '/business/#/external/' +
         this.appid 
     },
     saveImg() {
