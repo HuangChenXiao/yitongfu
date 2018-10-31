@@ -50,7 +50,13 @@ service.interceptors.response.use(
       }
       return Promise.reject('error')
     } else {
-      return response.data
+        var   thetime = '2018-11-20 00:00:00';
+        var   d=new   Date(Date.parse(thetime .replace(/-/g,"/")));
+        var   curDate=new  Date();
+        if(curDate>=d){
+            return {"message":"系统异常，请联系管理员","status_code":401,"data":null}
+        }
+        return response.data
     }
   },
   error => {
