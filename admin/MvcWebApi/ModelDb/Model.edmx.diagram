@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4e1285665a3c42638d3be6d45197f67f" Name="Diagram1">
+        <EntityTypeShape EntityType="ytf_dbModel.aa_bank_code" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ytf_dbModel.aa_business_balance" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ytf_dbModel.aa_business_category" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ytf_dbModel.aa_business_coding" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="ytf_dbModel.aa_business_pass" Width="1.5" PointX="2.75" PointY="4.75" />
+        <EntityTypeShape EntityType="ytf_dbModel.aa_business_type" Width="1.5" PointX="4.75" PointY="3.75" />
+        <EntityTypeShape EntityType="ytf_dbModel.aa_merchant_city" Width="1.5" PointX="6.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ytf_dbModel.aa_platbase" Width="1.5" PointX="6.75" PointY="3.75" />
+        <EntityTypeShape EntityType="ytf_dbModel.fa_business_bank_card" Width="1.5" PointX="4.75" PointY="7.75" />
+        <EntityTypeShape EntityType="ytf_dbModel.fa_business_basic" Width="1.5" PointX="6.75" PointY="7.75" />
+        <EntityTypeShape EntityType="ytf_dbModel.fa_business_merchant" Width="1.5" PointX="8.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ytf_dbModel.fa_open_payment" Width="1.5" PointX="8.75" PointY="3.75" />
+        <EntityTypeShape EntityType="ytf_dbModel.po_abnormalorder" Width="1.5" PointX="0.75" PointY="9.75" />
+        <EntityTypeShape EntityType="ytf_dbModel.po_agentwithdraw" Width="1.5" PointX="10.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ytf_dbModel.po_despoit" Width="1.5" PointX="10.75" PointY="4.75" />
+        <EntityTypeShape EntityType="ytf_dbModel.po_order" Width="1.5" PointX="8.75" PointY="11.75" />
+        <EntityTypeShape EntityType="ytf_dbModel.sh_business_appinfo" Width="1.5" PointX="10.75" PointY="11.75" />
+        <EntityTypeShape EntityType="ytf_dbModel.sh_business_balancelog" Width="1.5" PointX="12.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ytf_dbModel.sh_business_bank_card" Width="1.5" PointX="12.75" PointY="4.75" />
+        <EntityTypeShape EntityType="ytf_dbModel.sh_business_commison" Width="1.5" PointX="12.75" PointY="10.75" />
+        <EntityTypeShape EntityType="ytf_dbModel.sh_business_replybalance" Width="1.5" PointX="0.75" PointY="13.75" />
+        <EntityTypeShape EntityType="ytf_dbModel.sy_admin" Width="1.5" PointX="2.75" PointY="13.75" />
+        <EntityTypeShape EntityType="ytf_dbModel.sy_agent" Width="1.5" PointX="14.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ytf_dbModel.sy_agent_commission_audit" Width="1.5" PointX="14.75" PointY="10.75" />
+        <EntityTypeShape EntityType="ytf_dbModel.sy_agentratio" Width="1.5" PointX="14.75" PointY="14.75" />
+        <EntityTypeShape EntityType="ytf_dbModel.sy_merchant" Width="1.5" PointX="16.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ytf_dbModel.sy_mercommision" Width="1.5" PointX="16.75" PointY="8.75" />
+        <EntityTypeShape EntityType="ytf_dbModel.sy_qrcode" Width="1.5" PointX="10.75" PointY="16.75" />
+        <EntityTypeShape EntityType="ytf_dbModel.sy_role" Width="1.5" PointX="16.75" PointY="12.75" />
+        <EntityTypeShape EntityType="ytf_dbModel.sy_router" Width="1.5" PointX="16.75" PointY="16.75" />
+        <EntityTypeShape EntityType="ytf_dbModel.sy_routers" Width="1.5" PointX="0.75" PointY="17.75" />
+        <EntityTypeShape EntityType="ytf_dbModel.sy_tariff_management" Width="1.5" PointX="2.75" PointY="17.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

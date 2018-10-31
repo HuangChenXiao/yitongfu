@@ -1,0 +1,23 @@
+const getters = {
+  sidebar: state => state.app.sidebar,
+  visitedViews: state => state.app.visitedViews,
+  token: state => state.user.token,
+  avatar: state => state.user.avatar,
+  user_name: state => state.user.user_name,
+  user_code: state => state.user.user_code,
+  user_id: state => state.user.user_id,
+  introduction: state => state.user.introduction,
+  status: state => state.user.status,
+  roles: state => state.user.roles,
+  setting: state => state.user.setting,
+  permission_routers: state => state.permission.routers,
+  addRouters: state => state.permission.addRouters,
+  appid: state => state.user.appid,
+  appsecret: state => state.user.appsecret,
+  company_logo: state => state.user.company_logo,
+  alipaybalance: state => state.user.alipaybalance,
+  balance: state => state.user.balance,
+  wechatbalance: state => state.user.wechatbalance,
+  businesspasstype: state => state.user.businesspasstype,
+}
+export default getters

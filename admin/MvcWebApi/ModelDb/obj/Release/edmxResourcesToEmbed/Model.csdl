@@ -1,0 +1,1253 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ytf_dbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="ytf_dbEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="f_order_query" ReturnType="Collection(ytf_dbModel.f_order_query_Result)" />
+    <FunctionImport Name="f_order_update" ReturnType="Collection(ytf_dbModel.f_order_update_Result)">
+      <Parameter Name="merchant_order_sn" Mode="In" Type="String" />
+      <Parameter Name="trade_no" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="h_proccheckorder" ReturnType="Collection(ytf_dbModel.h_proccheckorder_Result)" />
+    <FunctionImport Name="h_proccheckupdateorder">
+      <Parameter Name="orderno" Mode="In" Type="String" />
+      <Parameter Name="status" Mode="In" Type="String" />
+      <Parameter Name="amount" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_Agentaddwithdraw" ReturnType="Collection(ytf_dbModel.PROC_Agentaddwithdraw_Result)">
+      <Parameter Name="agid" Mode="In" Type="Int32" />
+      <Parameter Name="commission" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_AgentAuditwithdraw" ReturnType="Collection(ytf_dbModel.PROC_AgentAuditwithdraw_Result)">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="reason" Mode="In" Type="String" />
+      <Parameter Name="auditor" Mode="In" Type="String" />
+      <Parameter Name="status" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_Agentwithdrawlist">
+      <Parameter Name="begindate" Mode="In" Type="String" />
+      <Parameter Name="enddate" Mode="In" Type="String" />
+      <Parameter Name="status" Mode="In" Type="Int32" />
+      <Parameter Name="keyword" Mode="In" Type="String" />
+      <Parameter Name="page" Mode="In" Type="Int32" />
+      <Parameter Name="pagesize" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_Agentwithdrawlistbyagent" ReturnType="Collection(ytf_dbModel.PROC_Agentwithdrawlistbyagent_Result)">
+      <Parameter Name="begindate" Mode="In" Type="String" />
+      <Parameter Name="enddate" Mode="In" Type="String" />
+      <Parameter Name="agid" Mode="In" Type="Int32" />
+      <Parameter Name="status" Mode="In" Type="Int32" />
+      <Parameter Name="page" Mode="In" Type="Int32" />
+      <Parameter Name="pagesize" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_AuditOrderDepositByAgent" ReturnType="Collection(ytf_dbModel.PROC_AuditOrderDepositByAgent_Result)">
+      <Parameter Name="despoitno" Mode="In" Type="String" />
+      <Parameter Name="status" Mode="In" Type="Int32" />
+      <Parameter Name="reason" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_AuditOrderDepositByNiuchao" ReturnType="Collection(ytf_dbModel.PROC_AuditOrderDepositByNiuchao_Result)">
+      <Parameter Name="despoitno" Mode="In" Type="String" />
+      <Parameter Name="status" Mode="In" Type="Int32" />
+      <Parameter Name="reason" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_AutoReleaseFreeamount" />
+    <FunctionImport Name="PROC_BusinessCheckBalance" ReturnType="Collection(ytf_dbModel.PROC_BusinessCheckBalance_Result)">
+      <Parameter Name="businessid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_CheckBusinessBalance" ReturnType="Collection(ytf_dbModel.PROC_CheckBusinessBalance_Result)" />
+    <FunctionImport Name="PROC_CheckOrderStatus" ReturnType="Collection(ytf_dbModel.PROC_CheckOrderStatus_Result)">
+      <Parameter Name="orderno" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_Createmercomm" ReturnType="Collection(ytf_dbModel.PROC_Createmercomm_Result)">
+      <Parameter Name="merchantid" Mode="In" Type="Int32" />
+      <Parameter Name="comm_amount" Mode="In" Type="Decimal" />
+      <Parameter Name="type" Mode="In" Type="Int32" />
+      <Parameter Name="memo" Mode="In" Type="String" />
+      <Parameter Name="adduser" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_CreateOrder" ReturnType="Collection(ytf_dbModel.PROC_CreateOrder_Result)">
+      <Parameter Name="amount" Mode="In" Type="Decimal" />
+      <Parameter Name="remark" Mode="In" Type="String" />
+      <Parameter Name="appid" Mode="In" Type="String" />
+      <Parameter Name="paytype" Mode="In" Type="Int32" />
+      <Parameter Name="businesspasstype" Mode="In" Type="Int32" />
+      <Parameter Name="frontUrl" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_CreateOrderByThird" ReturnType="Collection(ytf_dbModel.PROC_CreateOrderByThird_Result)">
+      <Parameter Name="orderno" Mode="In" Type="String" />
+      <Parameter Name="amount" Mode="In" Type="Decimal" />
+      <Parameter Name="remark" Mode="In" Type="String" />
+      <Parameter Name="appid" Mode="In" Type="String" />
+      <Parameter Name="returnurl" Mode="In" Type="String" />
+      <Parameter Name="paytype" Mode="In" Type="Int32" />
+      <Parameter Name="frontUrl" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_CreateOrderCheck" ReturnType="Collection(ytf_dbModel.PROC_CreateOrderCheck_Result)">
+      <Parameter Name="amount" Mode="In" Type="Decimal" />
+      <Parameter Name="appid" Mode="In" Type="String" />
+      <Parameter Name="paytype" Mode="In" Type="Int32" />
+      <Parameter Name="businesspasstype" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_CreateOrderCheckByThird" ReturnType="Collection(ytf_dbModel.PROC_CreateOrderCheckByThird_Result)">
+      <Parameter Name="orderno" Mode="In" Type="String" />
+      <Parameter Name="amount" Mode="In" Type="Decimal" />
+      <Parameter Name="appid" Mode="In" Type="String" />
+      <Parameter Name="paytype" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_CustomerAddDespoit" ReturnType="Collection(ytf_dbModel.PROC_CustomerAddDespoit_Result)">
+      <Parameter Name="customerappid" Mode="In" Type="String" />
+      <Parameter Name="amount" Mode="In" Type="Decimal" />
+      <Parameter Name="bankno" Mode="In" Type="String" />
+      <Parameter Name="paytype" Mode="In" Type="Int32" />
+      <Parameter Name="businesspasstype" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_CustomerAddDespoitCheck" ReturnType="Collection(ytf_dbModel.PROC_CustomerAddDespoitCheck_Result)">
+      <Parameter Name="customerappid" Mode="In" Type="String" />
+      <Parameter Name="amount" Mode="In" Type="Decimal" />
+      <Parameter Name="bankno" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_DespoitOrderList">
+      <Parameter Name="begindate" Mode="In" Type="String" />
+      <Parameter Name="enddate" Mode="In" Type="String" />
+      <Parameter Name="agid" Mode="In" Type="Int32" />
+      <Parameter Name="businessid" Mode="In" Type="Int32" />
+      <Parameter Name="status" Mode="In" Type="Int32" />
+      <Parameter Name="page" Mode="In" Type="Int32" />
+      <Parameter Name="pagesize" Mode="In" Type="Int32" />
+      <Parameter Name="businesspasstype" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_DespoitVoice" ReturnType="Collection(ytf_dbModel.PROC_DespoitVoice_Result)">
+      <Parameter Name="agid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_GetAlipayConfig" ReturnType="Collection(ytf_dbModel.PROC_GetAlipayConfig_Result)">
+      <Parameter Name="out_trade_no" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_GetAppsecert" ReturnType="Collection(ytf_dbModel.PROC_GetAppsecert_Result)">
+      <Parameter Name="appid" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_GetDespoitDetail" ReturnType="Collection(ytf_dbModel.PROC_GetDespoitDetail_Result)">
+      <Parameter Name="despoitno" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_GetMerchantbusiness" ReturnType="Collection(ytf_dbModel.PROC_GetMerchantbusiness_Result)">
+      <Parameter Name="merchantid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_GetNotifyInfo" ReturnType="Collection(ytf_dbModel.PROC_GetNotifyInfo_Result)">
+      <Parameter Name="orderno" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_GetOrderDepositQuery" ReturnType="Collection(ytf_dbModel.PROC_GetOrderDepositQuery_Result)" />
+    <FunctionImport Name="PROC_GetOrderQuery" ReturnType="Collection(ytf_dbModel.PROC_GetOrderQuery_Result)" />
+    <FunctionImport Name="PROC_GetRealAppsecert" ReturnType="Collection(String)">
+      <Parameter Name="appid" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_GetSHappinfo" ReturnType="Collection(ytf_dbModel.PROC_GetSHappinfo_Result)">
+      <Parameter Name="orderno" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_GetUpdateOrder" ReturnType="Collection(ytf_dbModel.PROC_GetUpdateOrder_Result)">
+      <Parameter Name="orderno" Mode="In" Type="String" />
+      <Parameter Name="status" Mode="In" Type="Int32" />
+      <Parameter Name="reason" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_GetUpdateOrderDeposit">
+      <Parameter Name="despoitno" Mode="In" Type="String" />
+      <Parameter Name="status" Mode="In" Type="Int32" />
+      <Parameter Name="reason" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_GetUserinfo" ReturnType="Collection(ytf_dbModel.PROC_GetUserinfo_Result)" />
+    <FunctionImport Name="PROC_mercommList">
+      <Parameter Name="begindate" Mode="In" Type="String" />
+      <Parameter Name="enddate" Mode="In" Type="String" />
+      <Parameter Name="merchantid" Mode="In" Type="Int32" />
+      <Parameter Name="keyword" Mode="In" Type="String" />
+      <Parameter Name="page" Mode="In" Type="Int32" />
+      <Parameter Name="pagesize" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_OrderCallBack" ReturnType="Collection(ytf_dbModel.PROC_OrderCallBack_Result)">
+      <Parameter Name="orderno" Mode="In" Type="String" />
+      <Parameter Name="payno" Mode="In" Type="String" />
+      <Parameter Name="status" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_OrderFinish" ReturnType="Collection(ytf_dbModel.PROC_OrderFinish_Result)">
+      <Parameter Name="orderno" Mode="In" Type="String" />
+      <Parameter Name="payno" Mode="In" Type="String" />
+      <Parameter Name="status" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_OrderList">
+      <Parameter Name="begindate" Mode="In" Type="String" />
+      <Parameter Name="enddate" Mode="In" Type="String" />
+      <Parameter Name="agid" Mode="In" Type="Int32" />
+      <Parameter Name="businessid" Mode="In" Type="Int32" />
+      <Parameter Name="keyword" Mode="In" Type="String" />
+      <Parameter Name="status" Mode="In" Type="Int32" />
+      <Parameter Name="page" Mode="In" Type="Int32" />
+      <Parameter Name="pagesize" Mode="In" Type="Int32" />
+      <Parameter Name="businesspasstype" Mode="In" Type="Int32" />
+      <Parameter Name="paytype" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_OrderSHCallBack" ReturnType="Collection(ytf_dbModel.PROC_OrderSHCallBack_Result)">
+      <Parameter Name="orderno" Mode="In" Type="String" />
+      <Parameter Name="amount" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_OrderSumList">
+      <Parameter Name="begindate" Mode="In" Type="String" />
+      <Parameter Name="enddate" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_SHBusinessAppinfoList">
+      <Parameter Name="keyword" Mode="In" Type="String" />
+      <Parameter Name="status" Mode="In" Type="Int32" />
+      <Parameter Name="page" Mode="In" Type="Int32" />
+      <Parameter Name="pagesize" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="proc_unionbusinessbalance" ReturnType="Collection(ytf_dbModel.proc_unionbusinessbalance_Result)">
+      <Parameter Name="businessid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_UpdateBusinessBalance">
+      <Parameter Name="appid" Mode="In" Type="String" />
+      <Parameter Name="balance" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_UpdateBusinessWorkkey">
+      <Parameter Name="businessid" Mode="In" Type="Int32" />
+      <Parameter Name="key" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_UpdateOrderPayno">
+      <Parameter Name="orderno" Mode="In" Type="String" />
+      <Parameter Name="payno" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Report_Business_balance" ReturnType="Collection(ytf_dbModel.Report_Business_balance_Result)" />
+    <FunctionImport Name="Report_GetBusinessDespoit" ReturnType="Collection(ytf_dbModel.Report_GetBusinessDespoit_Result)">
+      <Parameter Name="begindate" Mode="In" Type="String" />
+      <Parameter Name="enddate" Mode="In" Type="String" />
+      <Parameter Name="keyword" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Report_GetBusinessTrade">
+      <Parameter Name="begindate" Mode="In" Type="String" />
+      <Parameter Name="enddate" Mode="In" Type="String" />
+      <Parameter Name="keyword" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Report_GetPlatTrade">
+      <Parameter Name="begindate" Mode="In" Type="String" />
+      <Parameter Name="enddate" Mode="In" Type="String" />
+      <Parameter Name="keywork" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sh_auditbusinessrelayamount" ReturnType="Collection(ytf_dbModel.sh_auditbusinessrelayamount_Result)">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="status" Mode="In" Type="Int32" />
+      <Parameter Name="reason" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sh_business_addbalance" ReturnType="Collection(ytf_dbModel.sh_business_addbalance_Result)">
+      <Parameter Name="sh_businessid" Mode="In" Type="Int32" />
+      <Parameter Name="amount" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="sh_businesscomm_add" ReturnType="Collection(ytf_dbModel.sh_businesscomm_add_Result)">
+      <Parameter Name="sh_businessid" Mode="In" Type="Int32" />
+      <Parameter Name="amount" Mode="In" Type="Decimal" />
+      <Parameter Name="bankno" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sh_businesscomm_audit" ReturnType="Collection(ytf_dbModel.sh_businesscomm_audit_Result)">
+      <Parameter Name="commorderno" Mode="In" Type="String" />
+      <Parameter Name="status" Mode="In" Type="Int32" />
+      <Parameter Name="reason" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sh_businesscomm_list">
+      <Parameter Name="begindate" Mode="In" Type="String" />
+      <Parameter Name="enddate" Mode="In" Type="String" />
+      <Parameter Name="sh_businessid" Mode="In" Type="Int32" />
+      <Parameter Name="status" Mode="In" Type="Int32" />
+      <Parameter Name="page" Mode="In" Type="Int32" />
+      <Parameter Name="pagesize" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sh_businessrelayamount" ReturnType="Collection(ytf_dbModel.sh_businessrelayamount_Result)">
+      <Parameter Name="sh_businessid" Mode="In" Type="Int32" />
+      <Parameter Name="amount" Mode="In" Type="Decimal" />
+      <Parameter Name="paytype" Mode="In" Type="Int32" />
+      <Parameter Name="remark" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sh_businessrelayamountlist">
+      <Parameter Name="begindate" Mode="In" Type="String" />
+      <Parameter Name="enddate" Mode="In" Type="String" />
+      <Parameter Name="sh_businessid" Mode="In" Type="Int32" />
+      <Parameter Name="keyword" Mode="In" Type="String" />
+      <Parameter Name="status" Mode="In" Type="Int32" />
+      <Parameter Name="page" Mode="In" Type="Int32" />
+      <Parameter Name="pagesize" Mode="In" Type="Int32" />
+      <Parameter Name="paytype" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sh_orderlist">
+      <Parameter Name="begindate" Mode="In" Type="String" />
+      <Parameter Name="enddate" Mode="In" Type="String" />
+      <Parameter Name="sh_businessid" Mode="In" Type="Int32" />
+      <Parameter Name="keyword" Mode="In" Type="String" />
+      <Parameter Name="status" Mode="In" Type="Int32" />
+      <Parameter Name="page" Mode="In" Type="Int32" />
+      <Parameter Name="pagesize" Mode="In" Type="Int32" />
+      <Parameter Name="paytype" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="TEST" ReturnType="Collection(String)" />
+    <EntitySet Name="aa_bank_code" EntityType="ytf_dbModel.aa_bank_code" />
+    <EntitySet Name="aa_business_balance" EntityType="ytf_dbModel.aa_business_balance" />
+    <EntitySet Name="aa_business_category" EntityType="ytf_dbModel.aa_business_category" />
+    <EntitySet Name="aa_business_coding" EntityType="ytf_dbModel.aa_business_coding" />
+    <EntitySet Name="aa_business_pass" EntityType="ytf_dbModel.aa_business_pass" />
+    <EntitySet Name="aa_business_type" EntityType="ytf_dbModel.aa_business_type" />
+    <EntitySet Name="aa_merchant_city" EntityType="ytf_dbModel.aa_merchant_city" />
+    <EntitySet Name="aa_platbase" EntityType="ytf_dbModel.aa_platbase" />
+    <EntitySet Name="fa_business_bank_card" EntityType="ytf_dbModel.fa_business_bank_card" />
+    <EntitySet Name="fa_business_basic" EntityType="ytf_dbModel.fa_business_basic" />
+    <EntitySet Name="fa_business_merchant" EntityType="ytf_dbModel.fa_business_merchant" />
+    <EntitySet Name="fa_open_payment" EntityType="ytf_dbModel.fa_open_payment" />
+    <EntitySet Name="po_abnormalorder" EntityType="ytf_dbModel.po_abnormalorder" />
+    <EntitySet Name="po_agentwithdraw" EntityType="ytf_dbModel.po_agentwithdraw" />
+    <EntitySet Name="po_despoit" EntityType="ytf_dbModel.po_despoit" />
+    <EntitySet Name="po_order" EntityType="ytf_dbModel.po_order" />
+    <EntitySet Name="sh_business_appinfo" EntityType="ytf_dbModel.sh_business_appinfo" />
+    <EntitySet Name="sh_business_balancelog" EntityType="ytf_dbModel.sh_business_balancelog" />
+    <EntitySet Name="sh_business_bank_card" EntityType="ytf_dbModel.sh_business_bank_card" />
+    <EntitySet Name="sh_business_commison" EntityType="ytf_dbModel.sh_business_commison" />
+    <EntitySet Name="sh_business_replybalance" EntityType="ytf_dbModel.sh_business_replybalance" />
+    <EntitySet Name="sy_admin" EntityType="ytf_dbModel.sy_admin" />
+    <EntitySet Name="sy_agent" EntityType="ytf_dbModel.sy_agent" />
+    <EntitySet Name="sy_agent_commission_audit" EntityType="ytf_dbModel.sy_agent_commission_audit" />
+    <EntitySet Name="sy_agentratio" EntityType="ytf_dbModel.sy_agentratio" />
+    <EntitySet Name="sy_merchant" EntityType="ytf_dbModel.sy_merchant" />
+    <EntitySet Name="sy_mercommision" EntityType="ytf_dbModel.sy_mercommision" />
+    <EntitySet Name="sy_qrcode" EntityType="ytf_dbModel.sy_qrcode" />
+    <EntitySet Name="sy_role" EntityType="ytf_dbModel.sy_role" />
+    <EntitySet Name="sy_router" EntityType="ytf_dbModel.sy_router" />
+    <EntitySet Name="sy_routers" EntityType="ytf_dbModel.sy_routers" />
+    <EntitySet Name="sy_tariff_management" EntityType="ytf_dbModel.sy_tariff_management" />
+    <FunctionImport Name="PROC_PayPassAdd" ReturnType="Collection(ytf_dbModel.PROC_PayPassAdd_Result)">
+      <Parameter Name="alipayappid" Mode="In" Type="String" />
+      <Parameter Name="rsaprivate" Mode="In" Type="String" />
+      <Parameter Name="rsapublic" Mode="In" Type="String" />
+      <Parameter Name="dayamount" Mode="In" Type="Decimal" />
+      <Parameter Name="memo" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_PayPassList">
+      <Parameter Name="keyword" Mode="In" Type="String" />
+      <Parameter Name="status" Mode="In" Type="Int32" />
+      <Parameter Name="page" Mode="In" Type="Int32" />
+      <Parameter Name="pagesize" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_PayPassUpdate" ReturnType="Collection(ytf_dbModel.PROC_PayPassUpdate_Result)">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="alipayappid" Mode="In" Type="String" />
+      <Parameter Name="rsaprivate" Mode="In" Type="String" />
+      <Parameter Name="rsapublic" Mode="In" Type="String" />
+      <Parameter Name="dayamount" Mode="In" Type="Decimal" />
+      <Parameter Name="memo" Mode="In" Type="String" />
+      <Parameter Name="enable" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="report_businessorderamount">
+      <Parameter Name="begindate" Mode="In" Type="String" />
+      <Parameter Name="enddate" Mode="In" Type="String" />
+      <Parameter Name="keyword" Mode="In" Type="String" />
+      <Parameter Name="page" Mode="In" Type="Int32" />
+      <Parameter Name="pagesize" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="report_payaccountorderamount" ReturnType="Collection(ytf_dbModel.report_payaccountorderamount_Result)">
+      <Parameter Name="begindate" Mode="In" Type="String" />
+      <Parameter Name="enddate" Mode="In" Type="String" />
+      <Parameter Name="page" Mode="In" Type="Int32" />
+      <Parameter Name="pagesize" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="f_order_query_Result">
+    <Property Type="String" Name="merchant_order_sn" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="sh_appid" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="sh_appsecret" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="sh_storeid" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="f_order_update_Result">
+    <Property Type="Int32" Name="state" Nullable="false" />
+    <Property Type="String" Name="message" Nullable="false" MaxLength="4" />
+  </ComplexType>
+  <ComplexType Name="h_proccheckorder_Result">
+    <Property Type="String" Name="orderno" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="mchid" Nullable="false" MaxLength="8" />
+    <Property Type="String" Name="pfxfile" Nullable="false" MaxLength="16" />
+    <Property Type="String" Name="cerfile" Nullable="false" MaxLength="15" />
+    <Property Type="String" Name="pfxpassword" Nullable="false" MaxLength="6" />
+    <Property Type="Int32" Name="paytype" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="PROC_Agentaddwithdraw_Result">
+    <Property Type="Int32" Name="state" Nullable="false" />
+    <Property Type="String" Name="message" Nullable="false" MaxLength="17" />
+  </ComplexType>
+  <ComplexType Name="PROC_AgentAuditwithdraw_Result">
+    <Property Type="Int32" Name="state" Nullable="false" />
+    <Property Type="String" Name="message" Nullable="false" MaxLength="18" />
+  </ComplexType>
+  <ComplexType Name="PROC_Agentwithdrawlistbyagent_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="agid" Nullable="true" />
+    <Property Type="Decimal" Name="lastcommission" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="newcommission" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="commission" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Int32" Name="status" Nullable="true" />
+    <Property Type="String" Name="reason" Nullable="true" MaxLength="100" />
+    <Property Type="DateTime" Name="addtime" Nullable="true" Precision="23" />
+    <Property Type="String" Name="adduser" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="updatetime" Nullable="true" Precision="23" />
+    <Property Type="String" Name="updateuser" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="PROC_AuditOrderDepositByAgent_Result">
+    <Property Type="Int32" Name="status_code" Nullable="false" />
+    <Property Type="String" Name="message" Nullable="false" MaxLength="12" />
+  </ComplexType>
+  <ComplexType Name="PROC_AuditOrderDepositByNiuchao_Result">
+    <Property Type="Int32" Name="statue" Nullable="false" />
+    <Property Type="String" Name="message" Nullable="false" MaxLength="12" />
+  </ComplexType>
+  <ComplexType Name="PROC_BusinessCheckBalance_Result">
+    <Property Type="Decimal" Name="realamount" Nullable="true" Precision="38" Scale="2" />
+    <Property Type="Decimal" Name="despoitamount" Nullable="true" Precision="38" Scale="2" />
+    <Property Type="Decimal" Name="totalbalance" Nullable="true" Precision="38" Scale="2" />
+    <Property Type="Decimal" Name="differamount" Nullable="true" Precision="38" Scale="2" />
+    <Property Type="String" Name="shortname" Nullable="true" MaxLength="300" />
+    <Property Type="Int32" Name="id" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="PROC_CheckBusinessBalance_Result">
+    <Property Type="String" Name="appid" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="appsecret" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="PROC_CheckOrderStatus_Result">
+    <Property Type="String" Name="payno" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="merchant_num" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="PROC_Createmercomm_Result">
+    <Property Type="Int32" Name="status" Nullable="false" />
+    <Property Type="String" Name="message" Nullable="false" MaxLength="8" />
+  </ComplexType>
+  <ComplexType Name="PROC_CreateOrder_Result">
+    <Property Type="String" Name="agentno" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="mchid" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="mchkey" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="pfxfile" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="pfxpassword" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="cerfile" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="businesspasstype" Nullable="true" />
+    <Property Type="String" Name="rsaprivate" Nullable="true" />
+    <Property Type="String" Name="rsapublic" Nullable="true" />
+    <Property Type="Boolean" Name="isredirect" Nullable="true" />
+    <Property Type="String" Name="alipayappid" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="amount" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="orderno" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="remark" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="frontUrl" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="sh_appid" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="sh_appsecret" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="sh_storeid" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="PROC_CreateOrderByThird_Result">
+    <Property Type="String" Name="agentno" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="mchid" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="mchkey" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="pfxfile" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="pfxpassword" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="cerfile" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="businesspasstype" Nullable="true" />
+    <Property Type="String" Name="rsaprivate" Nullable="true" />
+    <Property Type="String" Name="rsapublic" Nullable="true" />
+    <Property Type="Boolean" Name="isredirect" Nullable="true" />
+    <Property Type="String" Name="alipayappid" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="amount" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="orderno" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="remark" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="returnurl" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="frontUrl" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="sh_appid" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="sh_appsecret" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="sh_storeid" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="PROC_CreateOrderCheck_Result">
+    <Property Type="Int32" Name="statue" Nullable="false" />
+    <Property Type="String" Name="message" Nullable="false" MaxLength="21" />
+  </ComplexType>
+  <ComplexType Name="PROC_CreateOrderCheckByThird_Result">
+    <Property Type="Int32" Name="statue" Nullable="false" />
+    <Property Type="String" Name="message" Nullable="false" MaxLength="21" />
+  </ComplexType>
+  <ComplexType Name="PROC_CustomerAddDespoit_Result">
+    <Property Type="Int32" Name="status_code" Nullable="false" />
+    <Property Type="String" Name="message" Nullable="false" MaxLength="16" />
+  </ComplexType>
+  <ComplexType Name="PROC_CustomerAddDespoitCheck_Result">
+    <Property Type="Int32" Name="status_code" Nullable="false" />
+    <Property Type="String" Name="message" Nullable="false" MaxLength="16" />
+  </ComplexType>
+  <ComplexType Name="PROC_DespoitVoice_Result">
+    <Property Type="Int32" Name="status_code" Nullable="false" />
+    <Property Type="String" Name="message" Nullable="false" MaxLength="18" />
+  </ComplexType>
+  <ComplexType Name="PROC_GetAlipayConfig_Result">
+    <Property Type="String" Name="alipayappid" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="rsaprivate" Nullable="true" />
+    <Property Type="String" Name="rsapublic" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="PROC_GetAppsecert_Result">
+    <Property Type="String" Name="appid" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="appsecret" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="PROC_GetDespoitDetail_Result">
+    <Property Type="String" Name="despoitno" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="amount" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="bankaccountno" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="bankusername" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="bankname" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="bankcode" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="bankeightcode" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="paytype" Nullable="true" />
+    <Property Type="String" Name="bankaddress" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="agentNo" Nullable="false" MaxLength="7" />
+    <Property Type="String" Name="merNo" Nullable="false" MaxLength="15" />
+    <Property Type="String" Name="merkey" Nullable="false" MaxLength="16" />
+    <Property Type="String" Name="mobileno" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="certno" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="province" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="city" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="businesspasstype" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="PROC_GetMerchantbusiness_Result">
+    <Property Type="String" Name="shortname" Nullable="true" MaxLength="300" />
+    <Property Type="String" Name="merchantaddress" Nullable="true" MaxLength="60" />
+    <Property Type="String" Name="servicephone" Nullable="true" MaxLength="300" />
+    <Property Type="String" Name="corpmanname" Nullable="true" MaxLength="100" />
+    <Property Type="Decimal" Name="balance" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="orderamount" Nullable="false" Precision="38" Scale="2" />
+    <Property Type="Decimal" Name="despoitamount" Nullable="false" Precision="38" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="PROC_GetNotifyInfo_Result">
+    <Property Type="String" Name="orderno" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="notifystatus" Nullable="true" />
+    <Property Type="Decimal" Name="realamount" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="memo" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="returnurl" Nullable="true" MaxLength="200" />
+    <Property Type="Int32" Name="notifycount" Nullable="true" />
+    <Property Type="String" Name="notifyid" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="customerappid" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="customerappsecret" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="PROC_GetOrderDepositQuery_Result">
+    <Property Type="String" Name="despoitno" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="appid" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="appsecret" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="PROC_GetOrderQuery_Result">
+    <Property Type="String" Name="orderno" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="appid" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="appsecret" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="PROC_GetSHappinfo_Result">
+    <Property Type="String" Name="sh_appid" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="sh_appsecret" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="sh_storeid" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="amount" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="frontUrl" Nullable="false" MaxLength="500" />
+  </ComplexType>
+  <ComplexType Name="PROC_GetUpdateOrder_Result">
+    <Property Type="Int32" Name="statue" Nullable="false" />
+    <Property Type="String" Name="message" Nullable="false" MaxLength="12" />
+  </ComplexType>
+  <ComplexType Name="PROC_GetUserinfo_Result">
+    <Property Type="String" Name="agentNo" Nullable="false" MaxLength="7" />
+    <Property Type="String" Name="merNo" Nullable="false" MaxLength="15" />
+    <Property Type="String" Name="merkey" Nullable="false" MaxLength="16" />
+  </ComplexType>
+  <ComplexType Name="PROC_OrderCallBack_Result">
+    <Property Type="Int32" Name="statue" Nullable="false" />
+    <Property Type="String" Name="message" Nullable="false" MaxLength="18" />
+  </ComplexType>
+  <ComplexType Name="PROC_OrderFinish_Result">
+    <Property Type="Int32" Name="statue" Nullable="false" />
+    <Property Type="String" Name="message" Nullable="false" MaxLength="18" />
+  </ComplexType>
+  <ComplexType Name="PROC_OrderSHCallBack_Result">
+    <Property Type="Int32" Name="statue" Nullable="false" />
+    <Property Type="String" Name="message" Nullable="false" MaxLength="18" />
+  </ComplexType>
+  <ComplexType Name="proc_unionbusinessbalance_Result">
+    <Property Type="Int32" Name="status_code" Nullable="false" />
+    <Property Type="String" Name="message" Nullable="false" MaxLength="4" />
+  </ComplexType>
+  <ComplexType Name="Report_Business_balance_Result">
+    <Property Type="Int32" Name="businessid" Nullable="true" />
+    <Property Type="Decimal" Name="realamount" Nullable="true" Precision="38" Scale="2" />
+    <Property Type="Int32" Name="paytype" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="Report_GetBusinessDespoit_Result">
+    <Property Type="Int32" Name="qty" Nullable="true" />
+    <Property Type="Decimal" Name="amount" Nullable="true" Precision="38" Scale="2" />
+    <Property Type="Decimal" Name="charge" Nullable="true" Precision="38" Scale="2" />
+    <Property Type="Int32" Name="Despoit" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="sh_auditbusinessrelayamount_Result">
+    <Property Type="Int32" Name="status_code" Nullable="false" />
+    <Property Type="String" Name="message" Nullable="false" MaxLength="10" />
+  </ComplexType>
+  <ComplexType Name="sh_business_addbalance_Result">
+    <Property Type="Int32" Name="status_code" Nullable="false" />
+    <Property Type="String" Name="message" Nullable="false" MaxLength="14" />
+  </ComplexType>
+  <ComplexType Name="sh_businesscomm_add_Result">
+    <Property Type="Int32" Name="status_code" Nullable="false" />
+    <Property Type="String" Name="message" Nullable="false" MaxLength="28" />
+  </ComplexType>
+  <ComplexType Name="sh_businesscomm_audit_Result">
+    <Property Type="Int32" Name="status_code" Nullable="false" />
+    <Property Type="String" Name="message" Nullable="false" MaxLength="12" />
+  </ComplexType>
+  <ComplexType Name="sh_businessrelayamount_Result">
+    <Property Type="Int32" Name="status_code" Nullable="false" />
+    <Property Type="String" Name="message" Nullable="false" MaxLength="39" />
+    <Property Type="String" Name="qrcode" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="qrname" Nullable="false" MaxLength="1" />
+  </ComplexType>
+  <EntityType Name="aa_bank_code">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="explain" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="eightcode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="aa_business_balance">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="businessid" Type="Int32" />
+    <Property Name="businesspasstype" Type="Int32" />
+    <Property Name="wechatbalance" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="alipaybalance" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="unionpaybalance" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="totalbalance" Type="Decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="aa_business_category">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="explain" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="aa_business_coding">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="explain" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="aa_business_pass">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="mchid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="mchkey" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="agentno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="type" Type="Int32" />
+    <Property Name="memo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="enable" Type="Boolean" />
+    <Property Name="pfxfile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="pfxpassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="cerfile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="alipayappid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="rsaprivate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="rsapublic" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="useamount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="dayamount" Type="Decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="aa_business_type">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="name" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="aa_merchant_city">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="aa_platbase">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="platrate" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="floatinrate" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="updatetime" Type="DateTime" Precision="3" />
+    <Property Name="updateuser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="addtime" Type="DateTime" Precision="3" />
+    <Property Name="adduser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="fa_business_bank_card">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="businessid" Type="Int32" />
+    <Property Name="mobileNo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="bankName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="bankaccountNo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="certCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="certNo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="defaultAcc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="isaudit" Type="Boolean" />
+    <Property Name="province" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="bankaddress" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="addtime" Type="DateTime" Precision="3" />
+    <Property Name="adduser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="updatetime" Type="DateTime" Precision="3" />
+    <Property Name="updateuser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="bankCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="bankEightCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="fa_business_basic">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="password" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="merchantid" Type="Int32" />
+    <Property Name="merchantName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="shortName" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="handleType" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="city" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="merchantAddress" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="servicePhone" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="orgCode" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="merchantType" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="category" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="corpmanName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="corpmanId" Type="String" MaxLength="180" FixedLength="false" Unicode="true" />
+    <Property Name="corpmanPhone" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="corpmanMobile" Type="String" MaxLength="110" FixedLength="false" Unicode="true" />
+    <Property Name="corpmanEmail" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="bankCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="bankName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="bankaccountNo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="bankaccountName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="autoCus" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="remark" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="licenseNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="taxRegisterNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="agentid" Type="Int32" />
+    <Property Name="appId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="appSecret" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="balance" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="alipaybalance" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="wechatbalance" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="status" Type="Int32" />
+    <Property Name="isaudit" Type="Boolean" />
+    <Property Name="addtime" Type="DateTime" Precision="3" />
+    <Property Name="adduser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="updatetime" Type="DateTime" Precision="3" />
+    <Property Name="updateuser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="addrType" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="contactType" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="mcc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="licenseType" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="contactMan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="telNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="mobilePhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="licenseBeginDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="licenseEndDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="licenseRange" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="keyaddtime" Type="DateTime" Precision="3" />
+    <Property Name="merchant_num" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ratio" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="minAmount" Type="Int32" />
+    <Property Name="maxAmount" Type="Int32" />
+    <Property Name="disabletime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="enabletime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="depositratio" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="businesspasstype" Type="Int32" />
+    <Property Name="wechatratio" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="alipayratio" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="unionratio" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="freezeamount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="isfreeze" Type="Boolean" />
+    <Property Name="alipayaccount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="fa_business_merchant">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="businessid" Type="Int32" />
+    <Property Name="merchantid" Type="Int32" />
+    <Property Name="status" Type="Int32" />
+    <Property Name="addtime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="fa_open_payment">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="merchantId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="handleType" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="cycleValue" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="busiCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="futureRateType" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="futureRateValue" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="futureMinAmount" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="futureMaxAmount" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="agencyId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="wechat_status" Type="Int32" />
+    <Property Name="wechat_rate" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="alipay_status" Type="Int32" />
+    <Property Name="alipay_rate" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="daipay_status" Type="Int32" />
+    <Property Name="daipay_rate" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="qqpay_status" Type="Int32" />
+    <Property Name="qqpay_rate" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="jdpay_status" Type="Int32" />
+    <Property Name="jdpay_rate" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="unionpay_status" Type="Int32" />
+    <Property Name="unionpay_rate" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="isaudit" Type="Boolean" />
+    <Property Name="addtime" Type="DateTime" Precision="3" />
+    <Property Name="adduser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="updatetime" Type="DateTime" Precision="3" />
+    <Property Name="updateuser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="po_abnormalorder">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="orderno" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="amount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="appid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="businessid" Type="Int32" />
+    <Property Name="account" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="remark" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="paytype" Type="Int32" />
+    <Property Name="tradetime" Type="DateTime" Precision="3" />
+    <Property Name="addtime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="po_agentwithdraw">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="agid" Type="Int32" />
+    <Property Name="lastcommission" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="newcommission" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="commission" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="status" Type="Int32" />
+    <Property Name="reason" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="addtime" Type="DateTime" Precision="3" />
+    <Property Name="adduser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="updatetime" Type="DateTime" Precision="3" />
+    <Property Name="updateuser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="po_despoit">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="despoitno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="businessid" Type="Int32" />
+    <Property Name="merchantid" Type="Int32" />
+    <Property Name="amount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="agid" Type="Int32" />
+    <Property Name="appsecret" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="status" Type="Int32" />
+    <Property Name="charge" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="reason" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="bankaccountno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="bankusername" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="bankname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="bankcode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="bankeightcode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="addtime" Type="DateTime" Precision="3" />
+    <Property Name="adduser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="audittime" Type="DateTime" Precision="3" />
+    <Property Name="realamount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="mobileno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="bankaddress" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="paytype" Type="Int32" />
+    <Property Name="certno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="province" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="businesspasstype" Type="Int32" />
+  </EntityType>
+  <EntityType Name="po_order">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="agid" Type="Int32" />
+    <Property Name="agname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="merchantid" Type="Int32" />
+    <Property Name="merchantname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="businessid" Type="Int32" />
+    <Property Name="businessname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="orderno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="payno" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="amount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="platfee" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="auth_code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="commission" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="servicecharge" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="paytype" Type="Int32" />
+    <Property Name="remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="reason" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="addtime" Type="DateTime" Precision="3" />
+    <Property Name="adduser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="returnurl" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="isnotify" Type="Boolean" />
+    <Property Name="notifystatus" Type="Int32" />
+    <Property Name="notifycount" Type="Int32" />
+    <Property Name="notifyid" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="notifytime" Type="DateTime" Precision="3" />
+    <Property Name="ischeck" Type="Boolean" />
+    <Property Name="businesspasstype" Type="Int32" />
+    <Property Name="account" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="fronturl" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="isokcheck" Type="Boolean" />
+    <Property Name="sh_businessid" Type="Int32" />
+    <Property Name="sh_storename" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="alipayaccount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="checkstatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="checkamount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="sh_business_appinfo">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="sh_appid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="sh_appsecret" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="sh_storeid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="sh_storename" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="sh_businessname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="sh_mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="sh_password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="sh_balance" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="sh_commission" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="sh_commratio" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="agid" Type="Int32" />
+    <Property Name="status" Type="Boolean" />
+    <Property Name="isused" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="sh_business_balancelog">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="sh_businessid" Type="Int32" />
+    <Property Name="amount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="balance" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="newbalance" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="type" Type="Int32" />
+    <Property Name="orderid" Type="Int32" />
+    <Property Name="addtime" Type="DateTime" Precision="3" />
+    <Property Name="memo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="sh_business_bank_card">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="sh_businessid" Type="Int32" />
+    <Property Name="mobileNo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="bankName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="bankaccountNo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="certCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="certNo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="defaultAcc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="isaudit" Type="Boolean" />
+    <Property Name="province" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="bankaddress" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="addtime" Type="DateTime" Precision="3" />
+    <Property Name="adduser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="updatetime" Type="DateTime" Precision="3" />
+    <Property Name="updateuser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="bankCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="bankEightCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="sh_business_commison">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="commorderno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="sh_businessid" Type="Int32" />
+    <Property Name="amount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="bankaccountno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="bankusername" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="bankname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="bankaddress" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="mobileno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="status" Type="Int32" />
+    <Property Name="addtime" Type="DateTime" Precision="3" />
+    <Property Name="audittime" Type="DateTime" Precision="3" />
+    <Property Name="reason" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="sh_business_replybalance">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="sh_businessid" Type="Int32" />
+    <Property Name="amount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="paytype" Type="Int32" />
+    <Property Name="qrcode" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="qrname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="remark" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="addtime" Type="DateTime" Precision="3" />
+    <Property Name="audittime" Type="DateTime" Precision="3" />
+    <Property Name="reason" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="status" Type="Int32" />
+  </EntityType>
+  <EntityType Name="sy_admin">
+    <Key>
+      <PropertyRef Name="userid" />
+    </Key>
+    <Property Name="userid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="usercode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="password" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="roleid" Type="Int32" />
+    <Property Name="status" Type="Int32" />
+    <Property Name="addtime" Type="DateTime" Precision="3" />
+    <Property Name="adduser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="updatetime" Type="DateTime" Precision="3" />
+    <Property Name="updateuser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="sy_agent">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="password" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="account_name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="card_number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="bank_accounts" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="opening_address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="opening_point" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="agency_level" Type="Int32" />
+    <Property Name="direct_identity" Type="Boolean" />
+    <Property Name="agent_rights" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="agency_amount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="agency_expiration_date" Type="DateTime" Precision="0" />
+    <Property Name="last_login_time" Type="DateTime" Precision="3" />
+    <Property Name="user_status" Type="Int32" />
+    <Property Name="remarks" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="corporate_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="province" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="area" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="industry_owned" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="main_business" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="company_number" Type="Int32" />
+    <Property Name="annual_turnover" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="contacts" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="contact_number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="mobile_phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="qq_number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="mail_box" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="proof_document" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="company_logo" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="is_alipay" Type="Boolean" />
+    <Property Name="is_jd" Type="Boolean" />
+    <Property Name="is_t0" Type="Boolean" />
+    <Property Name="ratio" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="commission" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="addtime" Type="DateTime" Precision="3" />
+    <Property Name="adduser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="updatetime" Type="DateTime" Precision="3" />
+    <Property Name="updateuser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="domain" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="bus_domain" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="sy_agent_commission_audit">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="agid" Type="Int32" Nullable="false" />
+    <Property Name="transaction_number" Type="Int32" />
+    <Property Name="total_income" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="commission" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="addtime" Type="DateTime" Precision="3" />
+    <Property Name="status" Type="Int32" />
+  </EntityType>
+  <EntityType Name="sy_agentratio">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="agid" Type="Int32" Nullable="false" />
+    <Property Name="businesspasstype" Type="Int32" />
+    <Property Name="ratio" Type="Decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="sy_merchant">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="password" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="agid" Type="Int32" Nullable="false" />
+    <Property Name="user_status" Type="Int32" />
+    <Property Name="user_rights" Type="Boolean" />
+    <Property Name="merchant_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="province" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="area" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="merchant_address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="contacts" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="contact_information" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="mail_box" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="qq_number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="expiration_date" Type="DateTime" Precision="0" />
+    <Property Name="last_login_time" Type="DateTime" Precision="3" />
+    <Property Name="payment_limit" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="recharge_limit" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="appid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="appsecret" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="returnurl" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="disabletime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="enabletime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="addtime" Type="DateTime" Precision="3" />
+    <Property Name="adduser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="updatetime" Type="DateTime" Precision="3" />
+    <Property Name="updateuser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="comm_amount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="comm_ratio" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="company_logo" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="domain" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="sy_mercommision">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="merchantid" Type="Int32" />
+    <Property Name="agid" Type="Int32" />
+    <Property Name="comm_amount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="orderid" Type="Int32" />
+    <Property Name="type" Type="Int32" />
+    <Property Name="memo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="addtime" Type="DateTime" Precision="3" />
+    <Property Name="adduser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="sy_qrcode">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="qrcode" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="amount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="type" Type="Int32" />
+    <Property Name="status" Type="Int32" />
+    <Property Name="addtime" Type="DateTime" Precision="3" />
+    <Property Name="isused" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="sy_role">
+    <Key>
+      <PropertyRef Name="roleid" />
+    </Key>
+    <Property Name="roleid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="rolecode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="rolename" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="isadmin" Type="Boolean" />
+    <Property Name="addtime" Type="DateTime" Precision="3" />
+    <Property Name="adduser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="updatetime" Type="DateTime" Precision="3" />
+    <Property Name="updateuser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="sy_router">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="path" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="redirect" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="icon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="nodropdown" Type="Boolean" />
+    <Property Name="meta" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="sort" Type="Int32" />
+    <Property Name="hidden" Type="Boolean" />
+    <Property Name="createuser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="createtime" Type="DateTime" Precision="3" />
+    <Property Name="lastupdateuser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="lastupdatetime" Type="DateTime" Precision="3" />
+    <Property Name="tx" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="sy_routers">
+    <Key>
+      <PropertyRef Name="autoid" />
+    </Key>
+    <Property Name="autoid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="path" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="component" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="meta" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="sort" Type="Int32" />
+    <Property Name="hidden" Type="Boolean" />
+    <Property Name="createuser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="createtime" Type="DateTime" Precision="3" />
+    <Property Name="lastupdateuser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="lastupdatetime" Type="DateTime" Precision="3" />
+    <Property Name="tx" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="sy_tariff_management">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="agid" Type="Int32" Nullable="false" />
+    <Property Name="wechat_platform_rate" Type="Decimal" Precision="18" Scale="1" />
+    <Property Name="wechat_profit_margin" Type="Decimal" Precision="18" Scale="1" />
+    <Property Name="wechat_division_rate" Type="Decimal" Precision="18" Scale="1" />
+    <Property Name="alipay_platform_rate" Type="Decimal" Precision="18" Scale="1" />
+    <Property Name="alipay_profit_margin" Type="Decimal" Precision="18" Scale="1" />
+    <Property Name="alipay_division_rate" Type="Decimal" Precision="18" Scale="1" />
+    <Property Name="jd_platform_rate" Type="Decimal" Precision="18" Scale="1" />
+    <Property Name="jd_profit_margin" Type="Decimal" Precision="18" Scale="1" />
+    <Property Name="jd_division_rate" Type="Decimal" Precision="18" Scale="1" />
+    <Property Name="h5_platform_rate" Type="Decimal" Precision="18" Scale="1" />
+    <Property Name="h5_profit_margin" Type="Decimal" Precision="18" Scale="1" />
+    <Property Name="h5_division_rate" Type="Decimal" Precision="18" Scale="1" />
+    <Property Name="addtime" Type="DateTime" Precision="3" />
+    <Property Name="adduser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="updatetime" Type="DateTime" Precision="3" />
+    <Property Name="updateuser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <ComplexType Name="PROC_PayPassAdd_Result">
+    <Property Type="Int32" Name="status_code" Nullable="false" />
+    <Property Type="String" Name="message" Nullable="false" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="PROC_PayPassUpdate_Result">
+    <Property Type="Int32" Name="status_code" Nullable="false" />
+    <Property Type="String" Name="message" Nullable="false" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="report_payaccountorderamount_Result">
+    <Property Type="String" Name="alipayaccount" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="paycount" Nullable="true" />
+    <Property Type="Decimal" Name="amount" Nullable="true" Precision="38" Scale="2" />
+    <Property Type="Decimal" Name="servicecharge" Nullable="true" Precision="38" Scale="2" />
+    <Property Type="Decimal" Name="realamount" Nullable="true" Precision="38" Scale="2" />
+    <Property Type="Int32" Name="unpaycount" Nullable="true" />
+    <Property Type="Int32" Name="count" Nullable="true" />
+  </ComplexType>
+</Schema>

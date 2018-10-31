@@ -1,0 +1,103 @@
+html,body{
+  color: #343a40;
+  font-size: .9375rem;
+}
+.el-button--primary {
+  color: #fff;
+  background-color: #2BA245;
+  border-color: #2BA245;
+}
+.el-button--primary.is-active, .el-button--primary:active{
+  color: #fff;
+  background-color: #2BA245;
+  border-color: #2BA245;
+}
+.el-button--primary:focus, .el-button--primary:hover{
+  color: #fff;
+  background-color: #31B950;
+  border-color: #31B950;
+}
+.el-pager li.active{
+  background-color: #2BA245;
+  border-color: #2BA245;
+}
+
+/*地图*/
+.amap-sug-result{
+  z-index: 9999;
+}
+
+/*头部搜索*/
+.filter-item{
+ margin-top: 10px 
+}
+/*上传头像*/
+.avatar-uploader .el-upload {
+  border: 1px dashed #d9d9d9;
+  border-radius: 6px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.avatar-uploader .el-upload:hover {
+  border-color: #409eff;
+}
+.avatar-uploader-icon {
+  font-size: 28px;
+  color: #8c939d;
+  width: 148px;
+  height: 148px;
+  line-height: 148px;
+  text-align: center;
+}
+.avatar {
+  width: 148px;
+  height: 148px;
+  display: block;
+}
+
+/* 菜单 */
+.el-menu--dark{
+  background: #fff !important; 
+ }
+ .el-menu--dark .el-menu-item, .el-menu--dark .el-submenu__title{
+   color: #333;
+ }
+ .el-menu--dark .el-submenu .el-menu{
+   background: #fff;
+ }
+ .el-menu--dark .el-submenu .el-menu .el-menu-item:hover{
+   background: #fcfcfc;
+ }
+ .el-menu--dark .el-menu-item:hover, .el-menu--dark .el-submenu__title:hover{
+   background: #fcfcfc;
+ }
+
+ .el-menu--dark .el-submenu .el-menu .is-active{
+   color: #2BA245
+ }
+ .main-container{
+  background: #F2EDF3;
+ }
+
+ /* 表格 */
+ .el-table th{
+   background: #fff;
+   padding: 15px 15px;
+ }
+ .el-table th div{
+  background: #fff;
+  font-weight: 400;
+ }
+ .el-table td{
+  background: #fff;
+  padding: 15px 5px;
+}
+.el-table--border td, .el-table--border th{
+  border-bottom: 1px solid #ebedf2;
+  border-right: 0;
+}
+.el-table td, .el-table th.is-leaf {
+  border-bottom: 1px solid #ebedf2;
+  border-right: 0;
+}
