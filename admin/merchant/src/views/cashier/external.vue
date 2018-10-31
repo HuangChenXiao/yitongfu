@@ -19,8 +19,8 @@
       </el-form-item> -->
       <el-form-item label="支付类型" v-show="type==2">
         <el-radio-group v-model="ruleForm.paytype" class="payType">
-          <el-radio :label="1">微信</el-radio>
           <el-radio :label="2">支付宝</el-radio>
+          <el-radio :label="1">微信</el-radio>
         </el-radio-group>
       </el-form-item>
       <el-form-item>
@@ -108,13 +108,12 @@ export default {
       payUrl: null,
       gethelp: '',
       ruleForm: {
-        customerappid: this.$route.params.appid,
-        businesspasstype: this.$route.params.businesspasstype,
+        appid: this.$route.params.appid,
         amount: '',
         remark: '',
         dynamic_id: '',
         qr_url: '',
-        paytype: 1
+        paytype: 2
       },
       authcodebtn: false,
       qrcodebtn: false,
@@ -187,7 +186,7 @@ export default {
           } else {
             var str_data = {}
             str_data.amount = this.ruleForm.amount
-            str_data.appid = this.ruleForm.customerappid
+            str_data.appid = this.ruleForm.appid
             str_data.remark = this.ruleForm.remark
             str_data.paytype = this.ruleForm.paytype
             location.href =
@@ -298,11 +297,11 @@ export default {
 .el-radio-group {
   padding: 0 10px;
 }
-.el-radio-group .el-radio {
-  width: 40%;
+/* .el-radio-group .el-radio {
+  width: 50%;
   float: left;
   margin: 5px;
-}
+} */
 @media screen and (max-width: 650px) {
   .gathering-item .msg {
     position: relative !important;

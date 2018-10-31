@@ -273,9 +273,7 @@ export default {
         'http://' +
         window.location.host +
         '/#/external/' +
-        this.appid +
-        '/' +
-        this.$store.getters.businesspasstype
+        this.appid 
     },
     saveImg() {
       var canvasData = $('#target').children('canvas')

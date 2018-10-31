@@ -62,7 +62,7 @@ export const constantRouterMap = [
     hidden: true,
     children: [{ path: 'dashboard', component: _import('dashboard/index') }]
   },
-  { path: '/external/:appid/:businesspasstype', name: 'external', hidden: true, component: _import('cashier/external') },
+  { path: '/external/:appid', name: 'external', hidden: true, component: _import('cashier/external') },
   { name: 'quicklogon', path: '/quicklogon/:username/:password/:sign', component: _import('quicklogon/index'), hidden: true },
   { path: '/transfer/:str_data', name: 'transfer', component: _import('cashier/transfer'), hidden: true },
   { path: '/alipay_qrcode/:str_data', name: 'alipay_qrcode', component: _import('cashier/alipay_qrcode'), hidden: true },
