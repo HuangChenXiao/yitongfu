@@ -131,7 +131,7 @@
         <template scope="scope">
           <div>
             <el-button @click.prevent="handleUpdate(scope.row)" type="text" size="small">编辑</el-button>
-            <!-- <el-button @click.prevent="unionBalance(scope.row)" type="primary" size="small">合并余额</el-button> -->
+            <!-- <el-button @click.prevent="unionAlipay(scope.row)" type="text" size="small">支付宝配置</el-button> -->
             <el-button @click.prevent="quicklogon(scope.row)" type="text" size="small">一键登录</el-button>
           </div>
         </template>
@@ -144,86 +144,123 @@
     </div>
 
     <el-dialog :title="textMap[dialogStatus]" :visible.sync="dialogFormVisible" :close-on-click-modal="false">
-      <el-form class="small-space" :model="ruleForm" :rules="rules" ref="ruleForm" label-position="left" label-width="150px" style='width: 620px; margin-left:50px;'>
-        <el-form-item label="代理商名称" prop="agentid">
-          <el-select v-model="ruleForm.agentid" placeholder="请选择代理商" style="width:100%">
-            <el-option v-for="item in agentlist" :key="item.id" :label="item.name" :value="item.id">
-            </el-option>
-          </el-select>
-        </el-form-item>
-        <el-form-item label="支付宝账号" prop="alipayaccount">
-          <el-select filterable v-model="ruleForm.alipayaccount" placeholder="请选择支付宝账号" style="width:100%">
-            <el-option v-for="item in pay_passlist" :key="item.memo" :label="item.memo" :value="item.memo">
-            </el-option>
-          </el-select>
-        </el-form-item>
-        <!-- <el-form-item label="支付通道" prop="businesspasstype">
+      <el-tabs v-model="activeName">
+        <el-tab-pane label="商户编辑" name="1">
+          <el-form class="small-space" :model="ruleForm" :rules="rules" ref="ruleForm" label-position="left" label-width="150px" style='width: 620px; margin-left:50px;'>
+            <el-form-item label="代理商名称" prop="agentid">
+              <el-select v-model="ruleForm.agentid" placeholder="请选择代理商" style="width:100%">
+                <el-option v-for="item in agentlist" :key="item.id" :label="item.name" :value="item.id">
+                </el-option>
+              </el-select>
+            </el-form-item>
+            <!-- <el-form-item label="支付宝账号" prop="alipayaccount">
+              <el-select filterable v-model="ruleForm.alipayaccount" placeholder="请选择支付宝账号" style="width:100%">
+                <el-option v-for="item in pay_passlist" :key="item.memo" :label="item.memo" :value="item.memo">
+                </el-option>
+              </el-select>
+            </el-form-item> -->
+            <!-- <el-form-item label="支付通道" prop="businesspasstype">
           <el-select class="filter-item" style="width:100%" v-model="ruleForm.businesspasstype" placeholder="支付通道">
             <el-option v-for="item in  business_pass" :key="item.type" :label="item.memo" :value="item.type" v-if="item.enable">
             </el-option>
           </el-select>
         </el-form-item> -->
-        <el-form-item label="登录名称" prop="merchantName">
-          <el-input v-model="ruleForm.merchantName"></el-input>
-        </el-form-item>
-        <el-form-item label="密码" prop="password">
-          <el-input v-model="ruleForm.password" type="password"></el-input>
-        </el-form-item>
-        <el-form-item label="商户简称" prop="shortName">
-          <el-input v-model="ruleForm.shortName"></el-input>
-        </el-form-item>
-        <el-form-item label="微信手续费（%）" prop="wechatratio">
-          <el-input v-model="ruleForm.wechatratio"></el-input>
-        </el-form-item>
-        <el-form-item label="支付宝手续费（%）" prop="alipayratio">
-          <el-input v-model="ruleForm.alipayratio"></el-input>
-        </el-form-item>
-        <!-- <el-form-item label="银联手续费（%）" prop="unionratio">
+            <el-form-item label="登录名称" prop="merchantName">
+              <el-input v-model="ruleForm.merchantName"></el-input>
+            </el-form-item>
+            <el-form-item label="密码" prop="password">
+              <el-input v-model="ruleForm.password" type="password"></el-input>
+            </el-form-item>
+            <el-form-item label="商户简称" prop="shortName">
+              <el-input v-model="ruleForm.shortName"></el-input>
+            </el-form-item>
+            <el-form-item label="微信手续费（%）" prop="wechatratio">
+              <el-input v-model="ruleForm.wechatratio"></el-input>
+            </el-form-item>
+            <el-form-item label="支付宝手续费（%）" prop="alipayratio">
+              <el-input v-model="ruleForm.alipayratio"></el-input>
+            </el-form-item>
+            <!-- <el-form-item label="银联手续费（%）" prop="unionratio">
           <el-input v-model="ruleForm.unionratio"></el-input>
         </el-form-item> -->
-        <el-form-item label="提现费用" prop="depositratio">
-          <el-input v-model="ruleForm.depositratio"></el-input>
-        </el-form-item>
+            <el-form-item label="提现费用" prop="depositratio">
+              <el-input v-model="ruleForm.depositratio"></el-input>
+            </el-form-item>
 
-        <el-form-item label="收款最小金额" prop="minAmount">
-          <el-input v-model.number="ruleForm.minAmount"></el-input>
-        </el-form-item>
-        <el-form-item label="收款最大金额" prop="maxAmount">
-          <el-input v-model.number="ruleForm.maxAmount"></el-input>
-        </el-form-item>
-        <el-form-item label="用户状态">
-          <el-radio-group v-model="ruleForm.status">
-            <el-radio :label="1">启用</el-radio>
-            <el-radio :label="0">关闭</el-radio>
-          </el-radio-group>
-        </el-form-item>
+            <el-form-item label="收款最小金额" prop="minAmount">
+              <el-input v-model.number="ruleForm.minAmount"></el-input>
+            </el-form-item>
+            <el-form-item label="收款最大金额" prop="maxAmount">
+              <el-input v-model.number="ruleForm.maxAmount"></el-input>
+            </el-form-item>
+            <el-form-item label="用户状态">
+              <el-radio-group v-model="ruleForm.status">
+                <el-radio :label="1">启用</el-radio>
+                <el-radio :label="0">关闭</el-radio>
+              </el-radio-group>
+            </el-form-item>
 
-        <el-form-item label="联系人" prop="contactMan">
-          <el-input v-model="ruleForm.contactMan"></el-input>
-        </el-form-item>
-        <el-form-item label="联系人手机" prop="mobilePhone">
-          <el-input v-model="ruleForm.mobilePhone"></el-input>
-        </el-form-item>
-        <el-form-item label="营业开始时间" prop="enabletime">
-          <el-time-select style="width:100%" v-model="ruleForm.enabletime" :picker-options="{
+            <el-form-item label="联系人" prop="contactMan">
+              <el-input v-model="ruleForm.contactMan"></el-input>
+            </el-form-item>
+            <el-form-item label="联系人手机" prop="mobilePhone">
+              <el-input v-model="ruleForm.mobilePhone"></el-input>
+            </el-form-item>
+            <el-form-item label="营业开始时间" prop="enabletime">
+              <el-time-select style="width:100%" v-model="ruleForm.enabletime" :picker-options="{
               start: '06:00',
               step: '00:10',
               end: '23:59'
             }" placeholder="选择时间">
-          </el-time-select>
-        </el-form-item>
-        <el-form-item label="营业结束时间" prop="disabletime">
-          <el-time-select style="width:100%" v-model="ruleForm.disabletime" :picker-options="{
+              </el-time-select>
+            </el-form-item>
+            <el-form-item label="营业结束时间" prop="disabletime">
+              <el-time-select style="width:100%" v-model="ruleForm.disabletime" :picker-options="{
               start: '06:00',
               step: '00:10',
               end: '23:59'
             }" placeholder="选择时间">
-          </el-time-select>
-        </el-form-item>
-        <el-form-item label="备注">
-          <el-input v-model="ruleForm.remark" type="textarea" :rows="2"></el-input>
-        </el-form-item>
-      </el-form>
+              </el-time-select>
+            </el-form-item>
+            <el-form-item label="备注">
+              <el-input v-model="ruleForm.remark" type="textarea" :rows="2"></el-input>
+            </el-form-item>
+          </el-form>
+        </el-tab-pane>
+        <el-tab-pane label="支付宝账号配置" name="2">
+          <!-- <el-table :data="pay_passlist" element-loading-text="拼命加载中" border fit highlight-current-row @selection-change="handleSelectionChange">
+            <el-table-column type="selection" width="55">
+            </el-table-column>
+            <el-table-column align="center" label='序号' width="95">
+              <template scope="scope">
+                {{scope.$index+1}}
+              </template>
+            </el-table-column>
+            <el-table-column label="支付宝账号" align="center">
+              <template scope="scope">
+                <span>{{scope.row.memo}}</span>
+              </template>
+            </el-table-column>
+          </el-table> -->
+          <table class="gridtable">
+            <tr>
+              <th>
+                通道选择
+              </th>
+              <th>支付宝账号</th>
+            </tr>
+            <tr v-for="item in pay_passlist">
+              <th>
+                <div class="tb-chk">
+                  <input type="checkbox" :value="item.memo" v-model="item.ischeck">
+                </div>
+              </th>
+              <td>{{item.memo}}</td>
+            </tr>
+           
+          </table>
+        </el-tab-pane>
+      </el-tabs>
 
       <div slot="footer" class="dialog-footer">
         <el-button @click="dialogFormVisible = false">取 消</el-button>
@@ -329,6 +366,8 @@ export default {
       }
     }
     return {
+      all_ischk: false,
+      activeName: '1',
       list: null,
       total: null,
       business_type: null,
@@ -453,8 +492,7 @@ export default {
         maxAmount: [{ validator: max_amount_change, trigger: 'blur' }],
         depositratio: [{ validator: ratio_change, trigger: 'blur' }],
         agentid: [{ validator: agentid_change, trigger: 'change' }],
-        alipayaccount: [{ validator: agentid_change, trigger: 'change' }],
-        
+        alipayaccount: [{ validator: agentid_change, trigger: 'change' }]
       }
     }
   },
@@ -481,7 +519,7 @@ export default {
       page: 1,
       pagesize: 9999,
       keyword: '',
-      status: 2
+      status: 1
     }).then(response => {
       this.pay_passlist = response.data
     })
@@ -568,27 +606,26 @@ export default {
       row.merchantid = row.merchantid.toString()
       row.agentid = parseInt(row.agentid)
       this.ruleForm = Object.assign({}, row)
+      if (typeof this.ruleForm.alipayaccount == 'string') {
+        this.ruleForm.alipayaccount = this.ruleForm.alipayaccount.split(',')
+      }
+      this.set_aliaccount()
       this.dialogStatus = 'update'
       this.dialogFormVisible = true
     },
-    unionBalance(row) {
-      this.$confirm('此操作合并余额, 是否继续?', '提示', {
-        confirmButtonText: '确定',
-        cancelButtonText: '取消',
-        type: 'warning'
-      }).then(() => {
-        this.ruleForm = Object.assign({}, row)
-        UnionBalance('get', { businessid: this.ruleForm.id }).then(response => {
-          this.dialogFormVisible = false
-          this.fetchData()
-          this.$notify({
-            title: '成功',
-            message: '合并成功',
-            type: 'success',
-            duration: 2000
-          })
-        })
+    set_aliaccount(row) {
+      var _this = this
+      this.pay_passlist = this.pay_passlist.map(o => {
+        o.ischeck = false
+        for (var i = 0; i < _this.ruleForm.alipayaccount.length; i++) {
+          if (_this.ruleForm.alipayaccount[i] == o.memo) {
+            o.ischeck = true
+            break
+          }
+        }
+        return o
       })
+      console.log(this.pay_passlist)
     },
     getagent() {
       this.listLoading = true
@@ -654,9 +691,31 @@ export default {
         this.business_pass = response.data
       })
     },
+    get_alipayaccount() {
+      var str_id = []
+      for (var i = 0; i < this.pay_passlist.length; i++) {
+        if (this.pay_passlist[i].ischeck) {
+          str_id.push(this.pay_passlist[i].memo)
+        }
+      }
+      if (!str_id.length) {
+        return false
+      } else {
+        this.ruleForm.alipayaccount = str_id.toString()
+        return true
+      }
+    },
     update(formName) {
       this.$refs[formName].validate(valid => {
         if (valid) {
+          if (!this.get_alipayaccount()) {
+            this.activeName = '2'
+            this.$message({
+              message: '请在支付宝账号配置选择至少一条通道',
+              type: 'warning'
+            })
+            return
+          }
           editbusinessbasic('put', this.ruleForm).then(response => {
             this.dialogFormVisible = false
             this.fetchData()
@@ -676,6 +735,14 @@ export default {
     create(formName) {
       this.$refs[formName].validate(valid => {
         if (valid) {
+          if (!this.get_alipayaccount()) {
+            this.activeName = '2'
+            this.$message({
+              message: '请在支付宝账号配置选择至少一条通道',
+              type: 'warning'
+            })
+            return
+          }
           editbusinessbasic('post', this.ruleForm).then(response => {
             this.dialogFormVisible = false
             this.fetchData()
@@ -720,5 +787,11 @@ export default {
 }
 .el-tag + .el-tag {
   margin-left: 10px;
+}
+.gridtable {
+  width: 100%;
+}
+.gridtable td {
+  text-align: center;
 }
 </style>

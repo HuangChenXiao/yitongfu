@@ -8,6 +8,7 @@ import '@/icons' // icon
 import '@/permission' // 权限
 import cfg from '@/config/index.js'
 import '@/assets/css/element-theme.css'
+import '@/assets/css/style.css'
 Vue.prototype.cfg = cfg
 import NiuLoading from "@/components/loading"
 Vue.component('niu-loading', NiuLoading)

@@ -53,10 +53,10 @@
                     <el-input v-model="ruleForm.alipayappid"></el-input>
                 </el-form-item>
                 <el-form-item label="私钥" prop="rsaprivate">
-                    <el-input v-model="ruleForm.rsaprivate"></el-input>
+                    <el-input type="textarea" :rows="5" v-model="ruleForm.rsaprivate"></el-input>
                 </el-form-item>
                 <el-form-item label="公钥" prop="rsapublic">
-                    <el-input v-model="ruleForm.rsapublic"></el-input>
+                    <el-input type="textarea" :rows="5" v-model="ruleForm.rsapublic"></el-input>
                 </el-form-item>
                 <el-form-item label="金额" prop="dayamount">
                     <el-input v-model="ruleForm.dayamount"></el-input>
