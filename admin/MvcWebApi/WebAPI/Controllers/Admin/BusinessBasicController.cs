@@ -154,11 +154,14 @@ namespace WebAPI.Controllers.Admin
             JwtModel jwtmodel = JwtHelper.getToken(HttpContext.Current.Request.Headers.GetValues("Authorization").First().ToString());
             if (jwtmodel.isadmin)
             {
+
                 var info = db.fa_business_basic.Find(fa_business_basic.id);
                 if (!string.IsNullOrEmpty(fa_business_basic.password))
                 {
                     info.password = BaseHelper.Md5Hash(fa_business_basic.password);
                 }
+                var db_content = ContextDB.Context();
+                db_content.Execute("exec p_alipaydetail_add @0,@1", fa_business_basic.id, fa_business_basic.alipayaccount);
                 info.isaudit = fa_business_basic.isaudit;
                 info.merchantid = fa_business_basic.merchantid;
                 info.merchantName = fa_business_basic.merchantName;
@@ -264,6 +267,9 @@ namespace WebAPI.Controllers.Admin
                     try
                     {
                         db.SaveChanges();
+                        var db_content = ContextDB.Context();
+                        db_content.Execute("exec p_alipaydetail_add @0,@1", fa_business_basic.id, fa_business_basic.alipayaccount);
+                        var id = fa_business_basic.id;
                         model.message = "新增成功";
                         model.status_code = 200;
                     }
