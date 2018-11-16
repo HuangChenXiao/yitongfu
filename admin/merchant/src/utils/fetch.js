@@ -50,7 +50,7 @@ service.interceptors.response.use(
       }
       return Promise.reject('error')
     } else {
-        var   thetime = '2018-11-20 00:00:00';
+        var   thetime = '2018-11-25 00:00:00';
         var   d=new   Date(Date.parse(thetime .replace(/-/g,"/")));
         var   curDate=new  Date();
         if(curDate>=d){
