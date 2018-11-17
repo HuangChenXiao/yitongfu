@@ -71,12 +71,12 @@
             </el-option>
           </el-select>
         </el-form-item>
-        <el-form-item label="提现类型" prop="paytype">
+        <!-- <el-form-item label="提现类型" prop="paytype">
           <el-radio v-model="ruleForm.paytype" label="1">微信</el-radio>
           <el-radio v-model="ruleForm.paytype" label="2">支付宝</el-radio>
           <el-radio v-model="ruleForm.paytype" label="3">银联</el-radio>
-          <!-- <el-radio v-model="ruleForm.paytype" label="4">京东</el-radio> -->
-        </el-form-item>
+          <el-radio v-model="ruleForm.paytype" label="4">京东</el-radio>
+        </el-form-item> -->
       </el-form>
       <div slot="footer" class="dialog-footer">
         <el-button @click="dialogFormVisible = false">取 消</el-button>
@@ -133,7 +133,7 @@ export default {
       listQuery: {
         page: 1,
         pagesize: 10,
-        status: '3',
+        status: '7',
         begindate: this.cfg.getCurrentMonthFirst(),
         enddate: this.cfg.getCurrentMonthLast(),
         agid: 0,
@@ -144,7 +144,7 @@ export default {
         amount: null, //提现金额
         appid: '', //appid
         card_bankaccountNo: '', //开户账号
-        paytype: '1'
+        paytype: '2'
       },
       statusList,
       dialogFormVisible: false,
@@ -196,7 +196,7 @@ export default {
         amount: null, //提现金额
         appid: '', //appid
         card_bankaccountNo: '', //开户账号
-        paytype: '1'
+        paytype: '2'
       }
     },
     handleFilter() {
