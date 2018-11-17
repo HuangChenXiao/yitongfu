@@ -16,3 +16,12 @@ F:\gitCode\vue-yitongfu\MvcWebApi\Com\bin\Debug\Newtonsoft.Json.xml
 F:\gitCode\vue-yitongfu\MvcWebApi\Com\obj\Debug\Com.dll
 F:\gitCode\vue-yitongfu\MvcWebApi\Com\obj\Debug\Com.pdb
 F:\gitCode\vue-yitongfu\MvcWebApi\Com\obj\Debug\Com.csprojResolveAssemblyReference.cache
+G:\gitCode\yitongfu\admin\MvcWebApi\Com\bin\Debug\Com.dll.config
+G:\gitCode\yitongfu\admin\MvcWebApi\Com\bin\Debug\Com.dll
+G:\gitCode\yitongfu\admin\MvcWebApi\Com\bin\Debug\Com.pdb
+G:\gitCode\yitongfu\admin\MvcWebApi\Com\bin\Debug\JWT.dll
+G:\gitCode\yitongfu\admin\MvcWebApi\Com\bin\Debug\Newtonsoft.Json.dll
+G:\gitCode\yitongfu\admin\MvcWebApi\Com\bin\Debug\Newtonsoft.Json.xml
+G:\gitCode\yitongfu\admin\MvcWebApi\Com\obj\Debug\Com.csprojResolveAssemblyReference.cache
+G:\gitCode\yitongfu\admin\MvcWebApi\Com\obj\Debug\Com.dll
+G:\gitCode\yitongfu\admin\MvcWebApi\Com\obj\Debug\Com.pdb

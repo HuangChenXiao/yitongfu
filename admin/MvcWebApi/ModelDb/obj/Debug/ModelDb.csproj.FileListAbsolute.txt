@@ -34,3 +34,15 @@ F:\gitCode\vue-yitongfu\admin\MvcWebApi\ModelDb\bin\Debug\zh-Hans\EntityFramewor
 F:\gitCode\vue-yitongfu\admin\MvcWebApi\ModelDb\obj\Debug\ModelDb.csprojResolveAssemblyReference.cache
 F:\gitCode\vue-yitongfu\admin\MvcWebApi\ModelDb\obj\Debug\ModelDb.dll
 F:\gitCode\vue-yitongfu\admin\MvcWebApi\ModelDb\obj\Debug\ModelDb.pdb
+G:\gitCode\yitongfu\admin\MvcWebApi\ModelDb\bin\Debug\ModelDb.dll.config
+G:\gitCode\yitongfu\admin\MvcWebApi\ModelDb\bin\Debug\ModelDb.dll
+G:\gitCode\yitongfu\admin\MvcWebApi\ModelDb\bin\Debug\ModelDb.pdb
+G:\gitCode\yitongfu\admin\MvcWebApi\ModelDb\bin\Debug\EntityFramework.dll
+G:\gitCode\yitongfu\admin\MvcWebApi\ModelDb\bin\Debug\EntityFramework.SqlServer.dll
+G:\gitCode\yitongfu\admin\MvcWebApi\ModelDb\bin\Debug\EntityFramework.xml
+G:\gitCode\yitongfu\admin\MvcWebApi\ModelDb\bin\Debug\EntityFramework.SqlServer.xml
+G:\gitCode\yitongfu\admin\MvcWebApi\ModelDb\bin\Debug\zh-Hans\EntityFramework.resources.dll
+G:\gitCode\yitongfu\admin\MvcWebApi\ModelDb\bin\Debug\zh-Hans\EntityFramework.SqlServer.resources.dll
+G:\gitCode\yitongfu\admin\MvcWebApi\ModelDb\obj\Debug\ModelDb.csprojResolveAssemblyReference.cache
+G:\gitCode\yitongfu\admin\MvcWebApi\ModelDb\obj\Debug\ModelDb.dll
+G:\gitCode\yitongfu\admin\MvcWebApi\ModelDb\obj\Debug\ModelDb.pdb

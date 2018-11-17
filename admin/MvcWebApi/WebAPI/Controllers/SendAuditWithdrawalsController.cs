@@ -13,10 +13,10 @@ namespace WebAPI.Controllers
     public class SendAuditWithdrawalsController : ApiController
     {
         JsonModel model = new JsonModel();
-        public ResponseMessageResult Get(string customerappid, string amount, string bankno, string paytype, string businesspasstype)
+        public ResponseMessageResult Get(string customerappid, string amount, string bankno, string paytype)
         {
             var db = ContextDB.Context();
-            var query = db.QuerySingle("exec PROC_CustomerAddDespoit @0,@1,@2,@3,@4", customerappid, amount, bankno, paytype, businesspasstype);
+            var query = db.QuerySingle("exec PROC_CustomerAddDespoit @0,@1,@2,@3", customerappid, amount, bankno, paytype);
             if (query.status_code == 1)
             {
                 model.message = "提现发起成功";
