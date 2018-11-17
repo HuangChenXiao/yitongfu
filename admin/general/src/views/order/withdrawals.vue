@@ -111,28 +111,28 @@
 
       <div slot="footer" class="dialog-footer">
         <el-button type="danger" @click="refuse('ruleForm')">拒 绝</el-button>
-        <el-button type="primary" @click="audit()">通 过</el-button>
+        <el-button type="primary" @click="audit('ruleForm')">通 过</el-button>
       </div>
     </el-dialog>
   </div>
 </template>
 
 <script>
-import { presentrecord, AuditWithdrawals } from '@/api/order'
-import { getToken, setToken, removeToken } from '@/utils/auth'
-import { withdrawPayAPI } from '@/api/java_user.js'
-import { BusinessPass } from '@/api/user.js'
+import { presentrecord, AuditWithdrawals, auditWithdrawals } from "@/api/order";
+import { getToken, setToken, removeToken } from "@/utils/auth";
+import { withdrawPayAPI } from "@/api/java_user.js";
+import { BusinessPass } from "@/api/user.js";
 
 const statusList = [
-  { key: '7', name: '全部' },
-  { key: '0', name: '提现中' },
-  { key: '1', name: '代理商审核' },
-  { key: '2', name: '总部审核' },
-  { key: '3', name: '审核不通过' },
-  { key: '4', name: '代付成功中' },
-  { key: '5', name: '代付成功' },
-  { key: '6', name: '代付失败' }
-]
+  { key: "7", name: "全部" },
+  { key: "0", name: "提现中" },
+  { key: "1", name: "代理商审核" },
+  { key: "2", name: "总部审核" },
+  { key: "3", name: "审核不通过" },
+  { key: "4", name: "代付成功中" },
+  { key: "5", name: "代付成功" },
+  { key: "6", name: "代付失败" }
+];
 
 export default {
   data() {
@@ -144,7 +144,7 @@ export default {
       listQuery: {
         page: 1,
         pagesize: 10,
-        status: '7',
+        status: "7",
         begindate: this.cfg.getCurrentMonthFirst(),
         enddate: this.cfg.getCurrentMonthLast(),
         agid: 0,
@@ -155,172 +155,169 @@ export default {
       statusList,
       ruleForm: {},
       dialogFormVisible: false,
-      dialogStatus: '',
+      dialogStatus: "",
       textMap: {
-        audit: '提现审核'
+        audit: "提现审核"
       },
       dialogPvVisible: false,
       rules: {
-        reason: [{ required: true, message: '请输入拒绝原因', trigger: 'blur' }]
+        reason: [{ required: true, message: "请输入拒绝原因", trigger: "blur" }]
       }
-    }
+    };
   },
   computed: {
     getsumamount() {
       if (this.list != null && this.list.length > 0) {
-        return this.list[0].sumamount
+        return this.list[0].sumamount;
       } else {
-        return 0
+        return 0;
       }
     }
   },
   filters: {
     statusFilter(status) {
       const statusMap = {
-        0: '提现中',
-        1: '代理商审核',
-        2: '总部审核',
-        3: '审核不通过',
-        4: '代付成功中',
-        5: '代付成功',
-        6: '代付失败'
-      }
-      return statusMap[status]
+        0: "提现中",
+        1: "代理商审核",
+        2: "总部审核",
+        3: "审核不通过",
+        4: "代付成功中",
+        5: "代付成功",
+        6: "代付失败"
+      };
+      return statusMap[status];
     },
     dateFilter(value) {
       if (value) {
-        return value.replace('T', ' ')
+        return value.replace("T", " ");
       }
     }
   },
   created() {
-    this.fetchData()
+    this.fetchData();
   },
   methods: {
     handleFilter() {
-      this.listQuery.page = 1
+      this.listQuery.page = 1;
       if (this.listQuery.begindate) {
         this.listQuery.begindate = this.cfg.formatDate(
           new Date(this.listQuery.begindate)
-        )
+        );
       }
       if (this.listQuery.enddate) {
         this.listQuery.enddate = this.cfg.formatDate(
           new Date(this.listQuery.enddate)
-        )
+        );
       }
-      this.fetchData()
+      this.fetchData();
     },
     handleExcel() {
-      var begindate = ''
-      var enddate = ''
+      var begindate = "";
+      var enddate = "";
       if (this.listQuery.begindate) {
-        begindate = this.listQuery.begindate
+        begindate = this.listQuery.begindate;
       }
       if (this.listQuery.enddate) {
-        enddate = this.listQuery.enddate
+        enddate = this.listQuery.enddate;
       }
 
       window.open(
-        '' +
+        "" +
           this.excel_api +
-          'PutForwardOrder.ashx' +
-          '?status=' +
+          "PutForwardOrder.ashx" +
+          "?status=" +
           this.listQuery.status +
-          '&begindate=' +
+          "&begindate=" +
           begindate +
-          '&enddate=' +
+          "&enddate=" +
           enddate +
-          '&agid=' +
+          "&agid=" +
           this.listQuery.agid +
-          '&merchantid=' +
+          "&merchantid=" +
           this.listQuery.merchantid +
-          '&keyword=' +
+          "&keyword=" +
           this.listQuery.keyword +
-          '&businesspasstype=' +
+          "&businesspasstype=" +
           this.listQuery.businesspasstype
-      )
+      );
     },
     handleCurrentChange(val) {
-      this.listQuery.page = val
-      this.fetchData()
+      this.listQuery.page = val;
+      this.fetchData();
     },
     handleSizeChange(val) {
-      this.listQuery.pagesize = val
-      this.presentrecord()
+      this.listQuery.pagesize = val;
+      this.presentrecord();
     },
     handleUpdate(row) {
-      this.ruleForm = Object.assign({}, row)
-      this.dialogStatus = 'audit'
-      this.dialogFormVisible = true
+      this.ruleForm = Object.assign({}, row);
+      this.dialogStatus = "audit";
+      this.dialogFormVisible = true;
     },
     fetchData() {
-      this.listLoading = true
-      presentrecord('get', this.listQuery).then(response => {
-        this.list = response.data
-        this.total = response.data ? response.data[0].count : 0
+      this.listLoading = true;
+      presentrecord("get", this.listQuery).then(response => {
+        this.list = response.data;
+        this.total = response.data ? response.data[0].count : 0;
 
-        this.listLoading = false
-      })
-      BusinessPass('get').then(response => {
-        this.business_pass = response.data
-      })
+        this.listLoading = false;
+      });
+      BusinessPass("get").then(response => {
+        this.business_pass = response.data;
+      });
     },
     handleSelectionChange(val) {
-      this.multipleSelection = val
+      this.multipleSelection = val;
     },
     refuse(formName) {
       this.$refs[formName].validate(valid => {
         if (valid) {
-          this.$confirm('拒绝提现申请, 是否继续?', '提示', {
-            confirmButtonText: '确定',
-            cancelButtonText: '取消',
-            type: 'warning'
+          this.$confirm("拒绝提现申请, 是否继续?", "提示", {
+            confirmButtonText: "确定",
+            cancelButtonText: "取消",
+            type: "warning"
           }).then(() => {
-            this.ruleForm.status = 3
-            this.editwithdrawals()
-          })
+            this.ruleForm.status = 3;
+            this.editwithdrawals();
+          });
         } else {
-          console.log('error submit!!')
-          return false
+          console.log("error submit!!");
+          return false;
         }
-      })
+      });
     },
-    audit() {
-      this.$confirm('通过提现申请, 是否继续?', '提示', {
-        confirmButtonText: '确定',
-        cancelButtonText: '取消',
-        type: 'warning'
-      }).then(() => {
-        this.ruleForm.status = 5
-        this.editwithdrawals()
-      })
+    audit(formName) {
+      this.$refs[formName].validate(valid => {
+        if (valid) {
+          this.$confirm("通过提现申请, 是否继续?", "提示", {
+            confirmButtonText: "确定",
+            cancelButtonText: "取消",
+            type: "warning"
+          }).then(() => {
+            this.ruleForm.status = 2;
+            this.editwithdrawals();
+          });
+        } else {
+          console.log("error submit!!");
+          return false;
+        }
+      });
     },
     editwithdrawals() {
-      var jdata = {}
-      jdata.despoitno = this.ruleForm.despoitno
-      jdata.status = this.ruleForm.status
-      jdata.reason = this.ruleForm.reason
-      withdrawPayAPI('post', { data: jdata }).then(response => {
-        if (response.data.statue == 1) {
-          this.dialogFormVisible = false
-          this.fetchData()
-          this.$notify({
-            title: '成功',
-            message: '操作成功',
-            type: 'success',
-            duration: 2000
-          })
-        } else {
-          this.$message({
-            message: response.data.message,
-            type: 'warning'
-          })
-        }
-      })
+      var jdata = {};
+      auditWithdrawals("get", this.ruleForm).then(response => {
+        this.dialogFormVisible = false;
+        this.fetchData();
+        this.$notify({
+          title: "成功",
+          message: "操作成功",
+          type: "success",
+          duration: 2000
+        });
+      });
     }
   }
-}
+};
 </script>
 <style scoped>
 .filter-container {

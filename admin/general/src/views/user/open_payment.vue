@@ -277,7 +277,6 @@
 <script>
 import { businessbasic, openpayment, editopenpayment ,GetNotOpenPayment} from "@/api/user.js";
 import { businesscoding } from "@/api/basic.js";
-import { merchOpenBusiness } from "@/api/java_user.js";
 
 export default {
   data() {

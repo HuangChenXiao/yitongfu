@@ -139,7 +139,6 @@
 <script>
 import { businessbasic,merchantbankcard,editmerchantbankcard} from "@/api/user.js";
 import { bankcode } from "@/api/basic.js";
-import { merchBankCardRegister } from "@/api/java_user.js";
 
 export default {
   data() {

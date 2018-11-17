@@ -656,7 +656,7 @@ export default {
         )
       }
       // debugger
-      // window.open("http://localhost:9629/#/quicklogon/"+row.merchantName+"/"+row.password+"/"+md5(row.merchantName+row.password+"buyunchina"))
+      // window.open("http://localhost:9620/#/quicklogon/"+row.merchantName+"/"+row.password+"/"+md5(row.merchantName+row.password+"buyunchina"))
     },
     fetchData() {
       this.listLoading = true

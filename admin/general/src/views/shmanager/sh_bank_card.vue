@@ -156,7 +156,6 @@
 import { ShBankCard, EditShBankCard } from '@/api/shmanager.js'
 import { SHBusinessAppinfoList } from '@/api/user.js'
 import { bankcode } from '@/api/basic.js'
-import { merchBankCardRegister } from '@/api/java_user.js'
 
 export default {
   data() {
