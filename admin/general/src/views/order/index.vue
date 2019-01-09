@@ -16,14 +16,14 @@
       -
       <el-date-picker v-model="listQuery.enddate" type="date" placeholder="结束日期">
       </el-date-picker>
-      <el-select class="filter-item" style="width: 130px" v-model="listQuery.paytype" placeholder="支付类型">
+      <!-- <el-select class="filter-item" style="width: 130px" v-model="listQuery.paytype" placeholder="支付类型">
         <el-option key="0" label="全部" value="0">
         </el-option>
         <el-option key="1" label="微信" value="1">
         </el-option>
         <el-option key="2" label="支付宝" value="2">
         </el-option>
-      </el-select>
+      </el-select> -->
 
       <el-button class="filter-item" type="primary" icon="search" @click="handleFilter">搜索</el-button>
       <el-button class="filter-item" type="primary" @click="handleExcel">导出</el-button>
@@ -35,98 +35,116 @@
       </div>
 
     </div>
-    <el-table :data="list" v-loading.body="listLoading" element-loading-text="拼命加载中" border fit highlight-current-row @selection-change="handleSelectionChange">
-      <el-table-column align="center" label='序号' width="95">
-        <template scope="scope">
-          {{scope.$index +1}}
-        </template>
-      </el-table-column>
-      <el-table-column label="订单号">
-        <template scope="scope">
-          <span>{{scope.row.orderno}}</span>
-        </template>
-      </el-table-column>
-      <el-table-column label="订单金额" align="center">
-        <template scope="scope">
-          <span style="color:red">{{scope.row.amount}}</span>
-        </template>
-      </el-table-column>
-      <el-table-column label="手续费" align="center">
-        <template scope="scope">
-          <span style="color:green">{{scope.row.servicecharge}}</span>
-        </template>
-      </el-table-column>
-      <el-table-column label="实到金额" align="center">
-        <template scope="scope">
-          <span style="color:blue">{{scope.row.realamount}}</span>
-        </template>
-      </el-table-column>
-      <el-table-column label="支付宝账号" align="center">
-        <template scope="scope">
-          <span>{{scope.row.alipayaccount}}</span>
-        </template>
-      </el-table-column>
-      <el-table-column label="订单状态" align="center">
-        <template scope="scope">
-          <el-tag :type="scope.row.status==1?'success':''">{{scope.row.status| statusFilter}}</el-tag>
-        </template>
-      </el-table-column>
-      <el-table-column label="代理商" align="center">
-        <template scope="scope">
-          {{scope.row.agname}}
-        </template>
-      </el-table-column>
-      <!-- <el-table-column label="大商户" align="center">
-        <template scope="scope">
-          {{scope.row.merchantname}}
-        </template>
-      </el-table-column> -->
-      <el-table-column label="商户名称" align="center">
-        <template scope="scope">
-          {{scope.row.shortname}}
-        </template>
-      </el-table-column>
-      <!-- <el-table-column label="支付通道" align="center">
-        <template scope="scope">
-          {{scope.row.businesspasstype}}
-        </template>
-      </el-table-column> -->
-
-      <el-table-column label="付款类型" align="center">
-        <template scope="scope">
-          <el-tag type="success">{{scope.row.paytype| orderTypeFilter}}</el-tag>
-        </template>
-      </el-table-column>
-      <el-table-column label="付款方式" align="center">
-        <template scope="scope">
-          {{scope.row.auth_code}}
-        </template>
-      </el-table-column>
-      <el-table-column label="备注" align="center">
-        <template scope="scope">
-          {{scope.row.remark}}
-        </template>
-      </el-table-column>
-      <el-table-column label="订单时间" align="center">
-        <template scope="scope">
-          {{scope.row.addtime|dateFilter}}
-        </template>
-      </el-table-column>
-      <el-table-column label="操作" width="100">
-        <template scope="scope">
-          <el-button @click.prevent="handleBuFa(scope.row)" :disabled="scope.row.status!=1" type="text" size="small">补发通知</el-button>
-        </template>
-      </el-table-column>
-    </el-table>
-    <div v-show="!listLoading" class="pagination-container">
+   <el-table :data="list" v-loading.body="listLoading" element-loading-text="拼命加载中" border fit highlight-current-row @selection-change="handleSelectionChange">
+          <!-- <el-table-column type="selection" width="55">
+          </el-table-column> -->
+          <el-table-column align="center" label='序号' width="95">
+            <template scope="scope">
+              {{scope.$index +1}}
+            </template>
+          </el-table-column>
+          <el-table-column label="平台订单号" width="130">
+            <template scope="scope">
+              <span>{{scope.row.orderno}}</span>
+            </template>
+          </el-table-column>
+          <el-table-column label="第三方订单号" width="170">
+            <template scope="scope">
+              <span>{{scope.row.thirdorderno}}</span>
+            </template>
+          </el-table-column>
+          <el-table-column label="是否扫描" width="100">
+            <template scope="scope">
+              <span>{{scope.row.isscan?'是':'否'}}</span>
+            </template>
+          </el-table-column>
+          
+          <el-table-column label="订单金额" align="center" width="120">
+            <template scope="scope">
+              <span style="color:red">{{scope.row.amount}}</span>
+            </template>
+          </el-table-column>
+          <el-table-column label="手续费" align="center" width="120">
+            <template scope="scope">
+              <span style="color:green">{{scope.row.servicecharge}}</span>
+            </template>
+          </el-table-column>
+          <el-table-column label="实到金额" align="center" width="120">
+            <template scope="scope">
+              <span style="color:blue">{{scope.row.realamount}}</span>
+            </template>
+          </el-table-column>
+          <el-table-column label="订单状态" align="center" width="120">
+            <template scope="scope">
+              <el-tag :type="scope.row.status==1?'success':''">{{scope.row.status| statusFilter}}</el-tag>
+            </template>
+          </el-table-column>
+          <el-table-column label="代理商" align="center" width="120">
+            <template scope="scope">
+              {{scope.row.agname}}
+            </template>
+          </el-table-column>
+          <el-table-column label="商户名称" align="center" width="120">
+            <template scope="scope">
+              {{scope.row.shortname}}
+            </template>
+          </el-table-column>
+          <el-table-column label="支付宝账号" align="center" width="120">
+            <template scope="scope">
+              {{scope.row.alipayaccount}}
+            </template>
+          </el-table-column>
+          <el-table-column label="备注" align="center" width="120">
+            <template scope="scope">
+              {{scope.row.remark}}
+            </template>
+          </el-table-column>
+          <el-table-column label="支付宝订单号" width="180">
+            <template scope="scope">
+              <span>{{scope.row.payno}}</span>
+            </template>
+          </el-table-column>
+          
+          <el-table-column label="订单时间" align="center" width="240">
+            <template scope="scope">
+              {{scope.row.addtime|dateFilter}}
+            </template>
+          </el-table-column>
+          <el-table-column label="操作" width="80" fixed="right">
+            <template scope="scope">
+              <!-- <el-button @click.prevent="handleBuFa(scope.row)" :disabled="scope.row.status!=1" type="text" size="small">补发通知</el-button> -->
+              <el-button @click.prevent="handleUpdate(scope.row)" :disabled="scope.row.status!=0" type="text" size="small">编辑</el-button>
+            </template>
+          </el-table-column>
+        </el-table>
+      <div v-show="!listLoading" class="pagination-container">
       <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange" :current-page.sync="listQuery.page" :page-sizes="[10,20,30, 50]" :page-size="listQuery.pagesize" layout="total, sizes, prev, pager, next, jumper" :total="total">
       </el-pagination>
+      
+    <el-dialog title="编辑" :visible.sync="dialogFormVisible">
+      <el-form class="small-space" :model="ruleForm" :rules="rules" ref="ruleForm" label-position="left" label-width="150px" style='width: 620px; margin-left:50px;'>
+        <el-form-item label="平台订单号" prop="orderno">
+          <el-input v-model="ruleForm.orderno" placeholder="请输入平台订单号" disabled></el-input>
+        </el-form-item>
+        <!-- <el-form-item label="支付宝单号" prop="panyno">
+          <el-input v-model="ruleForm.panyno" placeholder="请输入支付宝单号"></el-input>
+        </el-form-item> -->
+        <el-form-item label="原因" prop="reason">
+          <el-input v-model="ruleForm.reason" placeholder="请输入原因"></el-input>
+        </el-form-item>
+      </el-form>
+
+      <div slot="footer" class="dialog-footer">
+        <el-button @click="dialogFormVisible = false">取 消</el-button>
+        <el-button type="primary" @click="update('ruleForm')">确 定</el-button>
+      </div>
+    </el-dialog>
     </div>
   </div>
 </template>
 
 <script>
-import { getList, OrderExport } from '@/api/order'
+import { getList, OrderExport,OrderUpdateByAdmin } from '@/api/order'
 import { getToken, setToken, removeToken } from '@/utils/auth'
 import { BusinessPass } from '@/api/user.js'
 
@@ -140,6 +158,8 @@ const statusList = [
 export default {
   data() {
     return {
+      dialogFormVisible:false,
+      ruleForm: {},
       list: null,
       total: null,
       listLoading: true,
@@ -157,7 +177,12 @@ export default {
         paytype: '0'
       },
       multipleSelection: [],
-      statusList
+      statusList,
+      rules: {
+        orderno: [{ required: true, message: '请输入平台订单号', trigger: 'change' }],
+        panyno: [{ required: true, message: '请输入支付宝单号', trigger: 'blur' }],
+        reason: [{ required: true, message: '请输入原因', trigger: 'blur' }]
+      }
     }
   },
   computed: {
@@ -211,6 +236,11 @@ export default {
     this.fetchData()
   },
   methods: {
+    handleUpdate(row) {
+      this.ruleForm = Object.assign({}, row)
+      this.dialogStatus = 'audit'
+      this.dialogFormVisible = true
+    },
     handleFilter() {
       this.listQuery.page = 1
       if (this.listQuery.begindate) {
@@ -267,6 +297,29 @@ export default {
             duration: 2000
           })
         })
+      })
+    },
+    update(formName) {
+      this.$refs[formName].validate(valid => {
+        if (valid) {
+          var data = {}
+          data.orderno = this.ruleForm.orderno
+          data.panyno = this.ruleForm.panyno
+          data.reason = this.ruleForm.reason
+          OrderUpdateByAdmin('get', data).then(response => {
+            this.dialogFormVisible = false
+            this.fetchData()
+            this.$notify({
+              title: '成功',
+              message: '操作成功',
+              type: 'success',
+              duration: 2000
+            })
+          })
+        } else {
+          console.log('error submit!!')
+          return false
+        }
       })
     },
     handleExcel() {

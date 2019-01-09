@@ -22,7 +22,7 @@ export function OrderExport(method, data) {
     params: data
   })
 }
-export function AuditWithdrawals(method, data) {
+export function auditWithdrawals(method, data) {
   return fetch({
     url: 'AuditWithdrawals',
     method: method,
@@ -51,5 +51,12 @@ export function PayAccountOrderAmount(method, data) {
     url: 'PayAccountOrderAmount',
     method: method,
     params: data
+  })
+}
+export function OrderUpdateByAdmin(method, data) {
+  return fetch({
+      url: 'OrderUpdateByAdmin',
+      method: method,
+      params: data
   })
 }

@@ -15,14 +15,9 @@
           {{scope.$index +1}}
         </template>
       </el-table-column>
-      <el-table-column label="商户名称">
+      <el-table-column label="日期" align="center">
         <template scope="scope">
-          <span>{{scope.row.shortname}}</span>
-        </template>
-      </el-table-column>
-      <el-table-column label="支付宝账号" align="center">
-        <template scope="scope">
-          <span>{{scope.row.alipayaccount}}</span>
+          <span>{{scope.row.ddate}}</span>
         </template>
       </el-table-column>
       <el-table-column label="成功笔数" align="center">
@@ -30,24 +25,14 @@
           <span>{{scope.row.paycount}}</span>
         </template>
       </el-table-column>
-      <el-table-column label="未成功笔数" align="center">
+      <el-table-column label="失败笔数" align="center">
         <template scope="scope">
           <span>{{scope.row.unpaycount}}</span>
         </template>
       </el-table-column>
-      <el-table-column label="金额" align="center">
+      <el-table-column label="成功率" align="center">
         <template scope="scope">
-          <span>{{scope.row.amount}}</span>
-        </template>
-      </el-table-column>
-      <el-table-column label="手续费" align="center">
-        <template scope="scope">
-          <span>{{scope.row.servicecharge}}</span>
-        </template>
-      </el-table-column>
-      <el-table-column label="实到金额" align="center">
-        <template scope="scope">
-          <span>{{scope.row.realamount}}</span>
+          <span>{{scope.row.rate}}</span>
         </template>
       </el-table-column>
       

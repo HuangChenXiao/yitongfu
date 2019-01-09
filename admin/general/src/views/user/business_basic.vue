@@ -228,20 +228,6 @@
           </el-form>
         </el-tab-pane>
         <el-tab-pane label="支付宝账号配置" name="2">
-          <!-- <el-table :data="pay_passlist" element-loading-text="拼命加载中" border fit highlight-current-row @selection-change="handleSelectionChange">
-            <el-table-column type="selection" width="55">
-            </el-table-column>
-            <el-table-column align="center" label='序号' width="95">
-              <template scope="scope">
-                {{scope.$index+1}}
-              </template>
-            </el-table-column>
-            <el-table-column label="支付宝账号" align="center">
-              <template scope="scope">
-                <span>{{scope.row.memo}}</span>
-              </template>
-            </el-table-column>
-          </el-table> -->
           <table class="gridtable">
             <tr>
               <th>

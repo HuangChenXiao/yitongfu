@@ -175,3 +175,17 @@ export function UnionBalance(method, data) {
         params: data
     })
 }
+export function MeMember(method, data) {
+    return fetch({
+        url: 'MeMember',
+        method: method,
+        params: data
+    })
+}
+export function EditMeMember(method, data) {
+    return fetch({
+        url: 'MeMember',
+        method: method,
+        data
+    })
+}
