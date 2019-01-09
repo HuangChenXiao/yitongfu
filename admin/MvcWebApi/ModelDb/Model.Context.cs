@@ -15,10 +15,10 @@ namespace ModelDb
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class ytf_dbEntities : DbContext
+    public partial class ytfEntities : DbContext
     {
-        public ytf_dbEntities()
-            : base("name=ytf_dbEntities")
+        public ytfEntities()
+            : base("name=ytfEntities")
         {
         }
     
@@ -39,8 +39,11 @@ namespace ModelDb
         public virtual DbSet<fa_business_basic> fa_business_basic { get; set; }
         public virtual DbSet<fa_business_merchant> fa_business_merchant { get; set; }
         public virtual DbSet<fa_open_payment> fa_open_payment { get; set; }
+        public virtual DbSet<me_member> me_member { get; set; }
+        public virtual DbSet<pay_task> pay_task { get; set; }
         public virtual DbSet<po_abnormalorder> po_abnormalorder { get; set; }
         public virtual DbSet<po_agentwithdraw> po_agentwithdraw { get; set; }
+        public virtual DbSet<po_businessdateflow> po_businessdateflow { get; set; }
         public virtual DbSet<po_despoit> po_despoit { get; set; }
         public virtual DbSet<po_order> po_order { get; set; }
         public virtual DbSet<sh_business_appinfo> sh_business_appinfo { get; set; }
@@ -59,45 +62,24 @@ namespace ModelDb
         public virtual DbSet<sy_router> sy_router { get; set; }
         public virtual DbSet<sy_routers> sy_routers { get; set; }
         public virtual DbSet<sy_tariff_management> sy_tariff_management { get; set; }
+        public virtual DbSet<me_member_view> me_member_view { get; set; }
     
-        public virtual ObjectResult<f_order_query_Result> f_order_query()
+        public virtual int p_alipaydetail_add(Nullable<int> businessid, string name)
         {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<f_order_query_Result>("f_order_query");
+            var businessidParameter = businessid.HasValue ?
+                new ObjectParameter("businessid", businessid) :
+                new ObjectParameter("businessid", typeof(int));
+    
+            var nameParameter = name != null ?
+                new ObjectParameter("name", name) :
+                new ObjectParameter("name", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("p_alipaydetail_add", businessidParameter, nameParameter);
         }
     
-        public virtual ObjectResult<f_order_update_Result> f_order_update(string merchant_order_sn, string trade_no)
+        public virtual int p_auto_closealipay()
         {
-            var merchant_order_snParameter = merchant_order_sn != null ?
-                new ObjectParameter("merchant_order_sn", merchant_order_sn) :
-                new ObjectParameter("merchant_order_sn", typeof(string));
-    
-            var trade_noParameter = trade_no != null ?
-                new ObjectParameter("trade_no", trade_no) :
-                new ObjectParameter("trade_no", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<f_order_update_Result>("f_order_update", merchant_order_snParameter, trade_noParameter);
-        }
-    
-        public virtual ObjectResult<h_proccheckorder_Result> h_proccheckorder()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<h_proccheckorder_Result>("h_proccheckorder");
-        }
-    
-        public virtual int h_proccheckupdateorder(string orderno, string status, string amount)
-        {
-            var ordernoParameter = orderno != null ?
-                new ObjectParameter("orderno", orderno) :
-                new ObjectParameter("orderno", typeof(string));
-    
-            var statusParameter = status != null ?
-                new ObjectParameter("status", status) :
-                new ObjectParameter("status", typeof(string));
-    
-            var amountParameter = amount != null ?
-                new ObjectParameter("amount", amount) :
-                new ObjectParameter("amount", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("h_proccheckupdateorder", ordernoParameter, statusParameter, amountParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("p_auto_closealipay");
         }
     
         public virtual ObjectResult<PROC_Agentaddwithdraw_Result> PROC_Agentaddwithdraw(Nullable<int> agid, Nullable<decimal> commission)
@@ -254,31 +236,6 @@ namespace ModelDb
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PROC_CheckOrderStatus_Result>("PROC_CheckOrderStatus", ordernoParameter);
         }
     
-        public virtual ObjectResult<PROC_Createmercomm_Result> PROC_Createmercomm(Nullable<int> merchantid, Nullable<decimal> comm_amount, Nullable<int> type, string memo, string adduser)
-        {
-            var merchantidParameter = merchantid.HasValue ?
-                new ObjectParameter("merchantid", merchantid) :
-                new ObjectParameter("merchantid", typeof(int));
-    
-            var comm_amountParameter = comm_amount.HasValue ?
-                new ObjectParameter("comm_amount", comm_amount) :
-                new ObjectParameter("comm_amount", typeof(decimal));
-    
-            var typeParameter = type.HasValue ?
-                new ObjectParameter("type", type) :
-                new ObjectParameter("type", typeof(int));
-    
-            var memoParameter = memo != null ?
-                new ObjectParameter("memo", memo) :
-                new ObjectParameter("memo", typeof(string));
-    
-            var adduserParameter = adduser != null ?
-                new ObjectParameter("adduser", adduser) :
-                new ObjectParameter("adduser", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PROC_Createmercomm_Result>("PROC_Createmercomm", merchantidParameter, comm_amountParameter, typeParameter, memoParameter, adduserParameter);
-        }
-    
         public virtual ObjectResult<PROC_CreateOrder_Result> PROC_CreateOrder(Nullable<decimal> amount, string remark, string appid, Nullable<int> paytype, Nullable<int> businesspasstype, string frontUrl)
         {
             var amountParameter = amount.HasValue ?
@@ -306,6 +263,64 @@ namespace ModelDb
                 new ObjectParameter("frontUrl", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PROC_CreateOrder_Result>("PROC_CreateOrder", amountParameter, remarkParameter, appidParameter, paytypeParameter, businesspasstypeParameter, frontUrlParameter);
+        }
+    
+        public virtual ObjectResult<PROC_CreateOrderByPersonal_Result> PROC_CreateOrderByPersonal(Nullable<decimal> amount, string remark, string appid, Nullable<int> paytype, string frontUrl)
+        {
+            var amountParameter = amount.HasValue ?
+                new ObjectParameter("amount", amount) :
+                new ObjectParameter("amount", typeof(decimal));
+    
+            var remarkParameter = remark != null ?
+                new ObjectParameter("remark", remark) :
+                new ObjectParameter("remark", typeof(string));
+    
+            var appidParameter = appid != null ?
+                new ObjectParameter("appid", appid) :
+                new ObjectParameter("appid", typeof(string));
+    
+            var paytypeParameter = paytype.HasValue ?
+                new ObjectParameter("paytype", paytype) :
+                new ObjectParameter("paytype", typeof(int));
+    
+            var frontUrlParameter = frontUrl != null ?
+                new ObjectParameter("frontUrl", frontUrl) :
+                new ObjectParameter("frontUrl", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PROC_CreateOrderByPersonal_Result>("PROC_CreateOrderByPersonal", amountParameter, remarkParameter, appidParameter, paytypeParameter, frontUrlParameter);
+        }
+    
+        public virtual ObjectResult<PROC_CreateOrderByPersonalThird_Result> PROC_CreateOrderByPersonalThird(string orderno, Nullable<decimal> amount, string remark, string appid, string returnurl, Nullable<int> paytype, string frontUrl)
+        {
+            var ordernoParameter = orderno != null ?
+                new ObjectParameter("orderno", orderno) :
+                new ObjectParameter("orderno", typeof(string));
+    
+            var amountParameter = amount.HasValue ?
+                new ObjectParameter("amount", amount) :
+                new ObjectParameter("amount", typeof(decimal));
+    
+            var remarkParameter = remark != null ?
+                new ObjectParameter("remark", remark) :
+                new ObjectParameter("remark", typeof(string));
+    
+            var appidParameter = appid != null ?
+                new ObjectParameter("appid", appid) :
+                new ObjectParameter("appid", typeof(string));
+    
+            var returnurlParameter = returnurl != null ?
+                new ObjectParameter("returnurl", returnurl) :
+                new ObjectParameter("returnurl", typeof(string));
+    
+            var paytypeParameter = paytype.HasValue ?
+                new ObjectParameter("paytype", paytype) :
+                new ObjectParameter("paytype", typeof(int));
+    
+            var frontUrlParameter = frontUrl != null ?
+                new ObjectParameter("frontUrl", frontUrl) :
+                new ObjectParameter("frontUrl", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PROC_CreateOrderByPersonalThird_Result>("PROC_CreateOrderByPersonalThird", ordernoParameter, amountParameter, remarkParameter, appidParameter, returnurlParameter, paytypeParameter, frontUrlParameter);
         }
     
         public virtual ObjectResult<PROC_CreateOrderByThird_Result> PROC_CreateOrderByThird(string orderno, Nullable<decimal> amount, string remark, string appid, string returnurl, Nullable<int> paytype, string frontUrl)
@@ -381,6 +396,19 @@ namespace ModelDb
                 new ObjectParameter("paytype", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PROC_CreateOrderCheckByThird_Result>("PROC_CreateOrderCheckByThird", ordernoParameter, amountParameter, appidParameter, paytypeParameter);
+        }
+    
+        public virtual ObjectResult<PROC_CreateUserid_Result> PROC_CreateUserid(string phone, string userid)
+        {
+            var phoneParameter = phone != null ?
+                new ObjectParameter("phone", phone) :
+                new ObjectParameter("phone", typeof(string));
+    
+            var useridParameter = userid != null ?
+                new ObjectParameter("userid", userid) :
+                new ObjectParameter("userid", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PROC_CreateUserid_Result>("PROC_CreateUserid", phoneParameter, useridParameter);
         }
     
         public virtual ObjectResult<PROC_CustomerAddDespoit_Result> PROC_CustomerAddDespoit(string customerappid, Nullable<decimal> amount, string bankno, Nullable<int> paytype, Nullable<int> businesspasstype)
@@ -583,33 +611,21 @@ namespace ModelDb
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PROC_GetUserinfo_Result>("PROC_GetUserinfo");
         }
     
-        public virtual int PROC_mercommList(string begindate, string enddate, Nullable<int> merchantid, string keyword, Nullable<int> page, Nullable<int> pagesize)
+        public virtual ObjectResult<PROC_OrderAddQrcode_Result> PROC_OrderAddQrcode(string token, string url, string mark_sell)
         {
-            var begindateParameter = begindate != null ?
-                new ObjectParameter("begindate", begindate) :
-                new ObjectParameter("begindate", typeof(string));
+            var tokenParameter = token != null ?
+                new ObjectParameter("token", token) :
+                new ObjectParameter("token", typeof(string));
     
-            var enddateParameter = enddate != null ?
-                new ObjectParameter("enddate", enddate) :
-                new ObjectParameter("enddate", typeof(string));
+            var urlParameter = url != null ?
+                new ObjectParameter("url", url) :
+                new ObjectParameter("url", typeof(string));
     
-            var merchantidParameter = merchantid.HasValue ?
-                new ObjectParameter("merchantid", merchantid) :
-                new ObjectParameter("merchantid", typeof(int));
+            var mark_sellParameter = mark_sell != null ?
+                new ObjectParameter("mark_sell", mark_sell) :
+                new ObjectParameter("mark_sell", typeof(string));
     
-            var keywordParameter = keyword != null ?
-                new ObjectParameter("keyword", keyword) :
-                new ObjectParameter("keyword", typeof(string));
-    
-            var pageParameter = page.HasValue ?
-                new ObjectParameter("page", page) :
-                new ObjectParameter("page", typeof(int));
-    
-            var pagesizeParameter = pagesize.HasValue ?
-                new ObjectParameter("pagesize", pagesize) :
-                new ObjectParameter("pagesize", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PROC_mercommList", begindateParameter, enddateParameter, merchantidParameter, keywordParameter, pageParameter, pagesizeParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PROC_OrderAddQrcode_Result>("PROC_OrderAddQrcode", tokenParameter, urlParameter, mark_sellParameter);
         }
     
         public virtual ObjectResult<PROC_OrderCallBack_Result> PROC_OrderCallBack(string orderno, string payno, Nullable<int> status)
@@ -629,24 +645,7 @@ namespace ModelDb
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PROC_OrderCallBack_Result>("PROC_OrderCallBack", ordernoParameter, paynoParameter, statusParameter);
         }
     
-        public virtual ObjectResult<PROC_OrderFinish_Result> PROC_OrderFinish(string orderno, string payno, Nullable<int> status)
-        {
-            var ordernoParameter = orderno != null ?
-                new ObjectParameter("orderno", orderno) :
-                new ObjectParameter("orderno", typeof(string));
-    
-            var paynoParameter = payno != null ?
-                new ObjectParameter("payno", payno) :
-                new ObjectParameter("payno", typeof(string));
-    
-            var statusParameter = status.HasValue ?
-                new ObjectParameter("status", status) :
-                new ObjectParameter("status", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PROC_OrderFinish_Result>("PROC_OrderFinish", ordernoParameter, paynoParameter, statusParameter);
-        }
-    
-        public virtual int PROC_OrderList(string begindate, string enddate, Nullable<int> agid, Nullable<int> businessid, string keyword, Nullable<int> status, Nullable<int> page, Nullable<int> pagesize, Nullable<int> businesspasstype, Nullable<int> paytype)
+        public virtual int PROC_OrderList(string begindate, string enddate, Nullable<int> agid, Nullable<int> businessid, string keyword, Nullable<int> status, Nullable<int> page, Nullable<int> pagesize, Nullable<int> businesspasstype, Nullable<int> paytype, string time)
         {
             var begindateParameter = begindate != null ?
                 new ObjectParameter("begindate", begindate) :
@@ -688,20 +687,59 @@ namespace ModelDb
                 new ObjectParameter("paytype", paytype) :
                 new ObjectParameter("paytype", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PROC_OrderList", begindateParameter, enddateParameter, agidParameter, businessidParameter, keywordParameter, statusParameter, pageParameter, pagesizeParameter, businesspasstypeParameter, paytypeParameter);
+            var timeParameter = time != null ?
+                new ObjectParameter("time", time) :
+                new ObjectParameter("time", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PROC_OrderList", begindateParameter, enddateParameter, agidParameter, businessidParameter, keywordParameter, statusParameter, pageParameter, pagesizeParameter, businesspasstypeParameter, paytypeParameter, timeParameter);
         }
     
-        public virtual ObjectResult<PROC_OrderSHCallBack_Result> PROC_OrderSHCallBack(string orderno, Nullable<decimal> amount)
+        public virtual ObjectResult<PROC_OrderPayInfo_Result> PROC_OrderPayInfo(string orderno)
         {
             var ordernoParameter = orderno != null ?
                 new ObjectParameter("orderno", orderno) :
                 new ObjectParameter("orderno", typeof(string));
     
-            var amountParameter = amount.HasValue ?
-                new ObjectParameter("amount", amount) :
-                new ObjectParameter("amount", typeof(decimal));
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PROC_OrderPayInfo_Result>("PROC_OrderPayInfo", ordernoParameter);
+        }
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PROC_OrderSHCallBack_Result>("PROC_OrderSHCallBack", ordernoParameter, amountParameter);
+        public virtual ObjectResult<PROC_OrderPersonalCallBack_Result> PROC_OrderPersonalCallBack(string token, string mark_sell, string order_id, Nullable<decimal> money)
+        {
+            var tokenParameter = token != null ?
+                new ObjectParameter("token", token) :
+                new ObjectParameter("token", typeof(string));
+    
+            var mark_sellParameter = mark_sell != null ?
+                new ObjectParameter("mark_sell", mark_sell) :
+                new ObjectParameter("mark_sell", typeof(string));
+    
+            var order_idParameter = order_id != null ?
+                new ObjectParameter("order_id", order_id) :
+                new ObjectParameter("order_id", typeof(string));
+    
+            var moneyParameter = money.HasValue ?
+                new ObjectParameter("money", money) :
+                new ObjectParameter("money", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PROC_OrderPersonalCallBack_Result>("PROC_OrderPersonalCallBack", tokenParameter, mark_sellParameter, order_idParameter, moneyParameter);
+        }
+    
+        public virtual ObjectResult<PROC_OrderPersonPayInfo_Result> PROC_OrderPersonPayInfo(string orderno)
+        {
+            var ordernoParameter = orderno != null ?
+                new ObjectParameter("orderno", orderno) :
+                new ObjectParameter("orderno", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PROC_OrderPersonPayInfo_Result>("PROC_OrderPersonPayInfo", ordernoParameter);
+        }
+    
+        public virtual ObjectResult<PROC_OrderQueryQrcode_Result> PROC_OrderQueryQrcode(string token)
+        {
+            var tokenParameter = token != null ?
+                new ObjectParameter("token", token) :
+                new ObjectParameter("token", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PROC_OrderQueryQrcode_Result>("PROC_OrderQueryQrcode", tokenParameter);
         }
     
         public virtual int PROC_OrderSumList(string begindate, string enddate)
@@ -717,322 +755,21 @@ namespace ModelDb
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PROC_OrderSumList", begindateParameter, enddateParameter);
         }
     
-        public virtual int PROC_SHBusinessAppinfoList(string keyword, Nullable<int> status, Nullable<int> page, Nullable<int> pagesize)
-        {
-            var keywordParameter = keyword != null ?
-                new ObjectParameter("keyword", keyword) :
-                new ObjectParameter("keyword", typeof(string));
-    
-            var statusParameter = status.HasValue ?
-                new ObjectParameter("status", status) :
-                new ObjectParameter("status", typeof(int));
-    
-            var pageParameter = page.HasValue ?
-                new ObjectParameter("page", page) :
-                new ObjectParameter("page", typeof(int));
-    
-            var pagesizeParameter = pagesize.HasValue ?
-                new ObjectParameter("pagesize", pagesize) :
-                new ObjectParameter("pagesize", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PROC_SHBusinessAppinfoList", keywordParameter, statusParameter, pageParameter, pagesizeParameter);
-        }
-    
-        public virtual ObjectResult<proc_unionbusinessbalance_Result> proc_unionbusinessbalance(Nullable<int> businessid)
-        {
-            var businessidParameter = businessid.HasValue ?
-                new ObjectParameter("businessid", businessid) :
-                new ObjectParameter("businessid", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<proc_unionbusinessbalance_Result>("proc_unionbusinessbalance", businessidParameter);
-        }
-    
-        public virtual int PROC_UpdateBusinessBalance(string appid, Nullable<decimal> balance)
-        {
-            var appidParameter = appid != null ?
-                new ObjectParameter("appid", appid) :
-                new ObjectParameter("appid", typeof(string));
-    
-            var balanceParameter = balance.HasValue ?
-                new ObjectParameter("balance", balance) :
-                new ObjectParameter("balance", typeof(decimal));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PROC_UpdateBusinessBalance", appidParameter, balanceParameter);
-        }
-    
-        public virtual int PROC_UpdateBusinessWorkkey(Nullable<int> businessid, string key)
-        {
-            var businessidParameter = businessid.HasValue ?
-                new ObjectParameter("businessid", businessid) :
-                new ObjectParameter("businessid", typeof(int));
-    
-            var keyParameter = key != null ?
-                new ObjectParameter("key", key) :
-                new ObjectParameter("key", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PROC_UpdateBusinessWorkkey", businessidParameter, keyParameter);
-        }
-    
-        public virtual int PROC_UpdateOrderPayno(string orderno, string payno)
+        public virtual ObjectResult<PROC_OrderUpdateByAdmin_Result> PROC_OrderUpdateByAdmin(string orderno, string panyno, string reason)
         {
             var ordernoParameter = orderno != null ?
                 new ObjectParameter("orderno", orderno) :
                 new ObjectParameter("orderno", typeof(string));
     
-            var paynoParameter = payno != null ?
-                new ObjectParameter("payno", payno) :
-                new ObjectParameter("payno", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PROC_UpdateOrderPayno", ordernoParameter, paynoParameter);
-        }
-    
-        public virtual ObjectResult<Report_Business_balance_Result> Report_Business_balance()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Report_Business_balance_Result>("Report_Business_balance");
-        }
-    
-        public virtual ObjectResult<Report_GetBusinessDespoit_Result> Report_GetBusinessDespoit(string begindate, string enddate, string keyword)
-        {
-            var begindateParameter = begindate != null ?
-                new ObjectParameter("begindate", begindate) :
-                new ObjectParameter("begindate", typeof(string));
-    
-            var enddateParameter = enddate != null ?
-                new ObjectParameter("enddate", enddate) :
-                new ObjectParameter("enddate", typeof(string));
-    
-            var keywordParameter = keyword != null ?
-                new ObjectParameter("keyword", keyword) :
-                new ObjectParameter("keyword", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Report_GetBusinessDespoit_Result>("Report_GetBusinessDespoit", begindateParameter, enddateParameter, keywordParameter);
-        }
-    
-        public virtual int Report_GetBusinessTrade(string begindate, string enddate, string keyword)
-        {
-            var begindateParameter = begindate != null ?
-                new ObjectParameter("begindate", begindate) :
-                new ObjectParameter("begindate", typeof(string));
-    
-            var enddateParameter = enddate != null ?
-                new ObjectParameter("enddate", enddate) :
-                new ObjectParameter("enddate", typeof(string));
-    
-            var keywordParameter = keyword != null ?
-                new ObjectParameter("keyword", keyword) :
-                new ObjectParameter("keyword", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Report_GetBusinessTrade", begindateParameter, enddateParameter, keywordParameter);
-        }
-    
-        public virtual int Report_GetPlatTrade(string begindate, string enddate, string keywork)
-        {
-            var begindateParameter = begindate != null ?
-                new ObjectParameter("begindate", begindate) :
-                new ObjectParameter("begindate", typeof(string));
-    
-            var enddateParameter = enddate != null ?
-                new ObjectParameter("enddate", enddate) :
-                new ObjectParameter("enddate", typeof(string));
-    
-            var keyworkParameter = keywork != null ?
-                new ObjectParameter("keywork", keywork) :
-                new ObjectParameter("keywork", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Report_GetPlatTrade", begindateParameter, enddateParameter, keyworkParameter);
-        }
-    
-        public virtual ObjectResult<sh_auditbusinessrelayamount_Result> sh_auditbusinessrelayamount(Nullable<int> id, Nullable<int> status, string reason)
-        {
-            var idParameter = id.HasValue ?
-                new ObjectParameter("id", id) :
-                new ObjectParameter("id", typeof(int));
-    
-            var statusParameter = status.HasValue ?
-                new ObjectParameter("status", status) :
-                new ObjectParameter("status", typeof(int));
+            var panynoParameter = panyno != null ?
+                new ObjectParameter("panyno", panyno) :
+                new ObjectParameter("panyno", typeof(string));
     
             var reasonParameter = reason != null ?
                 new ObjectParameter("reason", reason) :
                 new ObjectParameter("reason", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sh_auditbusinessrelayamount_Result>("sh_auditbusinessrelayamount", idParameter, statusParameter, reasonParameter);
-        }
-    
-        public virtual ObjectResult<sh_business_addbalance_Result> sh_business_addbalance(Nullable<int> sh_businessid, Nullable<decimal> amount)
-        {
-            var sh_businessidParameter = sh_businessid.HasValue ?
-                new ObjectParameter("sh_businessid", sh_businessid) :
-                new ObjectParameter("sh_businessid", typeof(int));
-    
-            var amountParameter = amount.HasValue ?
-                new ObjectParameter("amount", amount) :
-                new ObjectParameter("amount", typeof(decimal));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sh_business_addbalance_Result>("sh_business_addbalance", sh_businessidParameter, amountParameter);
-        }
-    
-        public virtual ObjectResult<sh_businesscomm_add_Result> sh_businesscomm_add(Nullable<int> sh_businessid, Nullable<decimal> amount, string bankno)
-        {
-            var sh_businessidParameter = sh_businessid.HasValue ?
-                new ObjectParameter("sh_businessid", sh_businessid) :
-                new ObjectParameter("sh_businessid", typeof(int));
-    
-            var amountParameter = amount.HasValue ?
-                new ObjectParameter("amount", amount) :
-                new ObjectParameter("amount", typeof(decimal));
-    
-            var banknoParameter = bankno != null ?
-                new ObjectParameter("bankno", bankno) :
-                new ObjectParameter("bankno", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sh_businesscomm_add_Result>("sh_businesscomm_add", sh_businessidParameter, amountParameter, banknoParameter);
-        }
-    
-        public virtual ObjectResult<sh_businesscomm_audit_Result> sh_businesscomm_audit(string commorderno, Nullable<int> status, string reason)
-        {
-            var commordernoParameter = commorderno != null ?
-                new ObjectParameter("commorderno", commorderno) :
-                new ObjectParameter("commorderno", typeof(string));
-    
-            var statusParameter = status.HasValue ?
-                new ObjectParameter("status", status) :
-                new ObjectParameter("status", typeof(int));
-    
-            var reasonParameter = reason != null ?
-                new ObjectParameter("reason", reason) :
-                new ObjectParameter("reason", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sh_businesscomm_audit_Result>("sh_businesscomm_audit", commordernoParameter, statusParameter, reasonParameter);
-        }
-    
-        public virtual int sh_businesscomm_list(string begindate, string enddate, Nullable<int> sh_businessid, Nullable<int> status, Nullable<int> page, Nullable<int> pagesize)
-        {
-            var begindateParameter = begindate != null ?
-                new ObjectParameter("begindate", begindate) :
-                new ObjectParameter("begindate", typeof(string));
-    
-            var enddateParameter = enddate != null ?
-                new ObjectParameter("enddate", enddate) :
-                new ObjectParameter("enddate", typeof(string));
-    
-            var sh_businessidParameter = sh_businessid.HasValue ?
-                new ObjectParameter("sh_businessid", sh_businessid) :
-                new ObjectParameter("sh_businessid", typeof(int));
-    
-            var statusParameter = status.HasValue ?
-                new ObjectParameter("status", status) :
-                new ObjectParameter("status", typeof(int));
-    
-            var pageParameter = page.HasValue ?
-                new ObjectParameter("page", page) :
-                new ObjectParameter("page", typeof(int));
-    
-            var pagesizeParameter = pagesize.HasValue ?
-                new ObjectParameter("pagesize", pagesize) :
-                new ObjectParameter("pagesize", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sh_businesscomm_list", begindateParameter, enddateParameter, sh_businessidParameter, statusParameter, pageParameter, pagesizeParameter);
-        }
-    
-        public virtual ObjectResult<sh_businessrelayamount_Result> sh_businessrelayamount(Nullable<int> sh_businessid, Nullable<decimal> amount, Nullable<int> paytype, string remark)
-        {
-            var sh_businessidParameter = sh_businessid.HasValue ?
-                new ObjectParameter("sh_businessid", sh_businessid) :
-                new ObjectParameter("sh_businessid", typeof(int));
-    
-            var amountParameter = amount.HasValue ?
-                new ObjectParameter("amount", amount) :
-                new ObjectParameter("amount", typeof(decimal));
-    
-            var paytypeParameter = paytype.HasValue ?
-                new ObjectParameter("paytype", paytype) :
-                new ObjectParameter("paytype", typeof(int));
-    
-            var remarkParameter = remark != null ?
-                new ObjectParameter("remark", remark) :
-                new ObjectParameter("remark", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sh_businessrelayamount_Result>("sh_businessrelayamount", sh_businessidParameter, amountParameter, paytypeParameter, remarkParameter);
-        }
-    
-        public virtual int sh_businessrelayamountlist(string begindate, string enddate, Nullable<int> sh_businessid, string keyword, Nullable<int> status, Nullable<int> page, Nullable<int> pagesize, Nullable<int> paytype)
-        {
-            var begindateParameter = begindate != null ?
-                new ObjectParameter("begindate", begindate) :
-                new ObjectParameter("begindate", typeof(string));
-    
-            var enddateParameter = enddate != null ?
-                new ObjectParameter("enddate", enddate) :
-                new ObjectParameter("enddate", typeof(string));
-    
-            var sh_businessidParameter = sh_businessid.HasValue ?
-                new ObjectParameter("sh_businessid", sh_businessid) :
-                new ObjectParameter("sh_businessid", typeof(int));
-    
-            var keywordParameter = keyword != null ?
-                new ObjectParameter("keyword", keyword) :
-                new ObjectParameter("keyword", typeof(string));
-    
-            var statusParameter = status.HasValue ?
-                new ObjectParameter("status", status) :
-                new ObjectParameter("status", typeof(int));
-    
-            var pageParameter = page.HasValue ?
-                new ObjectParameter("page", page) :
-                new ObjectParameter("page", typeof(int));
-    
-            var pagesizeParameter = pagesize.HasValue ?
-                new ObjectParameter("pagesize", pagesize) :
-                new ObjectParameter("pagesize", typeof(int));
-    
-            var paytypeParameter = paytype.HasValue ?
-                new ObjectParameter("paytype", paytype) :
-                new ObjectParameter("paytype", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sh_businessrelayamountlist", begindateParameter, enddateParameter, sh_businessidParameter, keywordParameter, statusParameter, pageParameter, pagesizeParameter, paytypeParameter);
-        }
-    
-        public virtual int sh_orderlist(string begindate, string enddate, Nullable<int> sh_businessid, string keyword, Nullable<int> status, Nullable<int> page, Nullable<int> pagesize, Nullable<int> paytype)
-        {
-            var begindateParameter = begindate != null ?
-                new ObjectParameter("begindate", begindate) :
-                new ObjectParameter("begindate", typeof(string));
-    
-            var enddateParameter = enddate != null ?
-                new ObjectParameter("enddate", enddate) :
-                new ObjectParameter("enddate", typeof(string));
-    
-            var sh_businessidParameter = sh_businessid.HasValue ?
-                new ObjectParameter("sh_businessid", sh_businessid) :
-                new ObjectParameter("sh_businessid", typeof(int));
-    
-            var keywordParameter = keyword != null ?
-                new ObjectParameter("keyword", keyword) :
-                new ObjectParameter("keyword", typeof(string));
-    
-            var statusParameter = status.HasValue ?
-                new ObjectParameter("status", status) :
-                new ObjectParameter("status", typeof(int));
-    
-            var pageParameter = page.HasValue ?
-                new ObjectParameter("page", page) :
-                new ObjectParameter("page", typeof(int));
-    
-            var pagesizeParameter = pagesize.HasValue ?
-                new ObjectParameter("pagesize", pagesize) :
-                new ObjectParameter("pagesize", typeof(int));
-    
-            var paytypeParameter = paytype.HasValue ?
-                new ObjectParameter("paytype", paytype) :
-                new ObjectParameter("paytype", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sh_orderlist", begindateParameter, enddateParameter, sh_businessidParameter, keywordParameter, statusParameter, pageParameter, pagesizeParameter, paytypeParameter);
-        }
-    
-        public virtual ObjectResult<string> TEST()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("TEST");
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PROC_OrderUpdateByAdmin_Result>("PROC_OrderUpdateByAdmin", ordernoParameter, panynoParameter, reasonParameter);
         }
     
         public virtual ObjectResult<PROC_PayPassAdd_Result> PROC_PayPassAdd(string alipayappid, string rsaprivate, string rsapublic, Nullable<decimal> dayamount, string memo)
@@ -1114,6 +851,80 @@ namespace ModelDb
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PROC_PayPassUpdate_Result>("PROC_PayPassUpdate", idParameter, alipayappidParameter, rsaprivateParameter, rsapublicParameter, dayamountParameter, memoParameter, enableParameter);
         }
     
+        public virtual int PROC_SHBusinessAppinfoList(string keyword, Nullable<int> status, Nullable<int> page, Nullable<int> pagesize)
+        {
+            var keywordParameter = keyword != null ?
+                new ObjectParameter("keyword", keyword) :
+                new ObjectParameter("keyword", typeof(string));
+    
+            var statusParameter = status.HasValue ?
+                new ObjectParameter("status", status) :
+                new ObjectParameter("status", typeof(int));
+    
+            var pageParameter = page.HasValue ?
+                new ObjectParameter("page", page) :
+                new ObjectParameter("page", typeof(int));
+    
+            var pagesizeParameter = pagesize.HasValue ?
+                new ObjectParameter("pagesize", pagesize) :
+                new ObjectParameter("pagesize", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PROC_SHBusinessAppinfoList", keywordParameter, statusParameter, pageParameter, pagesizeParameter);
+        }
+    
+        public virtual int proc_unionbusinessbalance(Nullable<int> businessid)
+        {
+            var businessidParameter = businessid.HasValue ?
+                new ObjectParameter("businessid", businessid) :
+                new ObjectParameter("businessid", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("proc_unionbusinessbalance", businessidParameter);
+        }
+    
+        public virtual int PROC_UpdateBusinessBalance(string appid, Nullable<decimal> balance)
+        {
+            var appidParameter = appid != null ?
+                new ObjectParameter("appid", appid) :
+                new ObjectParameter("appid", typeof(string));
+    
+            var balanceParameter = balance.HasValue ?
+                new ObjectParameter("balance", balance) :
+                new ObjectParameter("balance", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PROC_UpdateBusinessBalance", appidParameter, balanceParameter);
+        }
+    
+        public virtual int PROC_UpdateBusinessWorkkey(Nullable<int> businessid, string key)
+        {
+            var businessidParameter = businessid.HasValue ?
+                new ObjectParameter("businessid", businessid) :
+                new ObjectParameter("businessid", typeof(int));
+    
+            var keyParameter = key != null ?
+                new ObjectParameter("key", key) :
+                new ObjectParameter("key", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PROC_UpdateBusinessWorkkey", businessidParameter, keyParameter);
+        }
+    
+        public virtual int PROC_UpdateOrderPayno(string orderno, string payno)
+        {
+            var ordernoParameter = orderno != null ?
+                new ObjectParameter("orderno", orderno) :
+                new ObjectParameter("orderno", typeof(string));
+    
+            var paynoParameter = payno != null ?
+                new ObjectParameter("payno", payno) :
+                new ObjectParameter("payno", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PROC_UpdateOrderPayno", ordernoParameter, paynoParameter);
+        }
+    
+        public virtual ObjectResult<Report_Business_balance_Result> Report_Business_balance()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Report_Business_balance_Result>("Report_Business_balance");
+        }
+    
         public virtual int report_businessorderamount(string begindate, string enddate, string keyword, Nullable<int> page, Nullable<int> pagesize)
         {
             var begindateParameter = begindate != null ?
@@ -1137,6 +948,86 @@ namespace ModelDb
                 new ObjectParameter("pagesize", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("report_businessorderamount", begindateParameter, enddateParameter, keywordParameter, pageParameter, pagesizeParameter);
+        }
+    
+        public virtual ObjectResult<Report_GetBusinessDespoit_Result> Report_GetBusinessDespoit(string begindate, string enddate, string keyword)
+        {
+            var begindateParameter = begindate != null ?
+                new ObjectParameter("begindate", begindate) :
+                new ObjectParameter("begindate", typeof(string));
+    
+            var enddateParameter = enddate != null ?
+                new ObjectParameter("enddate", enddate) :
+                new ObjectParameter("enddate", typeof(string));
+    
+            var keywordParameter = keyword != null ?
+                new ObjectParameter("keyword", keyword) :
+                new ObjectParameter("keyword", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Report_GetBusinessDespoit_Result>("Report_GetBusinessDespoit", begindateParameter, enddateParameter, keywordParameter);
+        }
+    
+        public virtual int Report_GetBusinessTrade(string begindate, string enddate, string keyword)
+        {
+            var begindateParameter = begindate != null ?
+                new ObjectParameter("begindate", begindate) :
+                new ObjectParameter("begindate", typeof(string));
+    
+            var enddateParameter = enddate != null ?
+                new ObjectParameter("enddate", enddate) :
+                new ObjectParameter("enddate", typeof(string));
+    
+            var keywordParameter = keyword != null ?
+                new ObjectParameter("keyword", keyword) :
+                new ObjectParameter("keyword", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Report_GetBusinessTrade", begindateParameter, enddateParameter, keywordParameter);
+        }
+    
+        public virtual int Report_GetPlatTrade(string begindate, string enddate, string keywork)
+        {
+            var begindateParameter = begindate != null ?
+                new ObjectParameter("begindate", begindate) :
+                new ObjectParameter("begindate", typeof(string));
+    
+            var enddateParameter = enddate != null ?
+                new ObjectParameter("enddate", enddate) :
+                new ObjectParameter("enddate", typeof(string));
+    
+            var keyworkParameter = keywork != null ?
+                new ObjectParameter("keywork", keywork) :
+                new ObjectParameter("keywork", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Report_GetPlatTrade", begindateParameter, enddateParameter, keyworkParameter);
+        }
+    
+        public virtual int report_ordersuccessrate(string begindate, string enddate, string keyword, Nullable<int> page, Nullable<int> pagesize, Nullable<int> paytype)
+        {
+            var begindateParameter = begindate != null ?
+                new ObjectParameter("begindate", begindate) :
+                new ObjectParameter("begindate", typeof(string));
+    
+            var enddateParameter = enddate != null ?
+                new ObjectParameter("enddate", enddate) :
+                new ObjectParameter("enddate", typeof(string));
+    
+            var keywordParameter = keyword != null ?
+                new ObjectParameter("keyword", keyword) :
+                new ObjectParameter("keyword", typeof(string));
+    
+            var pageParameter = page.HasValue ?
+                new ObjectParameter("page", page) :
+                new ObjectParameter("page", typeof(int));
+    
+            var pagesizeParameter = pagesize.HasValue ?
+                new ObjectParameter("pagesize", pagesize) :
+                new ObjectParameter("pagesize", typeof(int));
+    
+            var paytypeParameter = paytype.HasValue ?
+                new ObjectParameter("paytype", paytype) :
+                new ObjectParameter("paytype", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("report_ordersuccessrate", begindateParameter, enddateParameter, keywordParameter, pageParameter, pagesizeParameter, paytypeParameter);
         }
     
         public virtual ObjectResult<report_payaccountorderamount_Result> report_payaccountorderamount(string begindate, string enddate, Nullable<int> page, Nullable<int> pagesize)

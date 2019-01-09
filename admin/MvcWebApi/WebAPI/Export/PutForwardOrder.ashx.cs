@@ -42,7 +42,6 @@ namespace WebAPI.Export
                 table.Columns.Add("订单状态", typeof(string));
                 table.Columns.Add("代理商", typeof(string));
                 table.Columns.Add("商户名称", typeof(string));
-                table.Columns.Add("支付通道", typeof(string));
                 table.Columns.Add("银行卡号", typeof(string));
                 table.Columns.Add("开卡人", typeof(string));
                 table.Columns.Add("手机号", typeof(string));
@@ -76,7 +75,7 @@ namespace WebAPI.Export
                             str_status = "代付失败";
                             break;
                     }
-                    table.Rows.Add(item.despoitno, item.amount, str_status, item.agname,  item.customername, item.businesspasstype, item.bankaccountno, item.bankusername, item.mobileno, item.reason, item.addtime);
+                    table.Rows.Add(item.despoitno, item.amount, str_status, item.agname,  item.customername,  item.bankaccountno, item.bankusername, item.mobileno, item.reason, item.addtime);
                 }
             }
             else

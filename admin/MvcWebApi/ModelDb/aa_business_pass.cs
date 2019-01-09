@@ -29,5 +29,6 @@ namespace ModelDb
         public string rsapublic { get; set; }
         public Nullable<decimal> useamount { get; set; }
         public Nullable<decimal> dayamount { get; set; }
+        public string reason { get; set; }
     }
 }

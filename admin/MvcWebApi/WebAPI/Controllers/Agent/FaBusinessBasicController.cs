@@ -20,7 +20,7 @@ namespace WebAPI.Controllers.Agent
 {
     public class FaBusinessBasicController : ApiController
     {
-        private ytf_dbEntities db = new ytf_dbEntities();
+        private ytfEntities db = new ytfEntities();
 
         JsonModel model = new JsonModel();
         public ResponseMessageResult Getfa_business_basic()

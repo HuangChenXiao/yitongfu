@@ -21,7 +21,7 @@ namespace WebAPI.Controllers.Admin
     [WebApiActionDebugFilter]
     public class RouterController : ApiController
     {
-        private ytf_dbEntities db = new ytf_dbEntities();
+        private ytfEntities db = new ytfEntities();
 
         JsonModel model = new JsonModel();
         public ResponseMessageResult Getsy_router(int page, int pagesize, string code)

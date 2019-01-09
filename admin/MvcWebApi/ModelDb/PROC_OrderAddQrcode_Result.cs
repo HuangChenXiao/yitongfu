@@ -11,9 +11,9 @@ namespace ModelDb
 {
     using System;
     
-    public partial class PROC_OrderFinish_Result
+    public partial class PROC_OrderAddQrcode_Result
     {
-        public int statue { get; set; }
+        public int status { get; set; }
         public string message { get; set; }
     }
 }

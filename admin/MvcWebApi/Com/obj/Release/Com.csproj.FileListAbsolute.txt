@@ -25,3 +25,12 @@ G:\gitCode\yitongfu\admin\MvcWebApi\Com\bin\Release\Newtonsoft.Json.xml
 G:\gitCode\yitongfu\admin\MvcWebApi\Com\obj\Release\Com.csprojResolveAssemblyReference.cache
 G:\gitCode\yitongfu\admin\MvcWebApi\Com\obj\Release\Com.dll
 G:\gitCode\yitongfu\admin\MvcWebApi\Com\obj\Release\Com.pdb
+F:\gitCode\yitongfu\yitongfu\admin\MvcWebApi\Com\bin\Release\Com.dll.config
+F:\gitCode\yitongfu\yitongfu\admin\MvcWebApi\Com\bin\Release\Com.dll
+F:\gitCode\yitongfu\yitongfu\admin\MvcWebApi\Com\bin\Release\Com.pdb
+F:\gitCode\yitongfu\yitongfu\admin\MvcWebApi\Com\bin\Release\JWT.dll
+F:\gitCode\yitongfu\yitongfu\admin\MvcWebApi\Com\bin\Release\Newtonsoft.Json.dll
+F:\gitCode\yitongfu\yitongfu\admin\MvcWebApi\Com\bin\Release\Newtonsoft.Json.xml
+F:\gitCode\yitongfu\yitongfu\admin\MvcWebApi\Com\obj\Release\Com.csprojResolveAssemblyReference.cache
+F:\gitCode\yitongfu\yitongfu\admin\MvcWebApi\Com\obj\Release\Com.dll
+F:\gitCode\yitongfu\yitongfu\admin\MvcWebApi\Com\obj\Release\Com.pdb

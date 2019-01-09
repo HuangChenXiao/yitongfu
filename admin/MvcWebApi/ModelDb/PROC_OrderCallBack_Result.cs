@@ -13,7 +13,7 @@ namespace ModelDb
     
     public partial class PROC_OrderCallBack_Result
     {
-        public int statue { get; set; }
+        public int state { get; set; }
         public string message { get; set; }
     }
 }

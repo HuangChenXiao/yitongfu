@@ -20,7 +20,7 @@ namespace WebAPI.Controllers.LifeCircle
 {
     public class LifeCircleOrderController : ApiController
     {
-        private ytf_dbEntities db = new ytf_dbEntities();
+        private ytfEntities db = new ytfEntities();
         JsonModel model = new JsonModel();
         [WebApiActionDebugFilter]
         public ResponseMessageResult Get(string keyword, int status, int page, int pagesize, string begindate = "", string enddate = "", string sh_businessid = "", int paytype = 0)

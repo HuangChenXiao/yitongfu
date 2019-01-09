@@ -13,7 +13,7 @@ namespace WebAPI.Controllers
     [WebApiActionDebugFilter]
     public class MerchantCityController : ApiController
     {
-        private ytf_dbEntities db = new ytf_dbEntities();
+        private ytfEntities db = new ytfEntities();
         JsonModel model = new JsonModel();
         public ResponseMessageResult Getaa_merchant_city()
         {

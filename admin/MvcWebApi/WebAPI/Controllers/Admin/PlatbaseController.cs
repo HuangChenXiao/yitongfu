@@ -17,7 +17,7 @@ namespace WebAPI.Controllers.Admin
 {
     public class PlatbaseController : ApiController
     {
-        private ytf_dbEntities db = new ytf_dbEntities();
+        private ytfEntities db = new ytfEntities();
 
         JsonModel model = new JsonModel();
         public ResponseMessageResult Get()

@@ -46,3 +46,15 @@ G:\gitCode\yitongfu\admin\MvcWebApi\ModelDb\bin\Debug\zh-Hans\EntityFramework.Sq
 G:\gitCode\yitongfu\admin\MvcWebApi\ModelDb\obj\Debug\ModelDb.csprojResolveAssemblyReference.cache
 G:\gitCode\yitongfu\admin\MvcWebApi\ModelDb\obj\Debug\ModelDb.dll
 G:\gitCode\yitongfu\admin\MvcWebApi\ModelDb\obj\Debug\ModelDb.pdb
+F:\gitCode\yitongfu\yitongfu\admin\MvcWebApi\ModelDb\bin\Debug\ModelDb.dll.config
+F:\gitCode\yitongfu\yitongfu\admin\MvcWebApi\ModelDb\bin\Debug\ModelDb.dll
+F:\gitCode\yitongfu\yitongfu\admin\MvcWebApi\ModelDb\bin\Debug\ModelDb.pdb
+F:\gitCode\yitongfu\yitongfu\admin\MvcWebApi\ModelDb\bin\Debug\EntityFramework.dll
+F:\gitCode\yitongfu\yitongfu\admin\MvcWebApi\ModelDb\bin\Debug\EntityFramework.SqlServer.dll
+F:\gitCode\yitongfu\yitongfu\admin\MvcWebApi\ModelDb\bin\Debug\EntityFramework.xml
+F:\gitCode\yitongfu\yitongfu\admin\MvcWebApi\ModelDb\bin\Debug\EntityFramework.SqlServer.xml
+F:\gitCode\yitongfu\yitongfu\admin\MvcWebApi\ModelDb\bin\Debug\zh-Hans\EntityFramework.resources.dll
+F:\gitCode\yitongfu\yitongfu\admin\MvcWebApi\ModelDb\bin\Debug\zh-Hans\EntityFramework.SqlServer.resources.dll
+F:\gitCode\yitongfu\yitongfu\admin\MvcWebApi\ModelDb\obj\Debug\ModelDb.dll
+F:\gitCode\yitongfu\yitongfu\admin\MvcWebApi\ModelDb\obj\Debug\ModelDb.pdb
+F:\gitCode\yitongfu\yitongfu\admin\MvcWebApi\ModelDb\obj\Debug\ModelDb.csprojResolveAssemblyReference.cache

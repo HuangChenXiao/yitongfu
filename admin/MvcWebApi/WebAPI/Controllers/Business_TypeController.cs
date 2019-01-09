@@ -13,7 +13,7 @@ namespace WebAPI.Controllers
     [WebApiActionDebugFilter]
     public class Business_TypeController : ApiController
     {
-        private ytf_dbEntities db = new ytf_dbEntities();
+        private ytfEntities db = new ytfEntities();
         JsonModel model = new JsonModel();
         public ResponseMessageResult Get()
         {

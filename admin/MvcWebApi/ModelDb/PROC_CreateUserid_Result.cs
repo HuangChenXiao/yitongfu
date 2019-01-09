@@ -11,11 +11,9 @@ namespace ModelDb
 {
     using System;
     
-    public partial class f_order_query_Result
+    public partial class PROC_CreateUserid_Result
     {
-        public string merchant_order_sn { get; set; }
-        public string sh_appid { get; set; }
-        public string sh_appsecret { get; set; }
-        public string sh_storeid { get; set; }
+        public int state { get; set; }
+        public string message { get; set; }
     }
 }

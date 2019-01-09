@@ -13,7 +13,7 @@ namespace WebAPI.Controllers.Merchant
 {
     public class BusinessBasicQuickLogonController : ApiController
     {
-        private ytf_dbEntities db = new ytf_dbEntities();
+        private ytfEntities db = new ytfEntities();
 
         JsonModel model = new JsonModel();
         /// <summary>

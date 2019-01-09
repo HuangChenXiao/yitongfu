@@ -11,13 +11,14 @@ namespace ModelDb
 {
     using System;
     
-    public partial class h_proccheckorder_Result
+    public partial class PROC_CreateOrderByPersonal_Result
     {
+        public string paytype { get; set; }
         public string orderno { get; set; }
-        public string mchid { get; set; }
-        public string pfxfile { get; set; }
-        public string cerfile { get; set; }
-        public string pfxpassword { get; set; }
-        public Nullable<int> paytype { get; set; }
+        public string amount { get; set; }
+        public string remark { get; set; }
+        public string userid { get; set; }
+        public string name { get; set; }
+        public string qrcode { get; set; }
     }
 }

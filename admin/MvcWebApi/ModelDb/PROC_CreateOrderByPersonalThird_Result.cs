@@ -11,9 +11,14 @@ namespace ModelDb
 {
     using System;
     
-    public partial class f_order_update_Result
+    public partial class PROC_CreateOrderByPersonalThird_Result
     {
-        public int state { get; set; }
-        public string message { get; set; }
+        public string paytype { get; set; }
+        public string orderno { get; set; }
+        public string amount { get; set; }
+        public string remark { get; set; }
+        public string userid { get; set; }
+        public string name { get; set; }
+        public string qrcode { get; set; }
     }
 }

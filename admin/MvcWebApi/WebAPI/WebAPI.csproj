@@ -200,12 +200,14 @@
     <Compile Include="Controllers\Admin\BusinessPassController.cs" />
     <Compile Include="Controllers\Admin\GetBusidsController.cs" />
     <Compile Include="Controllers\Admin\GetPlatTradeController.cs" />
+    <Compile Include="Controllers\Admin\MeMemberController.cs" />
     <Compile Include="Controllers\Admin\MerchantbusinessController.cs" />
     <Compile Include="Controllers\Admin\MercommController.cs" />
     <Compile Include="Controllers\Admin\OpenPaymentController.cs" />
     <Compile Include="Controllers\Admin\MerchantBankCardController.cs" />
     <Compile Include="Controllers\Admin\MerchantController.cs" />
     <Compile Include="Controllers\Admin\AgentController.cs" />
+    <Compile Include="Controllers\Admin\OrderUpdateByAdminController.cs" />
     <Compile Include="Controllers\Admin\PayAccountOrderAmountController.cs" />
     <Compile Include="Controllers\Admin\PayPassListController.cs" />
     <Compile Include="Controllers\Admin\PlatbaseController.cs" />

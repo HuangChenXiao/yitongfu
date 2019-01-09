@@ -13,12 +13,9 @@ namespace ModelDb
     
     public partial class report_payaccountorderamount_Result
     {
-        public string alipayaccount { get; set; }
-        public Nullable<int> paycount { get; set; }
+        public string account { get; set; }
         public Nullable<decimal> amount { get; set; }
         public Nullable<decimal> servicecharge { get; set; }
         public Nullable<decimal> realamount { get; set; }
-        public Nullable<int> unpaycount { get; set; }
-        public Nullable<int> count { get; set; }
     }
 }

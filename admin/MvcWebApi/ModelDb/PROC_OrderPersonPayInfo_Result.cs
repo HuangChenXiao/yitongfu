@@ -11,9 +11,16 @@ namespace ModelDb
 {
     using System;
     
-    public partial class PROC_Createmercomm_Result
+    public partial class PROC_OrderPersonPayInfo_Result
     {
-        public int status { get; set; }
+        public int state { get; set; }
         public string message { get; set; }
+        public string amount { get; set; }
+        public string paytype { get; set; }
+        public string qrcode { get; set; }
+        public string time { get; set; }
+        public string name { get; set; }
+        public string userid { get; set; }
+        public string orderno { get; set; }
     }
 }

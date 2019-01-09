@@ -11,9 +11,9 @@ namespace ModelDb
 {
     using System;
     
-    public partial class proc_unionbusinessbalance_Result
+    public partial class PROC_OrderPersonalCallBack_Result
     {
-        public int status_code { get; set; }
+        public int status { get; set; }
         public string message { get; set; }
     }
 }

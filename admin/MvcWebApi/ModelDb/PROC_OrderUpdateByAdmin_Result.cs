@@ -11,7 +11,7 @@ namespace ModelDb
 {
     using System;
     
-    public partial class sh_auditbusinessrelayamount_Result
+    public partial class PROC_OrderUpdateByAdmin_Result
     {
         public int status_code { get; set; }
         public string message { get; set; }

@@ -92,13 +92,10 @@
     <Compile Include="fa_open_payment.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="f_order_query_Result.cs">
+    <Compile Include="me_member.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="f_order_update_Result.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="h_proccheckorder_Result.cs">
+    <Compile Include="me_member_view.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Model.Context.cs">
@@ -116,10 +113,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model.edmx</DependentUpon>
     </Compile>
+    <Compile Include="pay_task.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="po_abnormalorder.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="po_agentwithdraw.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="po_businessdateflow.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="po_despoit.cs">
@@ -152,7 +155,10 @@
     <Compile Include="PROC_CheckOrderStatus_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="PROC_Createmercomm_Result.cs">
+    <Compile Include="PROC_CreateOrderByPersonalThird_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PROC_CreateOrderByPersonal_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="PROC_CreateOrderByThird_Result.cs">
@@ -165,6 +171,9 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="PROC_CreateOrder_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PROC_CreateUserid_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="PROC_CustomerAddDespoitCheck_Result.cs">
@@ -206,22 +215,31 @@
     <Compile Include="PROC_GetUserinfo_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="PROC_OrderAddQrcode_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="PROC_OrderCallBack_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="PROC_OrderFinish_Result.cs">
+    <Compile Include="PROC_OrderPayInfo_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="PROC_OrderSHCallBack_Result.cs">
+    <Compile Include="PROC_OrderPersonalCallBack_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PROC_OrderPersonPayInfo_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PROC_OrderQueryQrcode_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PROC_OrderUpdateByAdmin_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="PROC_PayPassAdd_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="PROC_PayPassUpdate_Result.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="proc_unionbusinessbalance_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -232,21 +250,6 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="report_payaccountorderamount_Result.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="sh_auditbusinessrelayamount_Result.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="sh_businesscomm_add_Result.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="sh_businesscomm_audit_Result.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="sh_businessrelayamount_Result.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="sh_business_addbalance_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="sh_business_appinfo.cs">

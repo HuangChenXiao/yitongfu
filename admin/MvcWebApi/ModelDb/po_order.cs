@@ -22,6 +22,7 @@ namespace ModelDb
         public Nullable<int> businessid { get; set; }
         public string businessname { get; set; }
         public string orderno { get; set; }
+        public string thirdorderno { get; set; }
         public string payno { get; set; }
         public Nullable<decimal> amount { get; set; }
         public Nullable<decimal> platfee { get; set; }
@@ -50,5 +51,13 @@ namespace ModelDb
         public string alipayaccount { get; set; }
         public string checkstatus { get; set; }
         public string checkamount { get; set; }
+        public Nullable<bool> ispersonali { get; set; }
+        public Nullable<System.DateTime> creat_time { get; set; }
+        public Nullable<System.DateTime> end_time { get; set; }
+        public string qrcode { get; set; }
+        public string phone { get; set; }
+        public string userid { get; set; }
+        public Nullable<bool> isscan { get; set; }
+        public Nullable<System.DateTime> scantime { get; set; }
     }
 }

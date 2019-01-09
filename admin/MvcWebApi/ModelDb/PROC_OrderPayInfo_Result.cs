@@ -11,9 +11,16 @@ namespace ModelDb
 {
     using System;
     
-    public partial class sh_business_addbalance_Result
+    public partial class PROC_OrderPayInfo_Result
     {
-        public int status_code { get; set; }
+        public int statue { get; set; }
         public string message { get; set; }
+        public Nullable<decimal> amount { get; set; }
+        public string remark { get; set; }
+        public string fronturl { get; set; }
+        public string orderno { get; set; }
+        public string alipayappid { get; set; }
+        public string rsaprivate { get; set; }
+        public string rsapublic { get; set; }
     }
 }

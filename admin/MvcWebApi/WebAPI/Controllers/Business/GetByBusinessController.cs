@@ -20,7 +20,7 @@ namespace WebAPI.Controllers.Business
 {
     public class GetByBusinessController : ApiController
     {
-        private ytf_dbEntities db = new ytf_dbEntities();
+        private ytfEntities db = new ytfEntities();
 
         JsonModel model = new JsonModel();
         [WebApiActionDebugFilter]

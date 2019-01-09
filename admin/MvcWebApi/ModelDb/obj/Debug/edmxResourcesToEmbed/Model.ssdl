@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="ytf_dbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="ytfModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="aa_bank_code">
     <Key>
       <PropertyRef Name="id" />
@@ -56,6 +56,7 @@
     <Property Name="rsapublic" Type="nvarchar(max)" />
     <Property Name="useamount" Type="decimal" Precision="18" Scale="2" />
     <Property Name="dayamount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="reason" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="aa_business_type">
     <Key>
@@ -85,6 +86,13 @@
     <Property Name="addtime" Type="datetime" />
     <Property Name="adduser" Type="nvarchar" MaxLength="50" />
   </EntityType>
+  <!--生成过程中发现错误:
+警告 6013: 表/视图“ytf.dbo.fa_alipay_basic”未定义主键，并且无法推断有效的主键。已排除了此表/视图。若要使用实体，将需要检查您的架构、添加正确的键并取消对实体的注释。
+        <EntityType Name="fa_alipay_basic">
+          <Property Name="alipayid" Type="int" />
+          <Property Name="businessid" Type="int" />
+          <Property Name="isused" Type="bit" />
+        </EntityType>-->
   <EntityType Name="fa_business_bank_card">
     <Key>
       <PropertyRef Name="id" />
@@ -176,7 +184,7 @@
     <Property Name="unionratio" Type="decimal" Precision="18" Scale="2" />
     <Property Name="freezeamount" Type="decimal" Precision="18" Scale="2" />
     <Property Name="isfreeze" Type="bit" />
-    <Property Name="alipayaccount" Type="nvarchar" MaxLength="50" />
+    <Property Name="alipayaccount" Type="nvarchar" MaxLength="2000" />
   </EntityType>
   <EntityType Name="fa_business_merchant">
     <Key>
@@ -220,6 +228,48 @@
     <Property Name="updatetime" Type="datetime" />
     <Property Name="updateuser" Type="nvarchar" MaxLength="50" />
   </EntityType>
+  <EntityType Name="me_member">
+    <Key>
+      <PropertyRef Name="memberid" />
+    </Key>
+    <Property Name="memberid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="phone" Type="nvarchar" MaxLength="50" />
+    <Property Name="alipayname" Type="nvarchar" MaxLength="50" />
+    <Property Name="wechatname" Type="nvarchar" MaxLength="50" />
+    <Property Name="iswechat" Type="bit" />
+    <Property Name="isalipay" Type="bit" />
+    <Property Name="alipayamount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="alipayuseamount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="wechatamount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="wechatuseamount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="enable" Type="bit" />
+    <Property Name="businessid" Type="int" />
+    <Property Name="userid" Type="nvarchar" MaxLength="50" />
+    <Property Name="updatetime" Type="datetime" />
+    <Property Name="memo" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="pay_task">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="money" Type="int" />
+    <Property Name="url" Type="nvarchar" MaxLength="200" />
+    <Property Name="channel" Type="nvarchar" MaxLength="50" />
+    <Property Name="task_extra" Type="nvarchar" MaxLength="500" />
+    <Property Name="result_extra" Type="nvarchar" MaxLength="500" />
+    <Property Name="mark_sell" Type="nvarchar" MaxLength="100" />
+    <Property Name="mark_buy" Type="nvarchar" MaxLength="100" />
+    <Property Name="order_id" Type="nvarchar" MaxLength="50" />
+    <Property Name="status" Type="int" />
+    <Property Name="apply_time" Type="datetime" />
+    <Property Name="creat_time" Type="datetime" />
+    <Property Name="end_time" Type="datetime" />
+    <Property Name="apply_ip" Type="nvarchar" MaxLength="50" />
+    <Property Name="desp" Type="nvarchar" MaxLength="50" />
+    <Property Name="tx" Type="timestamp" StoreGeneratedPattern="Computed" />
+    <Property Name="phone" Type="nvarchar" MaxLength="50" />
+  </EntityType>
   <EntityType Name="po_abnormalorder">
     <Key>
       <PropertyRef Name="id" />
@@ -250,6 +300,28 @@
     <Property Name="adduser" Type="nvarchar" MaxLength="50" />
     <Property Name="updatetime" Type="datetime" />
     <Property Name="updateuser" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--生成过程中发现错误:
+警告 6013: 表/视图“ytf.dbo.po_alipayorderuserid”未定义主键，并且无法推断有效的主键。已排除了此表/视图。若要使用实体，将需要检查您的架构、添加正确的键并取消对实体的注释。
+        <EntityType Name="po_alipayorderuserid">
+          <Property Name="orderno" Type="nvarchar" MaxLength="50" />
+          <Property Name="amount" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="status" Type="int" />
+          <Property Name="addtime" Type="datetime" />
+          <Property Name="userid" Type="nvarchar" MaxLength="50" />
+          <Property Name="paytype" Type="int" />
+        </EntityType>-->
+  <EntityType Name="po_businessdateflow">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="businessid" Type="int" />
+    <Property Name="orderamount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="despoitamount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="ddate" Type="nvarchar" MaxLength="50" />
+    <Property Name="addtime" Type="datetime" />
+    <Property Name="daybalance" Type="decimal" Precision="18" Scale="2" />
   </EntityType>
   <EntityType Name="po_despoit">
     <Key>
@@ -294,6 +366,7 @@
     <Property Name="businessid" Type="int" />
     <Property Name="businessname" Type="nvarchar" MaxLength="50" />
     <Property Name="orderno" Type="nvarchar" MaxLength="50" />
+    <Property Name="thirdorderno" Type="nvarchar" MaxLength="50" />
     <Property Name="payno" Type="nvarchar" MaxLength="100" />
     <Property Name="amount" Type="decimal" Precision="18" Scale="2" />
     <Property Name="platfee" Type="decimal" Precision="18" Scale="2" />
@@ -322,6 +395,14 @@
     <Property Name="alipayaccount" Type="nvarchar" MaxLength="50" />
     <Property Name="checkstatus" Type="nvarchar" MaxLength="50" />
     <Property Name="checkamount" Type="nvarchar" MaxLength="50" />
+    <Property Name="ispersonali" Type="bit" />
+    <Property Name="creat_time" Type="datetime" />
+    <Property Name="end_time" Type="datetime" />
+    <Property Name="qrcode" Type="nvarchar" MaxLength="200" />
+    <Property Name="phone" Type="nvarchar" MaxLength="50" />
+    <Property Name="userid" Type="nvarchar" MaxLength="50" />
+    <Property Name="isscan" Type="bit" />
+    <Property Name="scantime" Type="datetime" />
   </EntityType>
   <EntityType Name="sh_business_appinfo">
     <Key>
@@ -634,6 +715,42 @@
     <Property Name="updatetime" Type="datetime" />
     <Property Name="updateuser" Type="nvarchar" MaxLength="50" />
   </EntityType>
+  <!--生成过程中发现错误:
+警告 6002: 表/视图“ytf.dbo.me_member_view”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+  <EntityType Name="me_member_view">
+    <Key>
+      <PropertyRef Name="memberid" />
+    </Key>
+    <Property Name="memberid" Type="int" Nullable="false" />
+    <Property Name="phone" Type="nvarchar" MaxLength="50" />
+    <Property Name="alipayname" Type="nvarchar" MaxLength="50" />
+    <Property Name="wechatname" Type="nvarchar" MaxLength="50" />
+    <Property Name="iswechat" Type="bit" />
+    <Property Name="isalipay" Type="bit" />
+    <Property Name="alipayamount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="alipayuseamount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="wechatamount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="wechatuseamount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="enable" Type="bit" />
+    <Property Name="businessid" Type="int" />
+    <Property Name="userid" Type="nvarchar" MaxLength="50" />
+    <Property Name="updatetime" Type="datetime" />
+    <Property Name="shortName" Type="nvarchar" MaxLength="300" />
+    <Property Name="bus_id" Type="int" />
+    <Property Name="agent_name" Type="nvarchar" MaxLength="20" />
+    <Property Name="agent_id" Type="int" />
+  </EntityType>
+  <Function Name="fn_alipaytime" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="fn_alipayurl" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="nvarchar">
+    <Parameter Name="userid" Type="nvarchar" Mode="In" />
+    <Parameter Name="amount" Type="nvarchar" Mode="In" />
+    <Parameter Name="mark" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="p_alipaydetail_add" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="businessid" Type="int" Mode="In" />
+    <Parameter Name="name" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="p_auto_closealipay" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="PROC_Agentaddwithdraw" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="agid" Type="int" Mode="In" />
     <Parameter Name="commission" Type="decimal" Mode="In" />
@@ -686,6 +803,22 @@
     <Parameter Name="businesspasstype" Type="int" Mode="In" />
     <Parameter Name="frontUrl" Type="nvarchar" Mode="In" />
   </Function>
+  <Function Name="PROC_CreateOrderByPersonal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="amount" Type="decimal" Mode="In" />
+    <Parameter Name="remark" Type="nvarchar" Mode="In" />
+    <Parameter Name="appid" Type="nvarchar" Mode="In" />
+    <Parameter Name="paytype" Type="int" Mode="In" />
+    <Parameter Name="frontUrl" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="PROC_CreateOrderByPersonalThird" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="orderno" Type="nvarchar" Mode="In" />
+    <Parameter Name="amount" Type="decimal" Mode="In" />
+    <Parameter Name="remark" Type="nvarchar" Mode="In" />
+    <Parameter Name="appid" Type="nvarchar" Mode="In" />
+    <Parameter Name="returnurl" Type="nvarchar" Mode="In" />
+    <Parameter Name="paytype" Type="int" Mode="In" />
+    <Parameter Name="frontUrl" Type="nvarchar" Mode="In" />
+  </Function>
   <Function Name="PROC_CreateOrderByThird" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="orderno" Type="nvarchar" Mode="In" />
     <Parameter Name="amount" Type="decimal" Mode="In" />
@@ -706,6 +839,10 @@
     <Parameter Name="amount" Type="decimal" Mode="In" />
     <Parameter Name="appid" Type="nvarchar" Mode="In" />
     <Parameter Name="paytype" Type="int" Mode="In" />
+  </Function>
+  <Function Name="PROC_CreateUserid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="phone" Type="nvarchar" Mode="In" />
+    <Parameter Name="userid" Type="nvarchar" Mode="In" />
   </Function>
   <Function Name="PROC_CustomerAddDespoit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="customerappid" Type="nvarchar" Mode="In" />
@@ -766,6 +903,11 @@
     <Parameter Name="reason" Type="nvarchar" Mode="In" />
   </Function>
   <Function Name="PROC_GetUserinfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="PROC_OrderAddQrcode" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="token" Type="nvarchar" Mode="In" />
+    <Parameter Name="url" Type="nvarchar" Mode="In" />
+    <Parameter Name="mark_sell" Type="nvarchar" Mode="In" />
+  </Function>
   <Function Name="PROC_OrderCallBack" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="orderno" Type="nvarchar" Mode="In" />
     <Parameter Name="payno" Type="nvarchar" Mode="In" />
@@ -782,10 +924,31 @@
     <Parameter Name="pagesize" Type="int" Mode="In" />
     <Parameter Name="businesspasstype" Type="int" Mode="In" />
     <Parameter Name="paytype" Type="int" Mode="In" />
+    <Parameter Name="time" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="PROC_OrderPayInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="orderno" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="PROC_OrderPersonalCallBack" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="token" Type="nvarchar" Mode="In" />
+    <Parameter Name="mark_sell" Type="nvarchar" Mode="In" />
+    <Parameter Name="order_id" Type="nvarchar" Mode="In" />
+    <Parameter Name="money" Type="decimal" Mode="In" />
+  </Function>
+  <Function Name="PROC_OrderPersonPayInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="orderno" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="PROC_OrderQueryQrcode" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="token" Type="nvarchar" Mode="In" />
   </Function>
   <Function Name="PROC_OrderSumList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="begindate" Type="nvarchar" Mode="In" />
     <Parameter Name="enddate" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="PROC_OrderUpdateByAdmin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="orderno" Type="nvarchar" Mode="In" />
+    <Parameter Name="panyno" Type="nvarchar" Mode="In" />
+    <Parameter Name="reason" Type="nvarchar" Mode="In" />
   </Function>
   <Function Name="PROC_PayPassAdd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="alipayappid" Type="nvarchar" Mode="In" />
@@ -853,13 +1016,21 @@
     <Parameter Name="enddate" Type="nvarchar" Mode="In" />
     <Parameter Name="keywork" Type="nvarchar" Mode="In" />
   </Function>
+  <Function Name="report_ordersuccessrate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="begindate" Type="nvarchar" Mode="In" />
+    <Parameter Name="enddate" Type="nvarchar" Mode="In" />
+    <Parameter Name="keyword" Type="nvarchar" Mode="In" />
+    <Parameter Name="page" Type="int" Mode="In" />
+    <Parameter Name="pagesize" Type="int" Mode="In" />
+    <Parameter Name="paytype" Type="int" Mode="In" />
+  </Function>
   <Function Name="report_payaccountorderamount" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="begindate" Type="nvarchar" Mode="In" />
     <Parameter Name="enddate" Type="nvarchar" Mode="In" />
     <Parameter Name="page" Type="int" Mode="In" />
     <Parameter Name="pagesize" Type="int" Mode="In" />
   </Function>
-  <EntityContainer Name="ytf_dbModelStoreContainer">
+  <EntityContainer Name="ytfModelStoreContainer">
     <EntitySet Name="aa_bank_code" EntityType="Self.aa_bank_code" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="aa_business_balance" EntityType="Self.aa_business_balance" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="aa_business_category" EntityType="Self.aa_business_category" Schema="dbo" store:Type="Tables" />
@@ -872,8 +1043,11 @@
     <EntitySet Name="fa_business_basic" EntityType="Self.fa_business_basic" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="fa_business_merchant" EntityType="Self.fa_business_merchant" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="fa_open_payment" EntityType="Self.fa_open_payment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="me_member" EntityType="Self.me_member" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="pay_task" EntityType="Self.pay_task" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="po_abnormalorder" EntityType="Self.po_abnormalorder" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="po_agentwithdraw" EntityType="Self.po_agentwithdraw" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="po_businessdateflow" EntityType="Self.po_businessdateflow" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="po_despoit" EntityType="Self.po_despoit" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="po_order" EntityType="Self.po_order" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sh_business_appinfo" EntityType="Self.sh_business_appinfo" Schema="dbo" store:Type="Tables" />
@@ -892,5 +1066,27 @@
     <EntitySet Name="sy_router" EntityType="Self.sy_router" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sy_routers" EntityType="Self.sy_routers" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sy_tariff_management" EntityType="Self.sy_tariff_management" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="me_member_view" EntityType="Self.me_member_view" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [me_member_view].[memberid] AS [memberid], 
+    [me_member_view].[phone] AS [phone], 
+    [me_member_view].[alipayname] AS [alipayname], 
+    [me_member_view].[wechatname] AS [wechatname], 
+    [me_member_view].[iswechat] AS [iswechat], 
+    [me_member_view].[isalipay] AS [isalipay], 
+    [me_member_view].[alipayamount] AS [alipayamount], 
+    [me_member_view].[alipayuseamount] AS [alipayuseamount], 
+    [me_member_view].[wechatamount] AS [wechatamount], 
+    [me_member_view].[wechatuseamount] AS [wechatuseamount], 
+    [me_member_view].[enable] AS [enable], 
+    [me_member_view].[businessid] AS [businessid], 
+    [me_member_view].[userid] AS [userid], 
+    [me_member_view].[updatetime] AS [updatetime], 
+    [me_member_view].[shortName] AS [shortName], 
+    [me_member_view].[bus_id] AS [bus_id], 
+    [me_member_view].[agent_name] AS [agent_name], 
+    [me_member_view].[agent_id] AS [agent_id]
+    FROM [dbo].[me_member_view] AS [me_member_view]</DefiningQuery>
+    </EntitySet>
   </EntityContainer>
 </Schema>
