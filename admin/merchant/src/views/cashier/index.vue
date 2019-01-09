@@ -44,7 +44,7 @@
       <el-form-item prop="amount" required label="充值金额：">
         <el-input v-model="ruleForm.amount" auto-complete="off" placeholder="请输入收款金额" type="number"></el-input>
       </el-form-item>
-      <el-form-item prop="remark" required label="输入会员：">
+      <el-form-item prop="remark" required label="输入备注：">
         <el-input v-model="ruleForm.remark" auto-complete="off" placeholder="备注" type="text"></el-input>
       </el-form-item>
       <!-- <el-form-item label="类型">
@@ -57,7 +57,7 @@
       <el-form-item label="支付类型">
         <el-radio-group v-model="ruleForm.paytype">
           <el-radio :label="2">支付宝</el-radio>
-          <el-radio :label="1">微信</el-radio>
+          <el-radio :label="1" disabled>微信</el-radio>
         </el-radio-group>
       </el-form-item>
       <el-form-item>
@@ -84,26 +84,6 @@
       <el-table-column label="订单状态" align="center">
         <template scope="scope">
           <el-tag :type="scope.row.status==1?'success':''">{{scope.row.status| statusFilter}}</el-tag>
-        </template>
-      </el-table-column>
-      <el-table-column label="代理商" align="center">
-        <template scope="scope">
-          {{scope.row.agname}}
-        </template>
-      </el-table-column>
-      <!-- <el-table-column label="虚拟商户" align="center">
-        <template scope="scope">
-          {{scope.row.merchantname}}
-        </template>
-      </el-table-column> -->
-      <el-table-column label="商户名称" align="center">
-        <template scope="scope">
-          {{scope.row.shortname}}
-        </template>
-      </el-table-column>
-      <el-table-column label="付款类型" align="center">
-        <template scope="scope">
-          <el-tag type="success">{{scope.row.paytype| orderTypeFilter}}</el-tag>
         </template>
       </el-table-column>
       <el-table-column label="备注" align="center">

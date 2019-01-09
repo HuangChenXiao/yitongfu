@@ -6,5 +6,5 @@ module.exports = merge(prodEnv, {
     BASE_API: '"http://localhost:59358/api/"',
     // BASE_API: '"http://admin.az818.com/Api/api/"',
     // JAVA_API: '"http://192.168.0.9:8080/"',
-    JAVA_API: '"http://payapi.az818.com/"',
+    JAVA_API: '"http://pay.az818.com/"',
 })

@@ -12,7 +12,7 @@
       -
       <el-date-picker v-model="listQuery.enddate" type="date" placeholder="结束日期">
       </el-date-picker>
-      <el-select class="filter-item" style="width: 130px" v-model="listQuery.paytype" placeholder="支付类型">
+      <!-- <el-select class="filter-item" style="width: 130px" v-model="listQuery.paytype" placeholder="支付类型">
         <el-option key="0" label="全部" value="0">
         </el-option>
         <el-option key="1" label="微信" value="1">
@@ -23,7 +23,7 @@
         </el-option>
         <el-option key="4" label="银联二维码" value="4">
         </el-option>
-      </el-select>
+      </el-select> -->
       <el-button class="filter-item" type="primary" icon="search" @click="handleFilter">搜索</el-button>
       <el-button class="filter-item" type="primary" @click="handleExcel">导出</el-button>
 
@@ -74,11 +74,6 @@
       <el-table-column label="商户名称" align="center">
         <template scope="scope">
           {{scope.row.shortname}}
-        </template>
-      </el-table-column>
-      <el-table-column label="付款类型" align="center">
-        <template scope="scope">
-          <el-tag type="success">{{scope.row.paytype| orderTypeFilter}}</el-tag>
         </template>
       </el-table-column>
       <el-table-column label="备注" align="center">
