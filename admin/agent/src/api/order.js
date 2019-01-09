@@ -30,3 +30,10 @@ export function BusinessPass(method, data) {
       params: data
   })
 }
+export function OrderUpdateByAdmin(method, data) {
+  return fetch({
+      url: 'OrderUpdateByAdmin',
+      method: method,
+      params: data
+  })
+}

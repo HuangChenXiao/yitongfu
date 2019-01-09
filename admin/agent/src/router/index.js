@@ -85,6 +85,7 @@ export const asyncRouterMap = [
       { path: 'business_basic', name: '商户列表', component: _import('merchant/business_basic'), meta: { role: ['admin'] } },
       { path: 'merchant_bank_card', name: '银行卡录入', component: _import('merchant/merchant_bank_card'), meta: { role: ['admin'] } },
       { path: 'business_balance', name: '商户余额', component: _import('merchant/business_balance'), meta: { role: ['admin'] } },
+      { path: 'alipay_member', name: '个人码列表', component: _import('alipay/member'), meta: { role: ['admin'] } },
       // { path: 'open_payment', name: '费率修改', component: _import('merchant/open_payment'), meta: { role: ['admin'] } },
     ]
   },
