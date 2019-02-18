@@ -1,9 +1,9 @@
 <template>
   <div class="gathering-content">
     <div class="gathering-item title">收银台
-      <a href="javascript:;" style="color:green" @click="getLink()">
+      <!-- <a href="javascript:;" style="color:green" @click="getLink()">
         <i class="el-icon-success"></i>手机端：</a>
-      <a :href="str_external" style="color:green" target="_blank"><span v-if="str_external">点击前往</span></a>
+      <a :href="str_external" style="color:green" target="_blank"><span v-if="str_external">点击前往</span></a> -->
       <!-- <div class="alipay-msg">
         温馨提示：★付款时请输入18位付款码
       </div> -->
@@ -301,21 +301,21 @@ export default {
             str_data.appid = this.appid
             str_data.remark = this.ruleForm.remark
             str_data.paytype = this.ruleForm.paytype
-            this.initQCode =
-              this.java_baseurl +
-              'yt_pay/pay/createorder.do?' +
-              this.cfg.parseParams(str_data)
-            // createorder('post', str_data).then(res => {
-            //   if (res.data.statue == 1) {
-            //     this.initQCode = res.data.payUrl
-            //   } else {
-            //     this.$message({
-            //       message: res.data.message,
-            //       type: 'warning'
-            //     })
-            //     return
-            //   }
-            // })
+            // this.initQCode =
+            //   this.java_baseurl +
+            //   'yt_pay/pay/createorder.do?' +
+            //   this.cfg.parseParams(str_data)
+            createorder('post', str_data).then(res => {
+              if (res.data.state == 1) {
+                this.initQCode = res.data.payUrl
+              } else {
+                this.$message({
+                  message: res.data.message,
+                  type: 'warning'
+                })
+                return
+              }
+            })
           }
         } else {
           console.log('error submit!!')
