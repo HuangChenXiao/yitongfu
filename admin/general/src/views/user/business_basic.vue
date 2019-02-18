@@ -227,7 +227,7 @@
             </el-form-item>
           </el-form>
         </el-tab-pane>
-        <el-tab-pane label="支付宝账号配置" name="2">
+        <!-- <el-tab-pane label="支付宝账号配置" name="2">
           <table class="gridtable">
             <tr>
               <th>
@@ -245,7 +245,7 @@
             </tr>
            
           </table>
-        </el-tab-pane>
+        </el-tab-pane> -->
       </el-tabs>
 
       <div slot="footer" class="dialog-footer">
@@ -592,10 +592,10 @@ export default {
       row.merchantid = row.merchantid.toString()
       row.agentid = parseInt(row.agentid)
       this.ruleForm = Object.assign({}, row)
-      if (typeof this.ruleForm.alipayaccount == 'string') {
-        this.ruleForm.alipayaccount = this.ruleForm.alipayaccount.split(',')
-      }
-      this.set_aliaccount()
+      // if (typeof this.ruleForm.alipayaccount == 'string') {
+      //   this.ruleForm.alipayaccount = this.ruleForm.alipayaccount.split(',')
+      // }
+      // this.set_aliaccount()
       this.dialogStatus = 'update'
       this.dialogFormVisible = true
     },
@@ -678,6 +678,8 @@ export default {
       })
     },
     get_alipayaccount() {
+      this.ruleForm.alipayaccount=null;
+      return true;
       var str_id = []
       for (var i = 0; i < this.pay_passlist.length; i++) {
         if (this.pay_passlist[i].ischeck) {

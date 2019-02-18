@@ -17,7 +17,7 @@
           {{scope.$index+1}}
         </template>
       </el-table-column>
-      <el-table-column label="支付宝账号"  align="center">
+      <el-table-column label="APP登录账号"  align="center">
         <template scope="scope">
           <span class="link-type" @click="handleUpdate(scope.row)">{{scope.row.phone}}</span>
         </template>
@@ -41,6 +41,11 @@
         <el-table-column align="center" label="名称" width="100">
             <template scope="scope">
             <span>{{scope.row.alipayname}}</span>
+            </template>
+        </el-table-column>
+        <el-table-column align="center" label="账号" width="150">
+            <template scope="scope">
+            <span>{{scope.row.alipayaccount}}</span>
             </template>
         </el-table-column>
         <el-table-column align="center" label="是否开通" width="100">
@@ -102,7 +107,7 @@
     </div>
 
     <el-dialog :title="textMap[dialogStatus]" :visible.sync="dialogFormVisible">
-      <el-form class="small-space" :model="ruleForm" :rules="rules" ref="ruleForm"  label-position="right" label-width="100px" style='margin:0 50px;'>
+      <el-form class="small-space" :model="ruleForm" :rules="rules" ref="ruleForm"  label-position="right" label-width="160px" style='margin:0 50px;'>
         <el-form-item label="商户名称">
           <el-select v-model="ruleForm.businessid" filterable placeholder="请选择商户名称"  style="width:100%">
           <el-option
@@ -113,15 +118,21 @@
           </el-option>
         </el-select>
         </el-form-item>
-        <el-form-item label="支付宝账号" prop="phone">
+        <el-form-item label="APP登录账号" prop="phone">
           <el-input v-model="ruleForm.phone"></el-input>
         </el-form-item>
-        <!-- <el-form-item label="用户ID" prop="userid">
-          <el-input v-model="ruleForm.userid" :disabled="dialogStatus=='update'"></el-input>
-        </el-form-item> -->
         <el-form-item label="支付宝名称" prop="alipayname">
           <el-input v-model="ruleForm.alipayname"></el-input>
         </el-form-item>
+        <el-form-item label="支付宝账号" prop="alipayaccount">
+          <el-input v-model="ruleForm.alipayaccount"></el-input>
+        </el-form-item>
+        <el-form-item label="支付宝ID" prop="userid">
+          <el-input v-model="ruleForm.userid" v-show="dialogStatus=='update'"></el-input>
+        </el-form-item>
+        <!-- <el-form-item label="支付宝名称" prop="alipayname">
+          <el-input v-model="ruleForm.alipayname"></el-input>
+        </el-form-item> -->
         <!-- <el-form-item label="微信名称" prop="wechatname">
           <el-input v-model="ruleForm.wechatname"></el-input>
         </el-form-item>
@@ -199,11 +210,11 @@ export default {
       dialogPvVisible: false,
       pvData: [],
       rules: {
-        phone: [{ required: true, message: '请输入支付宝账号', trigger: 'blur' }],
+        phone: [{ required: true, message: '请输入账号', trigger: 'blur' }],
         alipayname: [{ required: true, message: '请输入支付宝名称', trigger: 'blur' }],
+        alipayaccount: [{ required: true, message: '请输入支付宝账号', trigger: 'blur' }],
         wechatname: [{ required: true, message: '请输入微信名称', trigger: 'blur' }],
         businessid: [{ required: true, message: '请输入商户名称', trigger: 'blur' }],
-        userid: [{ required: true, message: '请输入用户ID', trigger: 'blur' }],
         alipayamount: [{ validator: chk_number, trigger: 'blur' }],
         wechatamount: [{ validator: chk_number, trigger: 'blur' }],
         businessid: [{ validator: chk_index, trigger: 'change' }]
@@ -252,6 +263,7 @@ export default {
         memberid: null,
         phone: null,
         alipayname: null,
+        alipayaccount:null,
         wechatname: null,
         iswechat: true,
         isalipay: true,
@@ -262,6 +274,7 @@ export default {
         enable: true,
         businessid: null,
         userid: null,
+        
       };
     },
     fetchData() {

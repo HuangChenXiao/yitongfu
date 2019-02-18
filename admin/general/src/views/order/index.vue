@@ -112,7 +112,7 @@
           </el-table-column>
           <el-table-column label="操作" width="80" fixed="right">
             <template scope="scope">
-              <!-- <el-button @click.prevent="handleBuFa(scope.row)" :disabled="scope.row.status!=1" type="text" size="small">补发通知</el-button> -->
+              <el-button @click.prevent="handleBuFa(scope.row)" :disabled="scope.row.status!=1" type="text" size="small">回调通知</el-button>
               <el-button @click.prevent="handleUpdate(scope.row)" :disabled="scope.row.status!=0" type="text" size="small">编辑</el-button>
             </template>
           </el-table-column>
@@ -144,7 +144,7 @@
 </template>
 
 <script>
-import { getList, OrderExport,OrderUpdateByAdmin } from '@/api/order'
+import { getList, OrderExport,OrderUpdateByAdmin ,GetNotifyadminInfo} from '@/api/order'
 import { getToken, setToken, removeToken } from '@/utils/auth'
 import { BusinessPass } from '@/api/user.js'
 
@@ -282,17 +282,17 @@ export default {
       this.multipleSelection = val
     },
     handleBuFa(row) {
-      this.$confirm('此操作补发通知, 是否继续?', '提示', {
+      this.$confirm('此操作回调通知, 是否继续?', '提示', {
         confirmButtonText: '确定',
         cancelButtonText: '取消',
         type: 'warning'
       }).then(() => {
         this.ruleForm = Object.assign({}, row)
-        operationReissue('post', { data: this.ruleForm }).then(response => {
+        GetNotifyadminInfo('get', { orderno: this.ruleForm.orderno }).then(response => {
           this.fetchData()
           this.$notify({
             title: '成功',
-            message: '补发成功',
+            message: '回调成功',
             type: 'success',
             duration: 2000
           })

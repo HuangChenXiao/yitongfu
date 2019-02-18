@@ -60,3 +60,11 @@ export function OrderUpdateByAdmin(method, data) {
       params: data
   })
 }
+
+export function GetNotifyadminInfo(method, data) {
+  return fetch({
+      url: 'GetNotifyadminInfo',
+      method: method,
+      params: data
+  })
+}
