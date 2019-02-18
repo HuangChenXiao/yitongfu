@@ -32,5 +32,6 @@ namespace ModelDb
         public Nullable<int> bus_id { get; set; }
         public string agent_name { get; set; }
         public Nullable<int> agent_id { get; set; }
+        public string alipayaccount { get; set; }
     }
 }

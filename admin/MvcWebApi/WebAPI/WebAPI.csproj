@@ -230,6 +230,7 @@
     <Compile Include="Controllers\Agent\ByGetNotOpenPaymentController.cs" />
     <Compile Include="Controllers\BusinessCheckBalanceController.cs" />
     <Compile Include="Controllers\BusinessCodingController.cs" />
+    <Compile Include="Controllers\GetNotifyadminInfoController.cs" />
     <Compile Include="Controllers\LifeCircle\AuditBusinessrelayAmountController.cs" />
     <Compile Include="Controllers\LifeCircle\BusinessCommListController.cs" />
     <Compile Include="Controllers\Business\GetByBusinessController.cs" />

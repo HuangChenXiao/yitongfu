@@ -17,6 +17,7 @@ namespace ModelDb
         public int memberid { get; set; }
         public string phone { get; set; }
         public string alipayname { get; set; }
+        public string alipayaccount { get; set; }
         public string wechatname { get; set; }
         public Nullable<bool> iswechat { get; set; }
         public Nullable<bool> isalipay { get; set; }

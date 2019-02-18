@@ -1050,5 +1050,39 @@ namespace ModelDb
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<report_payaccountorderamount_Result>("report_payaccountorderamount", begindateParameter, enddateParameter, pageParameter, pagesizeParameter);
         }
+    
+        public virtual ObjectResult<PROC_OrderAlipayRedlCallBack_Result> PROC_OrderAlipayRedlCallBack(string token, string userid, string mark_sell, string order_id, Nullable<decimal> money)
+        {
+            var tokenParameter = token != null ?
+                new ObjectParameter("token", token) :
+                new ObjectParameter("token", typeof(string));
+    
+            var useridParameter = userid != null ?
+                new ObjectParameter("userid", userid) :
+                new ObjectParameter("userid", typeof(string));
+    
+            var mark_sellParameter = mark_sell != null ?
+                new ObjectParameter("mark_sell", mark_sell) :
+                new ObjectParameter("mark_sell", typeof(string));
+    
+            var order_idParameter = order_id != null ?
+                new ObjectParameter("order_id", order_id) :
+                new ObjectParameter("order_id", typeof(string));
+    
+            var moneyParameter = money.HasValue ?
+                new ObjectParameter("money", money) :
+                new ObjectParameter("money", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PROC_OrderAlipayRedlCallBack_Result>("PROC_OrderAlipayRedlCallBack", tokenParameter, useridParameter, mark_sellParameter, order_idParameter, moneyParameter);
+        }
+    
+        public virtual ObjectResult<PROC_OrderAlipayRedPayInfo_Result> PROC_OrderAlipayRedPayInfo(string orderno)
+        {
+            var ordernoParameter = orderno != null ?
+                new ObjectParameter("orderno", orderno) :
+                new ObjectParameter("orderno", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PROC_OrderAlipayRedPayInfo_Result>("PROC_OrderAlipayRedPayInfo", ordernoParameter);
+        }
     }
 }

@@ -1,739 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="ytfModelStoreContainer" CdmEntityContainer="ytfEntities">
-    <EntitySetMapping Name="aa_bank_code">
-      <EntityTypeMapping TypeName="ytfModel.aa_bank_code">
-        <MappingFragment StoreEntitySet="aa_bank_code">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="code" ColumnName="code" />
-          <ScalarProperty Name="explain" ColumnName="explain" />
-          <ScalarProperty Name="eightcode" ColumnName="eightcode" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="aa_business_balance">
-      <EntityTypeMapping TypeName="ytfModel.aa_business_balance">
-        <MappingFragment StoreEntitySet="aa_business_balance">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="businessid" ColumnName="businessid" />
-          <ScalarProperty Name="businesspasstype" ColumnName="businesspasstype" />
-          <ScalarProperty Name="wechatbalance" ColumnName="wechatbalance" />
-          <ScalarProperty Name="alipaybalance" ColumnName="alipaybalance" />
-          <ScalarProperty Name="unionpaybalance" ColumnName="unionpaybalance" />
-          <ScalarProperty Name="totalbalance" ColumnName="totalbalance" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="aa_business_category">
-      <EntityTypeMapping TypeName="ytfModel.aa_business_category">
-        <MappingFragment StoreEntitySet="aa_business_category">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="code" ColumnName="code" />
-          <ScalarProperty Name="explain" ColumnName="explain" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="aa_business_coding">
-      <EntityTypeMapping TypeName="ytfModel.aa_business_coding">
-        <MappingFragment StoreEntitySet="aa_business_coding">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="code" ColumnName="code" />
-          <ScalarProperty Name="explain" ColumnName="explain" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="aa_business_pass">
-      <EntityTypeMapping TypeName="ytfModel.aa_business_pass">
-        <MappingFragment StoreEntitySet="aa_business_pass">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="mchid" ColumnName="mchid" />
-          <ScalarProperty Name="mchkey" ColumnName="mchkey" />
-          <ScalarProperty Name="agentno" ColumnName="agentno" />
-          <ScalarProperty Name="type" ColumnName="type" />
-          <ScalarProperty Name="memo" ColumnName="memo" />
-          <ScalarProperty Name="enable" ColumnName="enable" />
-          <ScalarProperty Name="pfxfile" ColumnName="pfxfile" />
-          <ScalarProperty Name="pfxpassword" ColumnName="pfxpassword" />
-          <ScalarProperty Name="cerfile" ColumnName="cerfile" />
-          <ScalarProperty Name="alipayappid" ColumnName="alipayappid" />
-          <ScalarProperty Name="rsaprivate" ColumnName="rsaprivate" />
-          <ScalarProperty Name="rsapublic" ColumnName="rsapublic" />
-          <ScalarProperty Name="useamount" ColumnName="useamount" />
-          <ScalarProperty Name="dayamount" ColumnName="dayamount" />
-          <ScalarProperty Name="reason" ColumnName="reason" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="aa_business_type">
-      <EntityTypeMapping TypeName="ytfModel.aa_business_type">
-        <MappingFragment StoreEntitySet="aa_business_type">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="code" ColumnName="code" />
-          <ScalarProperty Name="name" ColumnName="name" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="aa_merchant_city">
-      <EntityTypeMapping TypeName="ytfModel.aa_merchant_city">
-        <MappingFragment StoreEntitySet="aa_merchant_city">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="code" ColumnName="code" />
-          <ScalarProperty Name="name" ColumnName="name" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="aa_platbase">
-      <EntityTypeMapping TypeName="ytfModel.aa_platbase">
-        <MappingFragment StoreEntitySet="aa_platbase">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="platrate" ColumnName="platrate" />
-          <ScalarProperty Name="floatinrate" ColumnName="floatinrate" />
-          <ScalarProperty Name="updatetime" ColumnName="updatetime" />
-          <ScalarProperty Name="updateuser" ColumnName="updateuser" />
-          <ScalarProperty Name="addtime" ColumnName="addtime" />
-          <ScalarProperty Name="adduser" ColumnName="adduser" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="fa_business_bank_card">
-      <EntityTypeMapping TypeName="ytfModel.fa_business_bank_card">
-        <MappingFragment StoreEntitySet="fa_business_bank_card">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="businessid" ColumnName="businessid" />
-          <ScalarProperty Name="mobileNo" ColumnName="mobileNo" />
-          <ScalarProperty Name="bankName" ColumnName="bankName" />
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="bankaccountNo" ColumnName="bankaccountNo" />
-          <ScalarProperty Name="certCode" ColumnName="certCode" />
-          <ScalarProperty Name="certNo" ColumnName="certNo" />
-          <ScalarProperty Name="defaultAcc" ColumnName="defaultAcc" />
-          <ScalarProperty Name="isaudit" ColumnName="isaudit" />
-          <ScalarProperty Name="province" ColumnName="province" />
-          <ScalarProperty Name="city" ColumnName="city" />
-          <ScalarProperty Name="bankaddress" ColumnName="bankaddress" />
-          <ScalarProperty Name="addtime" ColumnName="addtime" />
-          <ScalarProperty Name="adduser" ColumnName="adduser" />
-          <ScalarProperty Name="updatetime" ColumnName="updatetime" />
-          <ScalarProperty Name="updateuser" ColumnName="updateuser" />
-          <ScalarProperty Name="bankCode" ColumnName="bankCode" />
-          <ScalarProperty Name="bankEightCode" ColumnName="bankEightCode" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="fa_business_basic">
-      <EntityTypeMapping TypeName="ytfModel.fa_business_basic">
-        <MappingFragment StoreEntitySet="fa_business_basic">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="code" ColumnName="code" />
-          <ScalarProperty Name="password" ColumnName="password" />
-          <ScalarProperty Name="merchantid" ColumnName="merchantid" />
-          <ScalarProperty Name="merchantName" ColumnName="merchantName" />
-          <ScalarProperty Name="shortName" ColumnName="shortName" />
-          <ScalarProperty Name="handleType" ColumnName="handleType" />
-          <ScalarProperty Name="city" ColumnName="city" />
-          <ScalarProperty Name="merchantAddress" ColumnName="merchantAddress" />
-          <ScalarProperty Name="servicePhone" ColumnName="servicePhone" />
-          <ScalarProperty Name="orgCode" ColumnName="orgCode" />
-          <ScalarProperty Name="merchantType" ColumnName="merchantType" />
-          <ScalarProperty Name="category" ColumnName="category" />
-          <ScalarProperty Name="corpmanName" ColumnName="corpmanName" />
-          <ScalarProperty Name="corpmanId" ColumnName="corpmanId" />
-          <ScalarProperty Name="corpmanPhone" ColumnName="corpmanPhone" />
-          <ScalarProperty Name="corpmanMobile" ColumnName="corpmanMobile" />
-          <ScalarProperty Name="corpmanEmail" ColumnName="corpmanEmail" />
-          <ScalarProperty Name="bankCode" ColumnName="bankCode" />
-          <ScalarProperty Name="bankName" ColumnName="bankName" />
-          <ScalarProperty Name="bankaccountNo" ColumnName="bankaccountNo" />
-          <ScalarProperty Name="bankaccountName" ColumnName="bankaccountName" />
-          <ScalarProperty Name="autoCus" ColumnName="autoCus" />
-          <ScalarProperty Name="remark" ColumnName="remark" />
-          <ScalarProperty Name="licenseNo" ColumnName="licenseNo" />
-          <ScalarProperty Name="taxRegisterNo" ColumnName="taxRegisterNo" />
-          <ScalarProperty Name="agentid" ColumnName="agentid" />
-          <ScalarProperty Name="appId" ColumnName="appId" />
-          <ScalarProperty Name="appSecret" ColumnName="appSecret" />
-          <ScalarProperty Name="balance" ColumnName="balance" />
-          <ScalarProperty Name="alipaybalance" ColumnName="alipaybalance" />
-          <ScalarProperty Name="wechatbalance" ColumnName="wechatbalance" />
-          <ScalarProperty Name="status" ColumnName="status" />
-          <ScalarProperty Name="isaudit" ColumnName="isaudit" />
-          <ScalarProperty Name="addtime" ColumnName="addtime" />
-          <ScalarProperty Name="adduser" ColumnName="adduser" />
-          <ScalarProperty Name="updatetime" ColumnName="updatetime" />
-          <ScalarProperty Name="updateuser" ColumnName="updateuser" />
-          <ScalarProperty Name="addrType" ColumnName="addrType" />
-          <ScalarProperty Name="contactType" ColumnName="contactType" />
-          <ScalarProperty Name="mcc" ColumnName="mcc" />
-          <ScalarProperty Name="licenseType" ColumnName="licenseType" />
-          <ScalarProperty Name="contactMan" ColumnName="contactMan" />
-          <ScalarProperty Name="telNo" ColumnName="telNo" />
-          <ScalarProperty Name="mobilePhone" ColumnName="mobilePhone" />
-          <ScalarProperty Name="email" ColumnName="email" />
-          <ScalarProperty Name="licenseBeginDate" ColumnName="licenseBeginDate" />
-          <ScalarProperty Name="licenseEndDate" ColumnName="licenseEndDate" />
-          <ScalarProperty Name="licenseRange" ColumnName="licenseRange" />
-          <ScalarProperty Name="keyaddtime" ColumnName="keyaddtime" />
-          <ScalarProperty Name="merchant_num" ColumnName="merchant_num" />
-          <ScalarProperty Name="ratio" ColumnName="ratio" />
-          <ScalarProperty Name="minAmount" ColumnName="minAmount" />
-          <ScalarProperty Name="maxAmount" ColumnName="maxAmount" />
-          <ScalarProperty Name="disabletime" ColumnName="disabletime" />
-          <ScalarProperty Name="enabletime" ColumnName="enabletime" />
-          <ScalarProperty Name="depositratio" ColumnName="depositratio" />
-          <ScalarProperty Name="businesspasstype" ColumnName="businesspasstype" />
-          <ScalarProperty Name="wechatratio" ColumnName="wechatratio" />
-          <ScalarProperty Name="alipayratio" ColumnName="alipayratio" />
-          <ScalarProperty Name="unionratio" ColumnName="unionratio" />
-          <ScalarProperty Name="freezeamount" ColumnName="freezeamount" />
-          <ScalarProperty Name="isfreeze" ColumnName="isfreeze" />
-          <ScalarProperty Name="alipayaccount" ColumnName="alipayaccount" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="fa_business_merchant">
-      <EntityTypeMapping TypeName="ytfModel.fa_business_merchant">
-        <MappingFragment StoreEntitySet="fa_business_merchant">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="businessid" ColumnName="businessid" />
-          <ScalarProperty Name="merchantid" ColumnName="merchantid" />
-          <ScalarProperty Name="status" ColumnName="status" />
-          <ScalarProperty Name="addtime" ColumnName="addtime" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="fa_open_payment">
-      <EntityTypeMapping TypeName="ytfModel.fa_open_payment">
-        <MappingFragment StoreEntitySet="fa_open_payment">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="merchantId" ColumnName="merchantId" />
-          <ScalarProperty Name="handleType" ColumnName="handleType" />
-          <ScalarProperty Name="cycleValue" ColumnName="cycleValue" />
-          <ScalarProperty Name="busiCode" ColumnName="busiCode" />
-          <ScalarProperty Name="futureRateType" ColumnName="futureRateType" />
-          <ScalarProperty Name="futureRateValue" ColumnName="futureRateValue" />
-          <ScalarProperty Name="futureMinAmount" ColumnName="futureMinAmount" />
-          <ScalarProperty Name="futureMaxAmount" ColumnName="futureMaxAmount" />
-          <ScalarProperty Name="agencyId" ColumnName="agencyId" />
-          <ScalarProperty Name="wechat_status" ColumnName="wechat_status" />
-          <ScalarProperty Name="wechat_rate" ColumnName="wechat_rate" />
-          <ScalarProperty Name="alipay_status" ColumnName="alipay_status" />
-          <ScalarProperty Name="alipay_rate" ColumnName="alipay_rate" />
-          <ScalarProperty Name="daipay_status" ColumnName="daipay_status" />
-          <ScalarProperty Name="daipay_rate" ColumnName="daipay_rate" />
-          <ScalarProperty Name="qqpay_status" ColumnName="qqpay_status" />
-          <ScalarProperty Name="qqpay_rate" ColumnName="qqpay_rate" />
-          <ScalarProperty Name="jdpay_status" ColumnName="jdpay_status" />
-          <ScalarProperty Name="jdpay_rate" ColumnName="jdpay_rate" />
-          <ScalarProperty Name="unionpay_status" ColumnName="unionpay_status" />
-          <ScalarProperty Name="unionpay_rate" ColumnName="unionpay_rate" />
-          <ScalarProperty Name="isaudit" ColumnName="isaudit" />
-          <ScalarProperty Name="addtime" ColumnName="addtime" />
-          <ScalarProperty Name="adduser" ColumnName="adduser" />
-          <ScalarProperty Name="updatetime" ColumnName="updatetime" />
-          <ScalarProperty Name="updateuser" ColumnName="updateuser" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="me_member">
-      <EntityTypeMapping TypeName="ytfModel.me_member">
-        <MappingFragment StoreEntitySet="me_member">
-          <ScalarProperty Name="memberid" ColumnName="memberid" />
-          <ScalarProperty Name="phone" ColumnName="phone" />
-          <ScalarProperty Name="alipayname" ColumnName="alipayname" />
-          <ScalarProperty Name="wechatname" ColumnName="wechatname" />
-          <ScalarProperty Name="iswechat" ColumnName="iswechat" />
-          <ScalarProperty Name="isalipay" ColumnName="isalipay" />
-          <ScalarProperty Name="alipayamount" ColumnName="alipayamount" />
-          <ScalarProperty Name="alipayuseamount" ColumnName="alipayuseamount" />
-          <ScalarProperty Name="wechatamount" ColumnName="wechatamount" />
-          <ScalarProperty Name="wechatuseamount" ColumnName="wechatuseamount" />
-          <ScalarProperty Name="enable" ColumnName="enable" />
-          <ScalarProperty Name="businessid" ColumnName="businessid" />
-          <ScalarProperty Name="userid" ColumnName="userid" />
-          <ScalarProperty Name="updatetime" ColumnName="updatetime" />
-          <ScalarProperty Name="memo" ColumnName="memo" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="pay_task">
-      <EntityTypeMapping TypeName="ytfModel.pay_task">
-        <MappingFragment StoreEntitySet="pay_task">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="money" ColumnName="money" />
-          <ScalarProperty Name="url" ColumnName="url" />
-          <ScalarProperty Name="channel" ColumnName="channel" />
-          <ScalarProperty Name="task_extra" ColumnName="task_extra" />
-          <ScalarProperty Name="result_extra" ColumnName="result_extra" />
-          <ScalarProperty Name="mark_sell" ColumnName="mark_sell" />
-          <ScalarProperty Name="mark_buy" ColumnName="mark_buy" />
-          <ScalarProperty Name="order_id" ColumnName="order_id" />
-          <ScalarProperty Name="status" ColumnName="status" />
-          <ScalarProperty Name="apply_time" ColumnName="apply_time" />
-          <ScalarProperty Name="creat_time" ColumnName="creat_time" />
-          <ScalarProperty Name="end_time" ColumnName="end_time" />
-          <ScalarProperty Name="apply_ip" ColumnName="apply_ip" />
-          <ScalarProperty Name="desp" ColumnName="desp" />
-          <ScalarProperty Name="tx" ColumnName="tx" />
-          <ScalarProperty Name="phone" ColumnName="phone" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="po_abnormalorder">
-      <EntityTypeMapping TypeName="ytfModel.po_abnormalorder">
-        <MappingFragment StoreEntitySet="po_abnormalorder">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="orderno" ColumnName="orderno" />
-          <ScalarProperty Name="amount" ColumnName="amount" />
-          <ScalarProperty Name="appid" ColumnName="appid" />
-          <ScalarProperty Name="businessid" ColumnName="businessid" />
-          <ScalarProperty Name="account" ColumnName="account" />
-          <ScalarProperty Name="remark" ColumnName="remark" />
-          <ScalarProperty Name="paytype" ColumnName="paytype" />
-          <ScalarProperty Name="tradetime" ColumnName="tradetime" />
-          <ScalarProperty Name="addtime" ColumnName="addtime" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="po_agentwithdraw">
-      <EntityTypeMapping TypeName="ytfModel.po_agentwithdraw">
-        <MappingFragment StoreEntitySet="po_agentwithdraw">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="agid" ColumnName="agid" />
-          <ScalarProperty Name="lastcommission" ColumnName="lastcommission" />
-          <ScalarProperty Name="newcommission" ColumnName="newcommission" />
-          <ScalarProperty Name="commission" ColumnName="commission" />
-          <ScalarProperty Name="status" ColumnName="status" />
-          <ScalarProperty Name="reason" ColumnName="reason" />
-          <ScalarProperty Name="addtime" ColumnName="addtime" />
-          <ScalarProperty Name="adduser" ColumnName="adduser" />
-          <ScalarProperty Name="updatetime" ColumnName="updatetime" />
-          <ScalarProperty Name="updateuser" ColumnName="updateuser" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="po_businessdateflow">
-      <EntityTypeMapping TypeName="ytfModel.po_businessdateflow">
-        <MappingFragment StoreEntitySet="po_businessdateflow">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="businessid" ColumnName="businessid" />
-          <ScalarProperty Name="orderamount" ColumnName="orderamount" />
-          <ScalarProperty Name="despoitamount" ColumnName="despoitamount" />
-          <ScalarProperty Name="ddate" ColumnName="ddate" />
-          <ScalarProperty Name="addtime" ColumnName="addtime" />
-          <ScalarProperty Name="daybalance" ColumnName="daybalance" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="po_despoit">
-      <EntityTypeMapping TypeName="ytfModel.po_despoit">
-        <MappingFragment StoreEntitySet="po_despoit">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="despoitno" ColumnName="despoitno" />
-          <ScalarProperty Name="businessid" ColumnName="businessid" />
-          <ScalarProperty Name="merchantid" ColumnName="merchantid" />
-          <ScalarProperty Name="amount" ColumnName="amount" />
-          <ScalarProperty Name="agid" ColumnName="agid" />
-          <ScalarProperty Name="appsecret" ColumnName="appsecret" />
-          <ScalarProperty Name="status" ColumnName="status" />
-          <ScalarProperty Name="charge" ColumnName="charge" />
-          <ScalarProperty Name="reason" ColumnName="reason" />
-          <ScalarProperty Name="bankaccountno" ColumnName="bankaccountno" />
-          <ScalarProperty Name="bankusername" ColumnName="bankusername" />
-          <ScalarProperty Name="bankname" ColumnName="bankname" />
-          <ScalarProperty Name="bankcode" ColumnName="bankcode" />
-          <ScalarProperty Name="bankeightcode" ColumnName="bankeightcode" />
-          <ScalarProperty Name="addtime" ColumnName="addtime" />
-          <ScalarProperty Name="adduser" ColumnName="adduser" />
-          <ScalarProperty Name="audittime" ColumnName="audittime" />
-          <ScalarProperty Name="realamount" ColumnName="realamount" />
-          <ScalarProperty Name="mobileno" ColumnName="mobileno" />
-          <ScalarProperty Name="bankaddress" ColumnName="bankaddress" />
-          <ScalarProperty Name="paytype" ColumnName="paytype" />
-          <ScalarProperty Name="certno" ColumnName="certno" />
-          <ScalarProperty Name="province" ColumnName="province" />
-          <ScalarProperty Name="city" ColumnName="city" />
-          <ScalarProperty Name="businesspasstype" ColumnName="businesspasstype" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="po_order">
-      <EntityTypeMapping TypeName="ytfModel.po_order">
-        <MappingFragment StoreEntitySet="po_order">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="agid" ColumnName="agid" />
-          <ScalarProperty Name="agname" ColumnName="agname" />
-          <ScalarProperty Name="merchantid" ColumnName="merchantid" />
-          <ScalarProperty Name="merchantname" ColumnName="merchantname" />
-          <ScalarProperty Name="businessid" ColumnName="businessid" />
-          <ScalarProperty Name="businessname" ColumnName="businessname" />
-          <ScalarProperty Name="orderno" ColumnName="orderno" />
-          <ScalarProperty Name="thirdorderno" ColumnName="thirdorderno" />
-          <ScalarProperty Name="payno" ColumnName="payno" />
-          <ScalarProperty Name="amount" ColumnName="amount" />
-          <ScalarProperty Name="platfee" ColumnName="platfee" />
-          <ScalarProperty Name="auth_code" ColumnName="auth_code" />
-          <ScalarProperty Name="commission" ColumnName="commission" />
-          <ScalarProperty Name="servicecharge" ColumnName="servicecharge" />
-          <ScalarProperty Name="status" ColumnName="status" />
-          <ScalarProperty Name="paytype" ColumnName="paytype" />
-          <ScalarProperty Name="remark" ColumnName="remark" />
-          <ScalarProperty Name="reason" ColumnName="reason" />
-          <ScalarProperty Name="addtime" ColumnName="addtime" />
-          <ScalarProperty Name="adduser" ColumnName="adduser" />
-          <ScalarProperty Name="returnurl" ColumnName="returnurl" />
-          <ScalarProperty Name="isnotify" ColumnName="isnotify" />
-          <ScalarProperty Name="notifystatus" ColumnName="notifystatus" />
-          <ScalarProperty Name="notifycount" ColumnName="notifycount" />
-          <ScalarProperty Name="notifyid" ColumnName="notifyid" />
-          <ScalarProperty Name="notifytime" ColumnName="notifytime" />
-          <ScalarProperty Name="ischeck" ColumnName="ischeck" />
-          <ScalarProperty Name="businesspasstype" ColumnName="businesspasstype" />
-          <ScalarProperty Name="account" ColumnName="account" />
-          <ScalarProperty Name="fronturl" ColumnName="fronturl" />
-          <ScalarProperty Name="isokcheck" ColumnName="isokcheck" />
-          <ScalarProperty Name="sh_businessid" ColumnName="sh_businessid" />
-          <ScalarProperty Name="sh_storename" ColumnName="sh_storename" />
-          <ScalarProperty Name="alipayaccount" ColumnName="alipayaccount" />
-          <ScalarProperty Name="checkstatus" ColumnName="checkstatus" />
-          <ScalarProperty Name="checkamount" ColumnName="checkamount" />
-          <ScalarProperty Name="ispersonali" ColumnName="ispersonali" />
-          <ScalarProperty Name="creat_time" ColumnName="creat_time" />
-          <ScalarProperty Name="end_time" ColumnName="end_time" />
-          <ScalarProperty Name="qrcode" ColumnName="qrcode" />
-          <ScalarProperty Name="phone" ColumnName="phone" />
-          <ScalarProperty Name="userid" ColumnName="userid" />
-          <ScalarProperty Name="isscan" ColumnName="isscan" />
-          <ScalarProperty Name="scantime" ColumnName="scantime" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="sh_business_appinfo">
-      <EntityTypeMapping TypeName="ytfModel.sh_business_appinfo">
-        <MappingFragment StoreEntitySet="sh_business_appinfo">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="sh_appid" ColumnName="sh_appid" />
-          <ScalarProperty Name="sh_appsecret" ColumnName="sh_appsecret" />
-          <ScalarProperty Name="sh_storeid" ColumnName="sh_storeid" />
-          <ScalarProperty Name="sh_storename" ColumnName="sh_storename" />
-          <ScalarProperty Name="sh_businessname" ColumnName="sh_businessname" />
-          <ScalarProperty Name="sh_mobile" ColumnName="sh_mobile" />
-          <ScalarProperty Name="sh_password" ColumnName="sh_password" />
-          <ScalarProperty Name="sh_balance" ColumnName="sh_balance" />
-          <ScalarProperty Name="sh_commission" ColumnName="sh_commission" />
-          <ScalarProperty Name="sh_commratio" ColumnName="sh_commratio" />
-          <ScalarProperty Name="agid" ColumnName="agid" />
-          <ScalarProperty Name="status" ColumnName="status" />
-          <ScalarProperty Name="isused" ColumnName="isused" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="sh_business_balancelog">
-      <EntityTypeMapping TypeName="ytfModel.sh_business_balancelog">
-        <MappingFragment StoreEntitySet="sh_business_balancelog">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="sh_businessid" ColumnName="sh_businessid" />
-          <ScalarProperty Name="amount" ColumnName="amount" />
-          <ScalarProperty Name="balance" ColumnName="balance" />
-          <ScalarProperty Name="newbalance" ColumnName="newbalance" />
-          <ScalarProperty Name="type" ColumnName="type" />
-          <ScalarProperty Name="orderid" ColumnName="orderid" />
-          <ScalarProperty Name="addtime" ColumnName="addtime" />
-          <ScalarProperty Name="memo" ColumnName="memo" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="sh_business_bank_card">
-      <EntityTypeMapping TypeName="ytfModel.sh_business_bank_card">
-        <MappingFragment StoreEntitySet="sh_business_bank_card">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="sh_businessid" ColumnName="sh_businessid" />
-          <ScalarProperty Name="mobileNo" ColumnName="mobileNo" />
-          <ScalarProperty Name="bankName" ColumnName="bankName" />
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="bankaccountNo" ColumnName="bankaccountNo" />
-          <ScalarProperty Name="certCode" ColumnName="certCode" />
-          <ScalarProperty Name="certNo" ColumnName="certNo" />
-          <ScalarProperty Name="defaultAcc" ColumnName="defaultAcc" />
-          <ScalarProperty Name="isaudit" ColumnName="isaudit" />
-          <ScalarProperty Name="province" ColumnName="province" />
-          <ScalarProperty Name="city" ColumnName="city" />
-          <ScalarProperty Name="bankaddress" ColumnName="bankaddress" />
-          <ScalarProperty Name="addtime" ColumnName="addtime" />
-          <ScalarProperty Name="adduser" ColumnName="adduser" />
-          <ScalarProperty Name="updatetime" ColumnName="updatetime" />
-          <ScalarProperty Name="updateuser" ColumnName="updateuser" />
-          <ScalarProperty Name="bankCode" ColumnName="bankCode" />
-          <ScalarProperty Name="bankEightCode" ColumnName="bankEightCode" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="sh_business_commison">
-      <EntityTypeMapping TypeName="ytfModel.sh_business_commison">
-        <MappingFragment StoreEntitySet="sh_business_commison">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="commorderno" ColumnName="commorderno" />
-          <ScalarProperty Name="sh_businessid" ColumnName="sh_businessid" />
-          <ScalarProperty Name="amount" ColumnName="amount" />
-          <ScalarProperty Name="bankaccountno" ColumnName="bankaccountno" />
-          <ScalarProperty Name="bankusername" ColumnName="bankusername" />
-          <ScalarProperty Name="bankname" ColumnName="bankname" />
-          <ScalarProperty Name="bankaddress" ColumnName="bankaddress" />
-          <ScalarProperty Name="mobileno" ColumnName="mobileno" />
-          <ScalarProperty Name="status" ColumnName="status" />
-          <ScalarProperty Name="addtime" ColumnName="addtime" />
-          <ScalarProperty Name="audittime" ColumnName="audittime" />
-          <ScalarProperty Name="reason" ColumnName="reason" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="sh_business_replybalance">
-      <EntityTypeMapping TypeName="ytfModel.sh_business_replybalance">
-        <MappingFragment StoreEntitySet="sh_business_replybalance">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="sh_businessid" ColumnName="sh_businessid" />
-          <ScalarProperty Name="amount" ColumnName="amount" />
-          <ScalarProperty Name="paytype" ColumnName="paytype" />
-          <ScalarProperty Name="qrcode" ColumnName="qrcode" />
-          <ScalarProperty Name="qrname" ColumnName="qrname" />
-          <ScalarProperty Name="remark" ColumnName="remark" />
-          <ScalarProperty Name="addtime" ColumnName="addtime" />
-          <ScalarProperty Name="audittime" ColumnName="audittime" />
-          <ScalarProperty Name="reason" ColumnName="reason" />
-          <ScalarProperty Name="status" ColumnName="status" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="sy_admin">
-      <EntityTypeMapping TypeName="ytfModel.sy_admin">
-        <MappingFragment StoreEntitySet="sy_admin">
-          <ScalarProperty Name="userid" ColumnName="userid" />
-          <ScalarProperty Name="usercode" ColumnName="usercode" />
-          <ScalarProperty Name="username" ColumnName="username" />
-          <ScalarProperty Name="password" ColumnName="password" />
-          <ScalarProperty Name="roleid" ColumnName="roleid" />
-          <ScalarProperty Name="status" ColumnName="status" />
-          <ScalarProperty Name="addtime" ColumnName="addtime" />
-          <ScalarProperty Name="adduser" ColumnName="adduser" />
-          <ScalarProperty Name="updatetime" ColumnName="updatetime" />
-          <ScalarProperty Name="updateuser" ColumnName="updateuser" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="sy_agent">
-      <EntityTypeMapping TypeName="ytfModel.sy_agent">
-        <MappingFragment StoreEntitySet="sy_agent">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="password" ColumnName="password" />
-          <ScalarProperty Name="account_name" ColumnName="account_name" />
-          <ScalarProperty Name="card_number" ColumnName="card_number" />
-          <ScalarProperty Name="bank_accounts" ColumnName="bank_accounts" />
-          <ScalarProperty Name="opening_address" ColumnName="opening_address" />
-          <ScalarProperty Name="opening_point" ColumnName="opening_point" />
-          <ScalarProperty Name="agency_level" ColumnName="agency_level" />
-          <ScalarProperty Name="direct_identity" ColumnName="direct_identity" />
-          <ScalarProperty Name="agent_rights" ColumnName="agent_rights" />
-          <ScalarProperty Name="agency_amount" ColumnName="agency_amount" />
-          <ScalarProperty Name="agency_expiration_date" ColumnName="agency_expiration_date" />
-          <ScalarProperty Name="last_login_time" ColumnName="last_login_time" />
-          <ScalarProperty Name="user_status" ColumnName="user_status" />
-          <ScalarProperty Name="remarks" ColumnName="remarks" />
-          <ScalarProperty Name="corporate_name" ColumnName="corporate_name" />
-          <ScalarProperty Name="province" ColumnName="province" />
-          <ScalarProperty Name="city" ColumnName="city" />
-          <ScalarProperty Name="area" ColumnName="area" />
-          <ScalarProperty Name="industry_owned" ColumnName="industry_owned" />
-          <ScalarProperty Name="main_business" ColumnName="main_business" />
-          <ScalarProperty Name="company_number" ColumnName="company_number" />
-          <ScalarProperty Name="annual_turnover" ColumnName="annual_turnover" />
-          <ScalarProperty Name="contacts" ColumnName="contacts" />
-          <ScalarProperty Name="contact_number" ColumnName="contact_number" />
-          <ScalarProperty Name="mobile_phone" ColumnName="mobile_phone" />
-          <ScalarProperty Name="qq_number" ColumnName="qq_number" />
-          <ScalarProperty Name="mail_box" ColumnName="mail_box" />
-          <ScalarProperty Name="proof_document" ColumnName="proof_document" />
-          <ScalarProperty Name="company_logo" ColumnName="company_logo" />
-          <ScalarProperty Name="is_alipay" ColumnName="is_alipay" />
-          <ScalarProperty Name="is_jd" ColumnName="is_jd" />
-          <ScalarProperty Name="is_t0" ColumnName="is_t0" />
-          <ScalarProperty Name="ratio" ColumnName="ratio" />
-          <ScalarProperty Name="commission" ColumnName="commission" />
-          <ScalarProperty Name="addtime" ColumnName="addtime" />
-          <ScalarProperty Name="adduser" ColumnName="adduser" />
-          <ScalarProperty Name="updatetime" ColumnName="updatetime" />
-          <ScalarProperty Name="updateuser" ColumnName="updateuser" />
-          <ScalarProperty Name="domain" ColumnName="domain" />
-          <ScalarProperty Name="bus_domain" ColumnName="bus_domain" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="sy_agent_commission_audit">
-      <EntityTypeMapping TypeName="ytfModel.sy_agent_commission_audit">
-        <MappingFragment StoreEntitySet="sy_agent_commission_audit">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="agid" ColumnName="agid" />
-          <ScalarProperty Name="transaction_number" ColumnName="transaction_number" />
-          <ScalarProperty Name="total_income" ColumnName="total_income" />
-          <ScalarProperty Name="commission" ColumnName="commission" />
-          <ScalarProperty Name="addtime" ColumnName="addtime" />
-          <ScalarProperty Name="status" ColumnName="status" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="sy_agentratio">
-      <EntityTypeMapping TypeName="ytfModel.sy_agentratio">
-        <MappingFragment StoreEntitySet="sy_agentratio">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="agid" ColumnName="agid" />
-          <ScalarProperty Name="businesspasstype" ColumnName="businesspasstype" />
-          <ScalarProperty Name="ratio" ColumnName="ratio" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="sy_merchant">
-      <EntityTypeMapping TypeName="ytfModel.sy_merchant">
-        <MappingFragment StoreEntitySet="sy_merchant">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="password" ColumnName="password" />
-          <ScalarProperty Name="agid" ColumnName="agid" />
-          <ScalarProperty Name="user_status" ColumnName="user_status" />
-          <ScalarProperty Name="user_rights" ColumnName="user_rights" />
-          <ScalarProperty Name="merchant_name" ColumnName="merchant_name" />
-          <ScalarProperty Name="province" ColumnName="province" />
-          <ScalarProperty Name="city" ColumnName="city" />
-          <ScalarProperty Name="area" ColumnName="area" />
-          <ScalarProperty Name="merchant_address" ColumnName="merchant_address" />
-          <ScalarProperty Name="contacts" ColumnName="contacts" />
-          <ScalarProperty Name="contact_information" ColumnName="contact_information" />
-          <ScalarProperty Name="mail_box" ColumnName="mail_box" />
-          <ScalarProperty Name="qq_number" ColumnName="qq_number" />
-          <ScalarProperty Name="expiration_date" ColumnName="expiration_date" />
-          <ScalarProperty Name="last_login_time" ColumnName="last_login_time" />
-          <ScalarProperty Name="payment_limit" ColumnName="payment_limit" />
-          <ScalarProperty Name="recharge_limit" ColumnName="recharge_limit" />
-          <ScalarProperty Name="appid" ColumnName="appid" />
-          <ScalarProperty Name="appsecret" ColumnName="appsecret" />
-          <ScalarProperty Name="returnurl" ColumnName="returnurl" />
-          <ScalarProperty Name="disabletime" ColumnName="disabletime" />
-          <ScalarProperty Name="enabletime" ColumnName="enabletime" />
-          <ScalarProperty Name="addtime" ColumnName="addtime" />
-          <ScalarProperty Name="adduser" ColumnName="adduser" />
-          <ScalarProperty Name="updatetime" ColumnName="updatetime" />
-          <ScalarProperty Name="updateuser" ColumnName="updateuser" />
-          <ScalarProperty Name="comm_amount" ColumnName="comm_amount" />
-          <ScalarProperty Name="comm_ratio" ColumnName="comm_ratio" />
-          <ScalarProperty Name="company_logo" ColumnName="company_logo" />
-          <ScalarProperty Name="domain" ColumnName="domain" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="sy_mercommision">
-      <EntityTypeMapping TypeName="ytfModel.sy_mercommision">
-        <MappingFragment StoreEntitySet="sy_mercommision">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="merchantid" ColumnName="merchantid" />
-          <ScalarProperty Name="agid" ColumnName="agid" />
-          <ScalarProperty Name="comm_amount" ColumnName="comm_amount" />
-          <ScalarProperty Name="orderid" ColumnName="orderid" />
-          <ScalarProperty Name="type" ColumnName="type" />
-          <ScalarProperty Name="memo" ColumnName="memo" />
-          <ScalarProperty Name="addtime" ColumnName="addtime" />
-          <ScalarProperty Name="adduser" ColumnName="adduser" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="sy_qrcode">
-      <EntityTypeMapping TypeName="ytfModel.sy_qrcode">
-        <MappingFragment StoreEntitySet="sy_qrcode">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="qrcode" ColumnName="qrcode" />
-          <ScalarProperty Name="amount" ColumnName="amount" />
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="type" ColumnName="type" />
-          <ScalarProperty Name="status" ColumnName="status" />
-          <ScalarProperty Name="addtime" ColumnName="addtime" />
-          <ScalarProperty Name="isused" ColumnName="isused" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="sy_role">
-      <EntityTypeMapping TypeName="ytfModel.sy_role">
-        <MappingFragment StoreEntitySet="sy_role">
-          <ScalarProperty Name="roleid" ColumnName="roleid" />
-          <ScalarProperty Name="rolecode" ColumnName="rolecode" />
-          <ScalarProperty Name="rolename" ColumnName="rolename" />
-          <ScalarProperty Name="isadmin" ColumnName="isadmin" />
-          <ScalarProperty Name="addtime" ColumnName="addtime" />
-          <ScalarProperty Name="adduser" ColumnName="adduser" />
-          <ScalarProperty Name="updatetime" ColumnName="updatetime" />
-          <ScalarProperty Name="updateuser" ColumnName="updateuser" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="sy_router">
-      <EntityTypeMapping TypeName="ytfModel.sy_router">
-        <MappingFragment StoreEntitySet="sy_router">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="path" ColumnName="path" />
-          <ScalarProperty Name="redirect" ColumnName="redirect" />
-          <ScalarProperty Name="icon" ColumnName="icon" />
-          <ScalarProperty Name="nodropdown" ColumnName="nodropdown" />
-          <ScalarProperty Name="meta" ColumnName="meta" />
-          <ScalarProperty Name="sort" ColumnName="sort" />
-          <ScalarProperty Name="hidden" ColumnName="hidden" />
-          <ScalarProperty Name="createuser" ColumnName="createuser" />
-          <ScalarProperty Name="createtime" ColumnName="createtime" />
-          <ScalarProperty Name="lastupdateuser" ColumnName="lastupdateuser" />
-          <ScalarProperty Name="lastupdatetime" ColumnName="lastupdatetime" />
-          <ScalarProperty Name="tx" ColumnName="tx" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="sy_routers">
-      <EntityTypeMapping TypeName="ytfModel.sy_routers">
-        <MappingFragment StoreEntitySet="sy_routers">
-          <ScalarProperty Name="autoid" ColumnName="autoid" />
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="path" ColumnName="path" />
-          <ScalarProperty Name="component" ColumnName="component" />
-          <ScalarProperty Name="meta" ColumnName="meta" />
-          <ScalarProperty Name="sort" ColumnName="sort" />
-          <ScalarProperty Name="hidden" ColumnName="hidden" />
-          <ScalarProperty Name="createuser" ColumnName="createuser" />
-          <ScalarProperty Name="createtime" ColumnName="createtime" />
-          <ScalarProperty Name="lastupdateuser" ColumnName="lastupdateuser" />
-          <ScalarProperty Name="lastupdatetime" ColumnName="lastupdatetime" />
-          <ScalarProperty Name="tx" ColumnName="tx" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="sy_tariff_management">
-      <EntityTypeMapping TypeName="ytfModel.sy_tariff_management">
-        <MappingFragment StoreEntitySet="sy_tariff_management">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="agid" ColumnName="agid" />
-          <ScalarProperty Name="wechat_platform_rate" ColumnName="wechat_platform_rate" />
-          <ScalarProperty Name="wechat_profit_margin" ColumnName="wechat_profit_margin" />
-          <ScalarProperty Name="wechat_division_rate" ColumnName="wechat_division_rate" />
-          <ScalarProperty Name="alipay_platform_rate" ColumnName="alipay_platform_rate" />
-          <ScalarProperty Name="alipay_profit_margin" ColumnName="alipay_profit_margin" />
-          <ScalarProperty Name="alipay_division_rate" ColumnName="alipay_division_rate" />
-          <ScalarProperty Name="jd_platform_rate" ColumnName="jd_platform_rate" />
-          <ScalarProperty Name="jd_profit_margin" ColumnName="jd_profit_margin" />
-          <ScalarProperty Name="jd_division_rate" ColumnName="jd_division_rate" />
-          <ScalarProperty Name="h5_platform_rate" ColumnName="h5_platform_rate" />
-          <ScalarProperty Name="h5_profit_margin" ColumnName="h5_profit_margin" />
-          <ScalarProperty Name="h5_division_rate" ColumnName="h5_division_rate" />
-          <ScalarProperty Name="addtime" ColumnName="addtime" />
-          <ScalarProperty Name="adduser" ColumnName="adduser" />
-          <ScalarProperty Name="updatetime" ColumnName="updatetime" />
-          <ScalarProperty Name="updateuser" ColumnName="updateuser" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <FunctionImportMapping FunctionImportName="p_alipaydetail_add" FunctionName="ytfModel.Store.p_alipaydetail_add" />
     <FunctionImportMapping FunctionImportName="p_auto_closealipay" FunctionName="ytfModel.Store.p_auto_closealipay" />
     <FunctionImportMapping FunctionImportName="PROC_Agentaddwithdraw" FunctionName="ytfModel.Store.PROC_Agentaddwithdraw">
@@ -1190,9 +457,768 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="PROC_OrderAlipayRedlCallBack" FunctionName="ytfModel.Store.PROC_OrderAlipayRedlCallBack">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ytfModel.PROC_OrderAlipayRedlCallBack_Result">
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="message" ColumnName="message" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="PROC_OrderAlipayRedPayInfo" FunctionName="ytfModel.Store.PROC_OrderAlipayRedPayInfo">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ytfModel.PROC_OrderAlipayRedPayInfo_Result">
+          <ScalarProperty Name="statue" ColumnName="statue" />
+          <ScalarProperty Name="message" ColumnName="message" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="paytype" ColumnName="paytype" />
+          <ScalarProperty Name="qrcode" ColumnName="qrcode" />
+          <ScalarProperty Name="time" ColumnName="time" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="orderno" ColumnName="orderno" />
+          <ScalarProperty Name="alipayaccount" ColumnName="alipayaccount" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="aa_bank_code">
+      <EntityTypeMapping TypeName="ytfModel.aa_bank_code">
+        <MappingFragment StoreEntitySet="aa_bank_code">
+          <ScalarProperty Name="eightcode" ColumnName="eightcode" />
+          <ScalarProperty Name="explain" ColumnName="explain" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aa_business_balance">
+      <EntityTypeMapping TypeName="ytfModel.aa_business_balance">
+        <MappingFragment StoreEntitySet="aa_business_balance">
+          <ScalarProperty Name="totalbalance" ColumnName="totalbalance" />
+          <ScalarProperty Name="unionpaybalance" ColumnName="unionpaybalance" />
+          <ScalarProperty Name="alipaybalance" ColumnName="alipaybalance" />
+          <ScalarProperty Name="wechatbalance" ColumnName="wechatbalance" />
+          <ScalarProperty Name="businesspasstype" ColumnName="businesspasstype" />
+          <ScalarProperty Name="businessid" ColumnName="businessid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aa_business_category">
+      <EntityTypeMapping TypeName="ytfModel.aa_business_category">
+        <MappingFragment StoreEntitySet="aa_business_category">
+          <ScalarProperty Name="explain" ColumnName="explain" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aa_business_coding">
+      <EntityTypeMapping TypeName="ytfModel.aa_business_coding">
+        <MappingFragment StoreEntitySet="aa_business_coding">
+          <ScalarProperty Name="explain" ColumnName="explain" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aa_business_pass">
+      <EntityTypeMapping TypeName="ytfModel.aa_business_pass">
+        <MappingFragment StoreEntitySet="aa_business_pass">
+          <ScalarProperty Name="reason" ColumnName="reason" />
+          <ScalarProperty Name="dayamount" ColumnName="dayamount" />
+          <ScalarProperty Name="useamount" ColumnName="useamount" />
+          <ScalarProperty Name="rsapublic" ColumnName="rsapublic" />
+          <ScalarProperty Name="rsaprivate" ColumnName="rsaprivate" />
+          <ScalarProperty Name="alipayappid" ColumnName="alipayappid" />
+          <ScalarProperty Name="cerfile" ColumnName="cerfile" />
+          <ScalarProperty Name="pfxpassword" ColumnName="pfxpassword" />
+          <ScalarProperty Name="pfxfile" ColumnName="pfxfile" />
+          <ScalarProperty Name="enable" ColumnName="enable" />
+          <ScalarProperty Name="memo" ColumnName="memo" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="agentno" ColumnName="agentno" />
+          <ScalarProperty Name="mchkey" ColumnName="mchkey" />
+          <ScalarProperty Name="mchid" ColumnName="mchid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aa_business_type">
+      <EntityTypeMapping TypeName="ytfModel.aa_business_type">
+        <MappingFragment StoreEntitySet="aa_business_type">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aa_merchant_city">
+      <EntityTypeMapping TypeName="ytfModel.aa_merchant_city">
+        <MappingFragment StoreEntitySet="aa_merchant_city">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aa_platbase">
+      <EntityTypeMapping TypeName="ytfModel.aa_platbase">
+        <MappingFragment StoreEntitySet="aa_platbase">
+          <ScalarProperty Name="adduser" ColumnName="adduser" />
+          <ScalarProperty Name="addtime" ColumnName="addtime" />
+          <ScalarProperty Name="updateuser" ColumnName="updateuser" />
+          <ScalarProperty Name="updatetime" ColumnName="updatetime" />
+          <ScalarProperty Name="floatinrate" ColumnName="floatinrate" />
+          <ScalarProperty Name="platrate" ColumnName="platrate" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="fa_business_bank_card">
+      <EntityTypeMapping TypeName="ytfModel.fa_business_bank_card">
+        <MappingFragment StoreEntitySet="fa_business_bank_card">
+          <ScalarProperty Name="bankEightCode" ColumnName="bankEightCode" />
+          <ScalarProperty Name="bankCode" ColumnName="bankCode" />
+          <ScalarProperty Name="updateuser" ColumnName="updateuser" />
+          <ScalarProperty Name="updatetime" ColumnName="updatetime" />
+          <ScalarProperty Name="adduser" ColumnName="adduser" />
+          <ScalarProperty Name="addtime" ColumnName="addtime" />
+          <ScalarProperty Name="bankaddress" ColumnName="bankaddress" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="province" ColumnName="province" />
+          <ScalarProperty Name="isaudit" ColumnName="isaudit" />
+          <ScalarProperty Name="defaultAcc" ColumnName="defaultAcc" />
+          <ScalarProperty Name="certNo" ColumnName="certNo" />
+          <ScalarProperty Name="certCode" ColumnName="certCode" />
+          <ScalarProperty Name="bankaccountNo" ColumnName="bankaccountNo" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="bankName" ColumnName="bankName" />
+          <ScalarProperty Name="mobileNo" ColumnName="mobileNo" />
+          <ScalarProperty Name="businessid" ColumnName="businessid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="fa_business_basic">
+      <EntityTypeMapping TypeName="ytfModel.fa_business_basic">
+        <MappingFragment StoreEntitySet="fa_business_basic">
+          <ScalarProperty Name="alipayaccount" ColumnName="alipayaccount" />
+          <ScalarProperty Name="isfreeze" ColumnName="isfreeze" />
+          <ScalarProperty Name="freezeamount" ColumnName="freezeamount" />
+          <ScalarProperty Name="unionratio" ColumnName="unionratio" />
+          <ScalarProperty Name="alipayratio" ColumnName="alipayratio" />
+          <ScalarProperty Name="wechatratio" ColumnName="wechatratio" />
+          <ScalarProperty Name="businesspasstype" ColumnName="businesspasstype" />
+          <ScalarProperty Name="depositratio" ColumnName="depositratio" />
+          <ScalarProperty Name="enabletime" ColumnName="enabletime" />
+          <ScalarProperty Name="disabletime" ColumnName="disabletime" />
+          <ScalarProperty Name="maxAmount" ColumnName="maxAmount" />
+          <ScalarProperty Name="minAmount" ColumnName="minAmount" />
+          <ScalarProperty Name="ratio" ColumnName="ratio" />
+          <ScalarProperty Name="merchant_num" ColumnName="merchant_num" />
+          <ScalarProperty Name="keyaddtime" ColumnName="keyaddtime" />
+          <ScalarProperty Name="licenseRange" ColumnName="licenseRange" />
+          <ScalarProperty Name="licenseEndDate" ColumnName="licenseEndDate" />
+          <ScalarProperty Name="licenseBeginDate" ColumnName="licenseBeginDate" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="mobilePhone" ColumnName="mobilePhone" />
+          <ScalarProperty Name="telNo" ColumnName="telNo" />
+          <ScalarProperty Name="contactMan" ColumnName="contactMan" />
+          <ScalarProperty Name="licenseType" ColumnName="licenseType" />
+          <ScalarProperty Name="mcc" ColumnName="mcc" />
+          <ScalarProperty Name="contactType" ColumnName="contactType" />
+          <ScalarProperty Name="addrType" ColumnName="addrType" />
+          <ScalarProperty Name="updateuser" ColumnName="updateuser" />
+          <ScalarProperty Name="updatetime" ColumnName="updatetime" />
+          <ScalarProperty Name="adduser" ColumnName="adduser" />
+          <ScalarProperty Name="addtime" ColumnName="addtime" />
+          <ScalarProperty Name="isaudit" ColumnName="isaudit" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="wechatbalance" ColumnName="wechatbalance" />
+          <ScalarProperty Name="alipaybalance" ColumnName="alipaybalance" />
+          <ScalarProperty Name="balance" ColumnName="balance" />
+          <ScalarProperty Name="appSecret" ColumnName="appSecret" />
+          <ScalarProperty Name="appId" ColumnName="appId" />
+          <ScalarProperty Name="agentid" ColumnName="agentid" />
+          <ScalarProperty Name="taxRegisterNo" ColumnName="taxRegisterNo" />
+          <ScalarProperty Name="licenseNo" ColumnName="licenseNo" />
+          <ScalarProperty Name="remark" ColumnName="remark" />
+          <ScalarProperty Name="autoCus" ColumnName="autoCus" />
+          <ScalarProperty Name="bankaccountName" ColumnName="bankaccountName" />
+          <ScalarProperty Name="bankaccountNo" ColumnName="bankaccountNo" />
+          <ScalarProperty Name="bankName" ColumnName="bankName" />
+          <ScalarProperty Name="bankCode" ColumnName="bankCode" />
+          <ScalarProperty Name="corpmanEmail" ColumnName="corpmanEmail" />
+          <ScalarProperty Name="corpmanMobile" ColumnName="corpmanMobile" />
+          <ScalarProperty Name="corpmanPhone" ColumnName="corpmanPhone" />
+          <ScalarProperty Name="corpmanId" ColumnName="corpmanId" />
+          <ScalarProperty Name="corpmanName" ColumnName="corpmanName" />
+          <ScalarProperty Name="category" ColumnName="category" />
+          <ScalarProperty Name="merchantType" ColumnName="merchantType" />
+          <ScalarProperty Name="orgCode" ColumnName="orgCode" />
+          <ScalarProperty Name="servicePhone" ColumnName="servicePhone" />
+          <ScalarProperty Name="merchantAddress" ColumnName="merchantAddress" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="handleType" ColumnName="handleType" />
+          <ScalarProperty Name="shortName" ColumnName="shortName" />
+          <ScalarProperty Name="merchantName" ColumnName="merchantName" />
+          <ScalarProperty Name="merchantid" ColumnName="merchantid" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="fa_business_merchant">
+      <EntityTypeMapping TypeName="ytfModel.fa_business_merchant">
+        <MappingFragment StoreEntitySet="fa_business_merchant">
+          <ScalarProperty Name="addtime" ColumnName="addtime" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="merchantid" ColumnName="merchantid" />
+          <ScalarProperty Name="businessid" ColumnName="businessid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="fa_open_payment">
+      <EntityTypeMapping TypeName="ytfModel.fa_open_payment">
+        <MappingFragment StoreEntitySet="fa_open_payment">
+          <ScalarProperty Name="updateuser" ColumnName="updateuser" />
+          <ScalarProperty Name="updatetime" ColumnName="updatetime" />
+          <ScalarProperty Name="adduser" ColumnName="adduser" />
+          <ScalarProperty Name="addtime" ColumnName="addtime" />
+          <ScalarProperty Name="isaudit" ColumnName="isaudit" />
+          <ScalarProperty Name="unionpay_rate" ColumnName="unionpay_rate" />
+          <ScalarProperty Name="unionpay_status" ColumnName="unionpay_status" />
+          <ScalarProperty Name="jdpay_rate" ColumnName="jdpay_rate" />
+          <ScalarProperty Name="jdpay_status" ColumnName="jdpay_status" />
+          <ScalarProperty Name="qqpay_rate" ColumnName="qqpay_rate" />
+          <ScalarProperty Name="qqpay_status" ColumnName="qqpay_status" />
+          <ScalarProperty Name="daipay_rate" ColumnName="daipay_rate" />
+          <ScalarProperty Name="daipay_status" ColumnName="daipay_status" />
+          <ScalarProperty Name="alipay_rate" ColumnName="alipay_rate" />
+          <ScalarProperty Name="alipay_status" ColumnName="alipay_status" />
+          <ScalarProperty Name="wechat_rate" ColumnName="wechat_rate" />
+          <ScalarProperty Name="wechat_status" ColumnName="wechat_status" />
+          <ScalarProperty Name="agencyId" ColumnName="agencyId" />
+          <ScalarProperty Name="futureMaxAmount" ColumnName="futureMaxAmount" />
+          <ScalarProperty Name="futureMinAmount" ColumnName="futureMinAmount" />
+          <ScalarProperty Name="futureRateValue" ColumnName="futureRateValue" />
+          <ScalarProperty Name="futureRateType" ColumnName="futureRateType" />
+          <ScalarProperty Name="busiCode" ColumnName="busiCode" />
+          <ScalarProperty Name="cycleValue" ColumnName="cycleValue" />
+          <ScalarProperty Name="handleType" ColumnName="handleType" />
+          <ScalarProperty Name="merchantId" ColumnName="merchantId" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="me_member">
+      <EntityTypeMapping TypeName="ytfModel.me_member">
+        <MappingFragment StoreEntitySet="me_member">
+          <ScalarProperty Name="memo" ColumnName="memo" />
+          <ScalarProperty Name="updatetime" ColumnName="updatetime" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="businessid" ColumnName="businessid" />
+          <ScalarProperty Name="enable" ColumnName="enable" />
+          <ScalarProperty Name="wechatuseamount" ColumnName="wechatuseamount" />
+          <ScalarProperty Name="wechatamount" ColumnName="wechatamount" />
+          <ScalarProperty Name="alipayuseamount" ColumnName="alipayuseamount" />
+          <ScalarProperty Name="alipayamount" ColumnName="alipayamount" />
+          <ScalarProperty Name="isalipay" ColumnName="isalipay" />
+          <ScalarProperty Name="iswechat" ColumnName="iswechat" />
+          <ScalarProperty Name="wechatname" ColumnName="wechatname" />
+          <ScalarProperty Name="alipayaccount" ColumnName="alipayaccount" />
+          <ScalarProperty Name="alipayname" ColumnName="alipayname" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="memberid" ColumnName="memberid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pay_task">
+      <EntityTypeMapping TypeName="ytfModel.pay_task">
+        <MappingFragment StoreEntitySet="pay_task">
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="tx" ColumnName="tx" />
+          <ScalarProperty Name="desp" ColumnName="desp" />
+          <ScalarProperty Name="apply_ip" ColumnName="apply_ip" />
+          <ScalarProperty Name="end_time" ColumnName="end_time" />
+          <ScalarProperty Name="creat_time" ColumnName="creat_time" />
+          <ScalarProperty Name="apply_time" ColumnName="apply_time" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="order_id" ColumnName="order_id" />
+          <ScalarProperty Name="mark_buy" ColumnName="mark_buy" />
+          <ScalarProperty Name="mark_sell" ColumnName="mark_sell" />
+          <ScalarProperty Name="result_extra" ColumnName="result_extra" />
+          <ScalarProperty Name="task_extra" ColumnName="task_extra" />
+          <ScalarProperty Name="channel" ColumnName="channel" />
+          <ScalarProperty Name="url" ColumnName="url" />
+          <ScalarProperty Name="money" ColumnName="money" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="po_abnormalorder">
+      <EntityTypeMapping TypeName="ytfModel.po_abnormalorder">
+        <MappingFragment StoreEntitySet="po_abnormalorder">
+          <ScalarProperty Name="addtime" ColumnName="addtime" />
+          <ScalarProperty Name="tradetime" ColumnName="tradetime" />
+          <ScalarProperty Name="paytype" ColumnName="paytype" />
+          <ScalarProperty Name="remark" ColumnName="remark" />
+          <ScalarProperty Name="account" ColumnName="account" />
+          <ScalarProperty Name="businessid" ColumnName="businessid" />
+          <ScalarProperty Name="appid" ColumnName="appid" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="orderno" ColumnName="orderno" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="po_agentwithdraw">
+      <EntityTypeMapping TypeName="ytfModel.po_agentwithdraw">
+        <MappingFragment StoreEntitySet="po_agentwithdraw">
+          <ScalarProperty Name="updateuser" ColumnName="updateuser" />
+          <ScalarProperty Name="updatetime" ColumnName="updatetime" />
+          <ScalarProperty Name="adduser" ColumnName="adduser" />
+          <ScalarProperty Name="addtime" ColumnName="addtime" />
+          <ScalarProperty Name="reason" ColumnName="reason" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="commission" ColumnName="commission" />
+          <ScalarProperty Name="newcommission" ColumnName="newcommission" />
+          <ScalarProperty Name="lastcommission" ColumnName="lastcommission" />
+          <ScalarProperty Name="agid" ColumnName="agid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="po_businessdateflow">
+      <EntityTypeMapping TypeName="ytfModel.po_businessdateflow">
+        <MappingFragment StoreEntitySet="po_businessdateflow">
+          <ScalarProperty Name="daybalance" ColumnName="daybalance" />
+          <ScalarProperty Name="addtime" ColumnName="addtime" />
+          <ScalarProperty Name="ddate" ColumnName="ddate" />
+          <ScalarProperty Name="despoitamount" ColumnName="despoitamount" />
+          <ScalarProperty Name="orderamount" ColumnName="orderamount" />
+          <ScalarProperty Name="businessid" ColumnName="businessid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="po_despoit">
+      <EntityTypeMapping TypeName="ytfModel.po_despoit">
+        <MappingFragment StoreEntitySet="po_despoit">
+          <ScalarProperty Name="businesspasstype" ColumnName="businesspasstype" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="province" ColumnName="province" />
+          <ScalarProperty Name="certno" ColumnName="certno" />
+          <ScalarProperty Name="paytype" ColumnName="paytype" />
+          <ScalarProperty Name="bankaddress" ColumnName="bankaddress" />
+          <ScalarProperty Name="mobileno" ColumnName="mobileno" />
+          <ScalarProperty Name="realamount" ColumnName="realamount" />
+          <ScalarProperty Name="audittime" ColumnName="audittime" />
+          <ScalarProperty Name="adduser" ColumnName="adduser" />
+          <ScalarProperty Name="addtime" ColumnName="addtime" />
+          <ScalarProperty Name="bankeightcode" ColumnName="bankeightcode" />
+          <ScalarProperty Name="bankcode" ColumnName="bankcode" />
+          <ScalarProperty Name="bankname" ColumnName="bankname" />
+          <ScalarProperty Name="bankusername" ColumnName="bankusername" />
+          <ScalarProperty Name="bankaccountno" ColumnName="bankaccountno" />
+          <ScalarProperty Name="reason" ColumnName="reason" />
+          <ScalarProperty Name="charge" ColumnName="charge" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="appsecret" ColumnName="appsecret" />
+          <ScalarProperty Name="agid" ColumnName="agid" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="merchantid" ColumnName="merchantid" />
+          <ScalarProperty Name="businessid" ColumnName="businessid" />
+          <ScalarProperty Name="despoitno" ColumnName="despoitno" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="po_order">
+      <EntityTypeMapping TypeName="ytfModel.po_order">
+        <MappingFragment StoreEntitySet="po_order">
+          <ScalarProperty Name="scantime" ColumnName="scantime" />
+          <ScalarProperty Name="isscan" ColumnName="isscan" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="qrcode" ColumnName="qrcode" />
+          <ScalarProperty Name="end_time" ColumnName="end_time" />
+          <ScalarProperty Name="creat_time" ColumnName="creat_time" />
+          <ScalarProperty Name="ispersonali" ColumnName="ispersonali" />
+          <ScalarProperty Name="checkamount" ColumnName="checkamount" />
+          <ScalarProperty Name="checkstatus" ColumnName="checkstatus" />
+          <ScalarProperty Name="alipayaccount" ColumnName="alipayaccount" />
+          <ScalarProperty Name="sh_storename" ColumnName="sh_storename" />
+          <ScalarProperty Name="sh_businessid" ColumnName="sh_businessid" />
+          <ScalarProperty Name="isokcheck" ColumnName="isokcheck" />
+          <ScalarProperty Name="fronturl" ColumnName="fronturl" />
+          <ScalarProperty Name="account" ColumnName="account" />
+          <ScalarProperty Name="businesspasstype" ColumnName="businesspasstype" />
+          <ScalarProperty Name="ischeck" ColumnName="ischeck" />
+          <ScalarProperty Name="notifytime" ColumnName="notifytime" />
+          <ScalarProperty Name="notifyid" ColumnName="notifyid" />
+          <ScalarProperty Name="notifycount" ColumnName="notifycount" />
+          <ScalarProperty Name="notifystatus" ColumnName="notifystatus" />
+          <ScalarProperty Name="isnotify" ColumnName="isnotify" />
+          <ScalarProperty Name="returnurl" ColumnName="returnurl" />
+          <ScalarProperty Name="adduser" ColumnName="adduser" />
+          <ScalarProperty Name="addtime" ColumnName="addtime" />
+          <ScalarProperty Name="reason" ColumnName="reason" />
+          <ScalarProperty Name="remark" ColumnName="remark" />
+          <ScalarProperty Name="paytype" ColumnName="paytype" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="servicecharge" ColumnName="servicecharge" />
+          <ScalarProperty Name="commission" ColumnName="commission" />
+          <ScalarProperty Name="auth_code" ColumnName="auth_code" />
+          <ScalarProperty Name="platfee" ColumnName="platfee" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="payno" ColumnName="payno" />
+          <ScalarProperty Name="thirdorderno" ColumnName="thirdorderno" />
+          <ScalarProperty Name="orderno" ColumnName="orderno" />
+          <ScalarProperty Name="businessname" ColumnName="businessname" />
+          <ScalarProperty Name="businessid" ColumnName="businessid" />
+          <ScalarProperty Name="merchantname" ColumnName="merchantname" />
+          <ScalarProperty Name="merchantid" ColumnName="merchantid" />
+          <ScalarProperty Name="agname" ColumnName="agname" />
+          <ScalarProperty Name="agid" ColumnName="agid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sh_business_appinfo">
+      <EntityTypeMapping TypeName="ytfModel.sh_business_appinfo">
+        <MappingFragment StoreEntitySet="sh_business_appinfo">
+          <ScalarProperty Name="isused" ColumnName="isused" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="agid" ColumnName="agid" />
+          <ScalarProperty Name="sh_commratio" ColumnName="sh_commratio" />
+          <ScalarProperty Name="sh_commission" ColumnName="sh_commission" />
+          <ScalarProperty Name="sh_balance" ColumnName="sh_balance" />
+          <ScalarProperty Name="sh_password" ColumnName="sh_password" />
+          <ScalarProperty Name="sh_mobile" ColumnName="sh_mobile" />
+          <ScalarProperty Name="sh_businessname" ColumnName="sh_businessname" />
+          <ScalarProperty Name="sh_storename" ColumnName="sh_storename" />
+          <ScalarProperty Name="sh_storeid" ColumnName="sh_storeid" />
+          <ScalarProperty Name="sh_appsecret" ColumnName="sh_appsecret" />
+          <ScalarProperty Name="sh_appid" ColumnName="sh_appid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sh_business_balancelog">
+      <EntityTypeMapping TypeName="ytfModel.sh_business_balancelog">
+        <MappingFragment StoreEntitySet="sh_business_balancelog">
+          <ScalarProperty Name="memo" ColumnName="memo" />
+          <ScalarProperty Name="addtime" ColumnName="addtime" />
+          <ScalarProperty Name="orderid" ColumnName="orderid" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="newbalance" ColumnName="newbalance" />
+          <ScalarProperty Name="balance" ColumnName="balance" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="sh_businessid" ColumnName="sh_businessid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sh_business_bank_card">
+      <EntityTypeMapping TypeName="ytfModel.sh_business_bank_card">
+        <MappingFragment StoreEntitySet="sh_business_bank_card">
+          <ScalarProperty Name="bankEightCode" ColumnName="bankEightCode" />
+          <ScalarProperty Name="bankCode" ColumnName="bankCode" />
+          <ScalarProperty Name="updateuser" ColumnName="updateuser" />
+          <ScalarProperty Name="updatetime" ColumnName="updatetime" />
+          <ScalarProperty Name="adduser" ColumnName="adduser" />
+          <ScalarProperty Name="addtime" ColumnName="addtime" />
+          <ScalarProperty Name="bankaddress" ColumnName="bankaddress" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="province" ColumnName="province" />
+          <ScalarProperty Name="isaudit" ColumnName="isaudit" />
+          <ScalarProperty Name="defaultAcc" ColumnName="defaultAcc" />
+          <ScalarProperty Name="certNo" ColumnName="certNo" />
+          <ScalarProperty Name="certCode" ColumnName="certCode" />
+          <ScalarProperty Name="bankaccountNo" ColumnName="bankaccountNo" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="bankName" ColumnName="bankName" />
+          <ScalarProperty Name="mobileNo" ColumnName="mobileNo" />
+          <ScalarProperty Name="sh_businessid" ColumnName="sh_businessid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sh_business_commison">
+      <EntityTypeMapping TypeName="ytfModel.sh_business_commison">
+        <MappingFragment StoreEntitySet="sh_business_commison">
+          <ScalarProperty Name="reason" ColumnName="reason" />
+          <ScalarProperty Name="audittime" ColumnName="audittime" />
+          <ScalarProperty Name="addtime" ColumnName="addtime" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="mobileno" ColumnName="mobileno" />
+          <ScalarProperty Name="bankaddress" ColumnName="bankaddress" />
+          <ScalarProperty Name="bankname" ColumnName="bankname" />
+          <ScalarProperty Name="bankusername" ColumnName="bankusername" />
+          <ScalarProperty Name="bankaccountno" ColumnName="bankaccountno" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="sh_businessid" ColumnName="sh_businessid" />
+          <ScalarProperty Name="commorderno" ColumnName="commorderno" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sh_business_replybalance">
+      <EntityTypeMapping TypeName="ytfModel.sh_business_replybalance">
+        <MappingFragment StoreEntitySet="sh_business_replybalance">
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="reason" ColumnName="reason" />
+          <ScalarProperty Name="audittime" ColumnName="audittime" />
+          <ScalarProperty Name="addtime" ColumnName="addtime" />
+          <ScalarProperty Name="remark" ColumnName="remark" />
+          <ScalarProperty Name="qrname" ColumnName="qrname" />
+          <ScalarProperty Name="qrcode" ColumnName="qrcode" />
+          <ScalarProperty Name="paytype" ColumnName="paytype" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="sh_businessid" ColumnName="sh_businessid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sy_admin">
+      <EntityTypeMapping TypeName="ytfModel.sy_admin">
+        <MappingFragment StoreEntitySet="sy_admin">
+          <ScalarProperty Name="updateuser" ColumnName="updateuser" />
+          <ScalarProperty Name="updatetime" ColumnName="updatetime" />
+          <ScalarProperty Name="adduser" ColumnName="adduser" />
+          <ScalarProperty Name="addtime" ColumnName="addtime" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="roleid" ColumnName="roleid" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="usercode" ColumnName="usercode" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sy_agent">
+      <EntityTypeMapping TypeName="ytfModel.sy_agent">
+        <MappingFragment StoreEntitySet="sy_agent">
+          <ScalarProperty Name="bus_domain" ColumnName="bus_domain" />
+          <ScalarProperty Name="domain" ColumnName="domain" />
+          <ScalarProperty Name="updateuser" ColumnName="updateuser" />
+          <ScalarProperty Name="updatetime" ColumnName="updatetime" />
+          <ScalarProperty Name="adduser" ColumnName="adduser" />
+          <ScalarProperty Name="addtime" ColumnName="addtime" />
+          <ScalarProperty Name="commission" ColumnName="commission" />
+          <ScalarProperty Name="ratio" ColumnName="ratio" />
+          <ScalarProperty Name="is_t0" ColumnName="is_t0" />
+          <ScalarProperty Name="is_jd" ColumnName="is_jd" />
+          <ScalarProperty Name="is_alipay" ColumnName="is_alipay" />
+          <ScalarProperty Name="company_logo" ColumnName="company_logo" />
+          <ScalarProperty Name="proof_document" ColumnName="proof_document" />
+          <ScalarProperty Name="mail_box" ColumnName="mail_box" />
+          <ScalarProperty Name="qq_number" ColumnName="qq_number" />
+          <ScalarProperty Name="mobile_phone" ColumnName="mobile_phone" />
+          <ScalarProperty Name="contact_number" ColumnName="contact_number" />
+          <ScalarProperty Name="contacts" ColumnName="contacts" />
+          <ScalarProperty Name="annual_turnover" ColumnName="annual_turnover" />
+          <ScalarProperty Name="company_number" ColumnName="company_number" />
+          <ScalarProperty Name="main_business" ColumnName="main_business" />
+          <ScalarProperty Name="industry_owned" ColumnName="industry_owned" />
+          <ScalarProperty Name="area" ColumnName="area" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="province" ColumnName="province" />
+          <ScalarProperty Name="corporate_name" ColumnName="corporate_name" />
+          <ScalarProperty Name="remarks" ColumnName="remarks" />
+          <ScalarProperty Name="user_status" ColumnName="user_status" />
+          <ScalarProperty Name="last_login_time" ColumnName="last_login_time" />
+          <ScalarProperty Name="agency_expiration_date" ColumnName="agency_expiration_date" />
+          <ScalarProperty Name="agency_amount" ColumnName="agency_amount" />
+          <ScalarProperty Name="agent_rights" ColumnName="agent_rights" />
+          <ScalarProperty Name="direct_identity" ColumnName="direct_identity" />
+          <ScalarProperty Name="agency_level" ColumnName="agency_level" />
+          <ScalarProperty Name="opening_point" ColumnName="opening_point" />
+          <ScalarProperty Name="opening_address" ColumnName="opening_address" />
+          <ScalarProperty Name="bank_accounts" ColumnName="bank_accounts" />
+          <ScalarProperty Name="card_number" ColumnName="card_number" />
+          <ScalarProperty Name="account_name" ColumnName="account_name" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sy_agent_commission_audit">
+      <EntityTypeMapping TypeName="ytfModel.sy_agent_commission_audit">
+        <MappingFragment StoreEntitySet="sy_agent_commission_audit">
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="addtime" ColumnName="addtime" />
+          <ScalarProperty Name="commission" ColumnName="commission" />
+          <ScalarProperty Name="total_income" ColumnName="total_income" />
+          <ScalarProperty Name="transaction_number" ColumnName="transaction_number" />
+          <ScalarProperty Name="agid" ColumnName="agid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sy_agentratio">
+      <EntityTypeMapping TypeName="ytfModel.sy_agentratio">
+        <MappingFragment StoreEntitySet="sy_agentratio">
+          <ScalarProperty Name="ratio" ColumnName="ratio" />
+          <ScalarProperty Name="businesspasstype" ColumnName="businesspasstype" />
+          <ScalarProperty Name="agid" ColumnName="agid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sy_merchant">
+      <EntityTypeMapping TypeName="ytfModel.sy_merchant">
+        <MappingFragment StoreEntitySet="sy_merchant">
+          <ScalarProperty Name="domain" ColumnName="domain" />
+          <ScalarProperty Name="company_logo" ColumnName="company_logo" />
+          <ScalarProperty Name="comm_ratio" ColumnName="comm_ratio" />
+          <ScalarProperty Name="comm_amount" ColumnName="comm_amount" />
+          <ScalarProperty Name="updateuser" ColumnName="updateuser" />
+          <ScalarProperty Name="updatetime" ColumnName="updatetime" />
+          <ScalarProperty Name="adduser" ColumnName="adduser" />
+          <ScalarProperty Name="addtime" ColumnName="addtime" />
+          <ScalarProperty Name="enabletime" ColumnName="enabletime" />
+          <ScalarProperty Name="disabletime" ColumnName="disabletime" />
+          <ScalarProperty Name="returnurl" ColumnName="returnurl" />
+          <ScalarProperty Name="appsecret" ColumnName="appsecret" />
+          <ScalarProperty Name="appid" ColumnName="appid" />
+          <ScalarProperty Name="recharge_limit" ColumnName="recharge_limit" />
+          <ScalarProperty Name="payment_limit" ColumnName="payment_limit" />
+          <ScalarProperty Name="last_login_time" ColumnName="last_login_time" />
+          <ScalarProperty Name="expiration_date" ColumnName="expiration_date" />
+          <ScalarProperty Name="qq_number" ColumnName="qq_number" />
+          <ScalarProperty Name="mail_box" ColumnName="mail_box" />
+          <ScalarProperty Name="contact_information" ColumnName="contact_information" />
+          <ScalarProperty Name="contacts" ColumnName="contacts" />
+          <ScalarProperty Name="merchant_address" ColumnName="merchant_address" />
+          <ScalarProperty Name="area" ColumnName="area" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="province" ColumnName="province" />
+          <ScalarProperty Name="merchant_name" ColumnName="merchant_name" />
+          <ScalarProperty Name="user_rights" ColumnName="user_rights" />
+          <ScalarProperty Name="user_status" ColumnName="user_status" />
+          <ScalarProperty Name="agid" ColumnName="agid" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sy_mercommision">
+      <EntityTypeMapping TypeName="ytfModel.sy_mercommision">
+        <MappingFragment StoreEntitySet="sy_mercommision">
+          <ScalarProperty Name="adduser" ColumnName="adduser" />
+          <ScalarProperty Name="addtime" ColumnName="addtime" />
+          <ScalarProperty Name="memo" ColumnName="memo" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="orderid" ColumnName="orderid" />
+          <ScalarProperty Name="comm_amount" ColumnName="comm_amount" />
+          <ScalarProperty Name="agid" ColumnName="agid" />
+          <ScalarProperty Name="merchantid" ColumnName="merchantid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sy_qrcode">
+      <EntityTypeMapping TypeName="ytfModel.sy_qrcode">
+        <MappingFragment StoreEntitySet="sy_qrcode">
+          <ScalarProperty Name="isused" ColumnName="isused" />
+          <ScalarProperty Name="addtime" ColumnName="addtime" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="qrcode" ColumnName="qrcode" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sy_role">
+      <EntityTypeMapping TypeName="ytfModel.sy_role">
+        <MappingFragment StoreEntitySet="sy_role">
+          <ScalarProperty Name="updateuser" ColumnName="updateuser" />
+          <ScalarProperty Name="updatetime" ColumnName="updatetime" />
+          <ScalarProperty Name="adduser" ColumnName="adduser" />
+          <ScalarProperty Name="addtime" ColumnName="addtime" />
+          <ScalarProperty Name="isadmin" ColumnName="isadmin" />
+          <ScalarProperty Name="rolename" ColumnName="rolename" />
+          <ScalarProperty Name="rolecode" ColumnName="rolecode" />
+          <ScalarProperty Name="roleid" ColumnName="roleid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sy_router">
+      <EntityTypeMapping TypeName="ytfModel.sy_router">
+        <MappingFragment StoreEntitySet="sy_router">
+          <ScalarProperty Name="tx" ColumnName="tx" />
+          <ScalarProperty Name="lastupdatetime" ColumnName="lastupdatetime" />
+          <ScalarProperty Name="lastupdateuser" ColumnName="lastupdateuser" />
+          <ScalarProperty Name="createtime" ColumnName="createtime" />
+          <ScalarProperty Name="createuser" ColumnName="createuser" />
+          <ScalarProperty Name="hidden" ColumnName="hidden" />
+          <ScalarProperty Name="sort" ColumnName="sort" />
+          <ScalarProperty Name="meta" ColumnName="meta" />
+          <ScalarProperty Name="nodropdown" ColumnName="nodropdown" />
+          <ScalarProperty Name="icon" ColumnName="icon" />
+          <ScalarProperty Name="redirect" ColumnName="redirect" />
+          <ScalarProperty Name="path" ColumnName="path" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sy_routers">
+      <EntityTypeMapping TypeName="ytfModel.sy_routers">
+        <MappingFragment StoreEntitySet="sy_routers">
+          <ScalarProperty Name="tx" ColumnName="tx" />
+          <ScalarProperty Name="lastupdatetime" ColumnName="lastupdatetime" />
+          <ScalarProperty Name="lastupdateuser" ColumnName="lastupdateuser" />
+          <ScalarProperty Name="createtime" ColumnName="createtime" />
+          <ScalarProperty Name="createuser" ColumnName="createuser" />
+          <ScalarProperty Name="hidden" ColumnName="hidden" />
+          <ScalarProperty Name="sort" ColumnName="sort" />
+          <ScalarProperty Name="meta" ColumnName="meta" />
+          <ScalarProperty Name="component" ColumnName="component" />
+          <ScalarProperty Name="path" ColumnName="path" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="autoid" ColumnName="autoid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sy_tariff_management">
+      <EntityTypeMapping TypeName="ytfModel.sy_tariff_management">
+        <MappingFragment StoreEntitySet="sy_tariff_management">
+          <ScalarProperty Name="updateuser" ColumnName="updateuser" />
+          <ScalarProperty Name="updatetime" ColumnName="updatetime" />
+          <ScalarProperty Name="adduser" ColumnName="adduser" />
+          <ScalarProperty Name="addtime" ColumnName="addtime" />
+          <ScalarProperty Name="h5_division_rate" ColumnName="h5_division_rate" />
+          <ScalarProperty Name="h5_profit_margin" ColumnName="h5_profit_margin" />
+          <ScalarProperty Name="h5_platform_rate" ColumnName="h5_platform_rate" />
+          <ScalarProperty Name="jd_division_rate" ColumnName="jd_division_rate" />
+          <ScalarProperty Name="jd_profit_margin" ColumnName="jd_profit_margin" />
+          <ScalarProperty Name="jd_platform_rate" ColumnName="jd_platform_rate" />
+          <ScalarProperty Name="alipay_division_rate" ColumnName="alipay_division_rate" />
+          <ScalarProperty Name="alipay_profit_margin" ColumnName="alipay_profit_margin" />
+          <ScalarProperty Name="alipay_platform_rate" ColumnName="alipay_platform_rate" />
+          <ScalarProperty Name="wechat_division_rate" ColumnName="wechat_division_rate" />
+          <ScalarProperty Name="wechat_profit_margin" ColumnName="wechat_profit_margin" />
+          <ScalarProperty Name="wechat_platform_rate" ColumnName="wechat_platform_rate" />
+          <ScalarProperty Name="agid" ColumnName="agid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="me_member_view">
       <EntityTypeMapping TypeName="ytfModel.me_member_view">
         <MappingFragment StoreEntitySet="me_member_view">
+          <ScalarProperty Name="alipayaccount" ColumnName="alipayaccount" />
           <ScalarProperty Name="agent_id" ColumnName="agent_id" />
           <ScalarProperty Name="agent_name" ColumnName="agent_name" />
           <ScalarProperty Name="bus_id" ColumnName="bus_id" />

@@ -1,5 +1,630 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="ytfModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="ytfEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="p_alipaydetail_add">
+      <Parameter Name="businessid" Mode="In" Type="Int32" />
+      <Parameter Name="name" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="p_auto_closealipay" />
+    <FunctionImport Name="PROC_Agentaddwithdraw" ReturnType="Collection(ytfModel.PROC_Agentaddwithdraw_Result)">
+      <Parameter Name="agid" Mode="In" Type="Int32" />
+      <Parameter Name="commission" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_AgentAuditwithdraw" ReturnType="Collection(ytfModel.PROC_AgentAuditwithdraw_Result)">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="reason" Mode="In" Type="String" />
+      <Parameter Name="auditor" Mode="In" Type="String" />
+      <Parameter Name="status" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_Agentwithdrawlist">
+      <Parameter Name="begindate" Mode="In" Type="String" />
+      <Parameter Name="enddate" Mode="In" Type="String" />
+      <Parameter Name="status" Mode="In" Type="Int32" />
+      <Parameter Name="keyword" Mode="In" Type="String" />
+      <Parameter Name="page" Mode="In" Type="Int32" />
+      <Parameter Name="pagesize" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_Agentwithdrawlistbyagent" ReturnType="Collection(ytfModel.PROC_Agentwithdrawlistbyagent_Result)">
+      <Parameter Name="begindate" Mode="In" Type="String" />
+      <Parameter Name="enddate" Mode="In" Type="String" />
+      <Parameter Name="agid" Mode="In" Type="Int32" />
+      <Parameter Name="status" Mode="In" Type="Int32" />
+      <Parameter Name="page" Mode="In" Type="Int32" />
+      <Parameter Name="pagesize" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_AuditOrderDepositByAgent" ReturnType="Collection(ytfModel.PROC_AuditOrderDepositByAgent_Result)">
+      <Parameter Name="despoitno" Mode="In" Type="String" />
+      <Parameter Name="status" Mode="In" Type="Int32" />
+      <Parameter Name="reason" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_AuditOrderDepositByNiuchao" ReturnType="Collection(ytfModel.PROC_AuditOrderDepositByNiuchao_Result)">
+      <Parameter Name="despoitno" Mode="In" Type="String" />
+      <Parameter Name="status" Mode="In" Type="Int32" />
+      <Parameter Name="reason" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_AutoReleaseFreeamount" />
+    <FunctionImport Name="PROC_BusinessCheckBalance" ReturnType="Collection(ytfModel.PROC_BusinessCheckBalance_Result)">
+      <Parameter Name="businessid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_CheckBusinessBalance" ReturnType="Collection(ytfModel.PROC_CheckBusinessBalance_Result)" />
+    <FunctionImport Name="PROC_CheckOrderStatus" ReturnType="Collection(ytfModel.PROC_CheckOrderStatus_Result)">
+      <Parameter Name="orderno" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_CreateOrder" ReturnType="Collection(ytfModel.PROC_CreateOrder_Result)">
+      <Parameter Name="amount" Mode="In" Type="Decimal" />
+      <Parameter Name="remark" Mode="In" Type="String" />
+      <Parameter Name="appid" Mode="In" Type="String" />
+      <Parameter Name="paytype" Mode="In" Type="Int32" />
+      <Parameter Name="businesspasstype" Mode="In" Type="Int32" />
+      <Parameter Name="frontUrl" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_CreateOrderByPersonal" ReturnType="Collection(ytfModel.PROC_CreateOrderByPersonal_Result)">
+      <Parameter Name="amount" Mode="In" Type="Decimal" />
+      <Parameter Name="remark" Mode="In" Type="String" />
+      <Parameter Name="appid" Mode="In" Type="String" />
+      <Parameter Name="paytype" Mode="In" Type="Int32" />
+      <Parameter Name="frontUrl" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_CreateOrderByPersonalThird" ReturnType="Collection(ytfModel.PROC_CreateOrderByPersonalThird_Result)">
+      <Parameter Name="orderno" Mode="In" Type="String" />
+      <Parameter Name="amount" Mode="In" Type="Decimal" />
+      <Parameter Name="remark" Mode="In" Type="String" />
+      <Parameter Name="appid" Mode="In" Type="String" />
+      <Parameter Name="returnurl" Mode="In" Type="String" />
+      <Parameter Name="paytype" Mode="In" Type="Int32" />
+      <Parameter Name="frontUrl" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_CreateOrderByThird" ReturnType="Collection(ytfModel.PROC_CreateOrderByThird_Result)">
+      <Parameter Name="orderno" Mode="In" Type="String" />
+      <Parameter Name="amount" Mode="In" Type="Decimal" />
+      <Parameter Name="remark" Mode="In" Type="String" />
+      <Parameter Name="appid" Mode="In" Type="String" />
+      <Parameter Name="returnurl" Mode="In" Type="String" />
+      <Parameter Name="paytype" Mode="In" Type="Int32" />
+      <Parameter Name="frontUrl" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_CreateOrderCheck" ReturnType="Collection(ytfModel.PROC_CreateOrderCheck_Result)">
+      <Parameter Name="amount" Mode="In" Type="Decimal" />
+      <Parameter Name="appid" Mode="In" Type="String" />
+      <Parameter Name="paytype" Mode="In" Type="Int32" />
+      <Parameter Name="businesspasstype" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_CreateOrderCheckByThird" ReturnType="Collection(ytfModel.PROC_CreateOrderCheckByThird_Result)">
+      <Parameter Name="orderno" Mode="In" Type="String" />
+      <Parameter Name="amount" Mode="In" Type="Decimal" />
+      <Parameter Name="appid" Mode="In" Type="String" />
+      <Parameter Name="paytype" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_CreateUserid" ReturnType="Collection(ytfModel.PROC_CreateUserid_Result)">
+      <Parameter Name="phone" Mode="In" Type="String" />
+      <Parameter Name="userid" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_CustomerAddDespoit" ReturnType="Collection(ytfModel.PROC_CustomerAddDespoit_Result)">
+      <Parameter Name="customerappid" Mode="In" Type="String" />
+      <Parameter Name="amount" Mode="In" Type="Decimal" />
+      <Parameter Name="bankno" Mode="In" Type="String" />
+      <Parameter Name="paytype" Mode="In" Type="Int32" />
+      <Parameter Name="businesspasstype" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_CustomerAddDespoitCheck" ReturnType="Collection(ytfModel.PROC_CustomerAddDespoitCheck_Result)">
+      <Parameter Name="customerappid" Mode="In" Type="String" />
+      <Parameter Name="amount" Mode="In" Type="Decimal" />
+      <Parameter Name="bankno" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_DespoitOrderList">
+      <Parameter Name="begindate" Mode="In" Type="String" />
+      <Parameter Name="enddate" Mode="In" Type="String" />
+      <Parameter Name="agid" Mode="In" Type="Int32" />
+      <Parameter Name="businessid" Mode="In" Type="Int32" />
+      <Parameter Name="status" Mode="In" Type="Int32" />
+      <Parameter Name="page" Mode="In" Type="Int32" />
+      <Parameter Name="pagesize" Mode="In" Type="Int32" />
+      <Parameter Name="businesspasstype" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_DespoitVoice" ReturnType="Collection(ytfModel.PROC_DespoitVoice_Result)">
+      <Parameter Name="agid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_GetAlipayConfig" ReturnType="Collection(ytfModel.PROC_GetAlipayConfig_Result)">
+      <Parameter Name="out_trade_no" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_GetAppsecert" ReturnType="Collection(ytfModel.PROC_GetAppsecert_Result)">
+      <Parameter Name="appid" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_GetDespoitDetail" ReturnType="Collection(ytfModel.PROC_GetDespoitDetail_Result)">
+      <Parameter Name="despoitno" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_GetMerchantbusiness" ReturnType="Collection(ytfModel.PROC_GetMerchantbusiness_Result)">
+      <Parameter Name="merchantid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_GetNotifyInfo" ReturnType="Collection(ytfModel.PROC_GetNotifyInfo_Result)">
+      <Parameter Name="orderno" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_GetOrderDepositQuery" ReturnType="Collection(ytfModel.PROC_GetOrderDepositQuery_Result)" />
+    <FunctionImport Name="PROC_GetOrderQuery" ReturnType="Collection(ytfModel.PROC_GetOrderQuery_Result)" />
+    <FunctionImport Name="PROC_GetRealAppsecert" ReturnType="Collection(String)">
+      <Parameter Name="appid" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_GetSHappinfo" ReturnType="Collection(ytfModel.PROC_GetSHappinfo_Result)">
+      <Parameter Name="orderno" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_GetUpdateOrder" ReturnType="Collection(ytfModel.PROC_GetUpdateOrder_Result)">
+      <Parameter Name="orderno" Mode="In" Type="String" />
+      <Parameter Name="status" Mode="In" Type="Int32" />
+      <Parameter Name="reason" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_GetUpdateOrderDeposit">
+      <Parameter Name="despoitno" Mode="In" Type="String" />
+      <Parameter Name="status" Mode="In" Type="Int32" />
+      <Parameter Name="reason" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_GetUserinfo" ReturnType="Collection(ytfModel.PROC_GetUserinfo_Result)" />
+    <FunctionImport Name="PROC_OrderAddQrcode" ReturnType="Collection(ytfModel.PROC_OrderAddQrcode_Result)">
+      <Parameter Name="token" Mode="In" Type="String" />
+      <Parameter Name="url" Mode="In" Type="String" />
+      <Parameter Name="mark_sell" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_OrderCallBack" ReturnType="Collection(ytfModel.PROC_OrderCallBack_Result)">
+      <Parameter Name="orderno" Mode="In" Type="String" />
+      <Parameter Name="payno" Mode="In" Type="String" />
+      <Parameter Name="status" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_OrderList">
+      <Parameter Name="begindate" Mode="In" Type="String" />
+      <Parameter Name="enddate" Mode="In" Type="String" />
+      <Parameter Name="agid" Mode="In" Type="Int32" />
+      <Parameter Name="businessid" Mode="In" Type="Int32" />
+      <Parameter Name="keyword" Mode="In" Type="String" />
+      <Parameter Name="status" Mode="In" Type="Int32" />
+      <Parameter Name="page" Mode="In" Type="Int32" />
+      <Parameter Name="pagesize" Mode="In" Type="Int32" />
+      <Parameter Name="businesspasstype" Mode="In" Type="Int32" />
+      <Parameter Name="paytype" Mode="In" Type="Int32" />
+      <Parameter Name="time" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_OrderPayInfo" ReturnType="Collection(ytfModel.PROC_OrderPayInfo_Result)">
+      <Parameter Name="orderno" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_OrderPersonalCallBack" ReturnType="Collection(ytfModel.PROC_OrderPersonalCallBack_Result)">
+      <Parameter Name="token" Mode="In" Type="String" />
+      <Parameter Name="mark_sell" Mode="In" Type="String" />
+      <Parameter Name="order_id" Mode="In" Type="String" />
+      <Parameter Name="money" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_OrderPersonPayInfo" ReturnType="Collection(ytfModel.PROC_OrderPersonPayInfo_Result)">
+      <Parameter Name="orderno" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_OrderQueryQrcode" ReturnType="Collection(ytfModel.PROC_OrderQueryQrcode_Result)">
+      <Parameter Name="token" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_OrderSumList">
+      <Parameter Name="begindate" Mode="In" Type="String" />
+      <Parameter Name="enddate" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_OrderUpdateByAdmin" ReturnType="Collection(ytfModel.PROC_OrderUpdateByAdmin_Result)">
+      <Parameter Name="orderno" Mode="In" Type="String" />
+      <Parameter Name="panyno" Mode="In" Type="String" />
+      <Parameter Name="reason" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_PayPassAdd" ReturnType="Collection(ytfModel.PROC_PayPassAdd_Result)">
+      <Parameter Name="alipayappid" Mode="In" Type="String" />
+      <Parameter Name="rsaprivate" Mode="In" Type="String" />
+      <Parameter Name="rsapublic" Mode="In" Type="String" />
+      <Parameter Name="dayamount" Mode="In" Type="Decimal" />
+      <Parameter Name="memo" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_PayPassList">
+      <Parameter Name="keyword" Mode="In" Type="String" />
+      <Parameter Name="status" Mode="In" Type="Int32" />
+      <Parameter Name="page" Mode="In" Type="Int32" />
+      <Parameter Name="pagesize" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_PayPassUpdate" ReturnType="Collection(ytfModel.PROC_PayPassUpdate_Result)">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="alipayappid" Mode="In" Type="String" />
+      <Parameter Name="rsaprivate" Mode="In" Type="String" />
+      <Parameter Name="rsapublic" Mode="In" Type="String" />
+      <Parameter Name="dayamount" Mode="In" Type="Decimal" />
+      <Parameter Name="memo" Mode="In" Type="String" />
+      <Parameter Name="enable" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_SHBusinessAppinfoList">
+      <Parameter Name="keyword" Mode="In" Type="String" />
+      <Parameter Name="status" Mode="In" Type="Int32" />
+      <Parameter Name="page" Mode="In" Type="Int32" />
+      <Parameter Name="pagesize" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="proc_unionbusinessbalance">
+      <Parameter Name="businessid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_UpdateBusinessBalance">
+      <Parameter Name="appid" Mode="In" Type="String" />
+      <Parameter Name="balance" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_UpdateBusinessWorkkey">
+      <Parameter Name="businessid" Mode="In" Type="Int32" />
+      <Parameter Name="key" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_UpdateOrderPayno">
+      <Parameter Name="orderno" Mode="In" Type="String" />
+      <Parameter Name="payno" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Report_Business_balance" ReturnType="Collection(ytfModel.Report_Business_balance_Result)" />
+    <FunctionImport Name="report_businessorderamount">
+      <Parameter Name="begindate" Mode="In" Type="String" />
+      <Parameter Name="enddate" Mode="In" Type="String" />
+      <Parameter Name="keyword" Mode="In" Type="String" />
+      <Parameter Name="page" Mode="In" Type="Int32" />
+      <Parameter Name="pagesize" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Report_GetBusinessDespoit" ReturnType="Collection(ytfModel.Report_GetBusinessDespoit_Result)">
+      <Parameter Name="begindate" Mode="In" Type="String" />
+      <Parameter Name="enddate" Mode="In" Type="String" />
+      <Parameter Name="keyword" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Report_GetBusinessTrade">
+      <Parameter Name="begindate" Mode="In" Type="String" />
+      <Parameter Name="enddate" Mode="In" Type="String" />
+      <Parameter Name="keyword" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Report_GetPlatTrade">
+      <Parameter Name="begindate" Mode="In" Type="String" />
+      <Parameter Name="enddate" Mode="In" Type="String" />
+      <Parameter Name="keywork" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="report_ordersuccessrate">
+      <Parameter Name="begindate" Mode="In" Type="String" />
+      <Parameter Name="enddate" Mode="In" Type="String" />
+      <Parameter Name="keyword" Mode="In" Type="String" />
+      <Parameter Name="page" Mode="In" Type="Int32" />
+      <Parameter Name="pagesize" Mode="In" Type="Int32" />
+      <Parameter Name="paytype" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="report_payaccountorderamount" ReturnType="Collection(ytfModel.report_payaccountorderamount_Result)">
+      <Parameter Name="begindate" Mode="In" Type="String" />
+      <Parameter Name="enddate" Mode="In" Type="String" />
+      <Parameter Name="page" Mode="In" Type="Int32" />
+      <Parameter Name="pagesize" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_OrderAlipayRedlCallBack" ReturnType="Collection(ytfModel.PROC_OrderAlipayRedlCallBack_Result)">
+      <Parameter Name="token" Mode="In" Type="String" />
+      <Parameter Name="userid" Mode="In" Type="String" />
+      <Parameter Name="mark_sell" Mode="In" Type="String" />
+      <Parameter Name="order_id" Mode="In" Type="String" />
+      <Parameter Name="money" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="PROC_OrderAlipayRedPayInfo" ReturnType="Collection(ytfModel.PROC_OrderAlipayRedPayInfo_Result)">
+      <Parameter Name="orderno" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="aa_bank_code" EntityType="ytfModel.aa_bank_code" />
+    <EntitySet Name="aa_business_balance" EntityType="ytfModel.aa_business_balance" />
+    <EntitySet Name="aa_business_category" EntityType="ytfModel.aa_business_category" />
+    <EntitySet Name="aa_business_coding" EntityType="ytfModel.aa_business_coding" />
+    <EntitySet Name="aa_business_pass" EntityType="ytfModel.aa_business_pass" />
+    <EntitySet Name="aa_business_type" EntityType="ytfModel.aa_business_type" />
+    <EntitySet Name="aa_merchant_city" EntityType="ytfModel.aa_merchant_city" />
+    <EntitySet Name="aa_platbase" EntityType="ytfModel.aa_platbase" />
+    <EntitySet Name="fa_business_bank_card" EntityType="ytfModel.fa_business_bank_card" />
+    <EntitySet Name="fa_business_basic" EntityType="ytfModel.fa_business_basic" />
+    <EntitySet Name="fa_business_merchant" EntityType="ytfModel.fa_business_merchant" />
+    <EntitySet Name="fa_open_payment" EntityType="ytfModel.fa_open_payment" />
+    <EntitySet Name="me_member" EntityType="ytfModel.me_member" />
+    <EntitySet Name="pay_task" EntityType="ytfModel.pay_task" />
+    <EntitySet Name="po_abnormalorder" EntityType="ytfModel.po_abnormalorder" />
+    <EntitySet Name="po_agentwithdraw" EntityType="ytfModel.po_agentwithdraw" />
+    <EntitySet Name="po_businessdateflow" EntityType="ytfModel.po_businessdateflow" />
+    <EntitySet Name="po_despoit" EntityType="ytfModel.po_despoit" />
+    <EntitySet Name="po_order" EntityType="ytfModel.po_order" />
+    <EntitySet Name="sh_business_appinfo" EntityType="ytfModel.sh_business_appinfo" />
+    <EntitySet Name="sh_business_balancelog" EntityType="ytfModel.sh_business_balancelog" />
+    <EntitySet Name="sh_business_bank_card" EntityType="ytfModel.sh_business_bank_card" />
+    <EntitySet Name="sh_business_commison" EntityType="ytfModel.sh_business_commison" />
+    <EntitySet Name="sh_business_replybalance" EntityType="ytfModel.sh_business_replybalance" />
+    <EntitySet Name="sy_admin" EntityType="ytfModel.sy_admin" />
+    <EntitySet Name="sy_agent" EntityType="ytfModel.sy_agent" />
+    <EntitySet Name="sy_agent_commission_audit" EntityType="ytfModel.sy_agent_commission_audit" />
+    <EntitySet Name="sy_agentratio" EntityType="ytfModel.sy_agentratio" />
+    <EntitySet Name="sy_merchant" EntityType="ytfModel.sy_merchant" />
+    <EntitySet Name="sy_mercommision" EntityType="ytfModel.sy_mercommision" />
+    <EntitySet Name="sy_qrcode" EntityType="ytfModel.sy_qrcode" />
+    <EntitySet Name="sy_role" EntityType="ytfModel.sy_role" />
+    <EntitySet Name="sy_router" EntityType="ytfModel.sy_router" />
+    <EntitySet Name="sy_routers" EntityType="ytfModel.sy_routers" />
+    <EntitySet Name="sy_tariff_management" EntityType="ytfModel.sy_tariff_management" />
+    <EntitySet Name="me_member_view" EntityType="ytfModel.me_member_view" />
+  </EntityContainer>
+  <ComplexType Name="PROC_Agentaddwithdraw_Result">
+    <Property Type="Int32" Name="state" Nullable="false" />
+    <Property Type="String" Name="message" Nullable="false" MaxLength="17" />
+  </ComplexType>
+  <ComplexType Name="PROC_AgentAuditwithdraw_Result">
+    <Property Type="Int32" Name="state" Nullable="false" />
+    <Property Type="String" Name="message" Nullable="false" MaxLength="18" />
+  </ComplexType>
+  <ComplexType Name="PROC_Agentwithdrawlistbyagent_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="agid" Nullable="true" />
+    <Property Type="Decimal" Name="lastcommission" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="newcommission" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="commission" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Int32" Name="status" Nullable="true" />
+    <Property Type="String" Name="reason" Nullable="true" MaxLength="100" />
+    <Property Type="DateTime" Name="addtime" Nullable="true" Precision="23" />
+    <Property Type="String" Name="adduser" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="updatetime" Nullable="true" Precision="23" />
+    <Property Type="String" Name="updateuser" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="PROC_AuditOrderDepositByAgent_Result">
+    <Property Type="Int32" Name="status_code" Nullable="false" />
+    <Property Type="String" Name="message" Nullable="false" MaxLength="12" />
+  </ComplexType>
+  <ComplexType Name="PROC_AuditOrderDepositByNiuchao_Result">
+    <Property Type="Int32" Name="statue" Nullable="false" />
+    <Property Type="String" Name="message" Nullable="false" MaxLength="12" />
+  </ComplexType>
+  <ComplexType Name="PROC_BusinessCheckBalance_Result">
+    <Property Type="Decimal" Name="realamount" Nullable="true" Precision="38" Scale="2" />
+    <Property Type="Decimal" Name="despoitamount" Nullable="true" Precision="38" Scale="2" />
+    <Property Type="Decimal" Name="totalbalance" Nullable="true" Precision="38" Scale="2" />
+    <Property Type="Decimal" Name="differamount" Nullable="true" Precision="38" Scale="2" />
+    <Property Type="String" Name="shortname" Nullable="true" MaxLength="300" />
+    <Property Type="Int32" Name="id" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="PROC_CheckBusinessBalance_Result">
+    <Property Type="String" Name="appid" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="appsecret" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="PROC_CheckOrderStatus_Result">
+    <Property Type="String" Name="payno" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="merchant_num" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="PROC_CreateOrder_Result">
+    <Property Type="String" Name="agentno" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="mchid" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="mchkey" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="pfxfile" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="pfxpassword" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="cerfile" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="businesspasstype" Nullable="true" />
+    <Property Type="String" Name="rsaprivate" Nullable="true" />
+    <Property Type="String" Name="rsapublic" Nullable="true" />
+    <Property Type="Boolean" Name="isredirect" Nullable="true" />
+    <Property Type="String" Name="alipayappid" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="amount" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="orderno" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="remark" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="frontUrl" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="sh_appid" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="sh_appsecret" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="sh_storeid" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="PROC_CreateOrderByPersonal_Result">
+    <Property Type="String" Name="paytype" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="orderno" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="amount" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="remark" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="userid" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="name" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="qrcode" Nullable="false" MaxLength="1" />
+  </ComplexType>
+  <ComplexType Name="PROC_CreateOrderByPersonalThird_Result">
+    <Property Type="String" Name="paytype" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="orderno" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="amount" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="remark" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="userid" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="name" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="qrcode" Nullable="false" MaxLength="1" />
+  </ComplexType>
+  <ComplexType Name="PROC_CreateOrderByThird_Result">
+    <Property Type="String" Name="agentno" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="mchid" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="mchkey" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="pfxfile" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="pfxpassword" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="cerfile" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="businesspasstype" Nullable="true" />
+    <Property Type="String" Name="rsaprivate" Nullable="true" />
+    <Property Type="String" Name="rsapublic" Nullable="true" />
+    <Property Type="Boolean" Name="isredirect" Nullable="true" />
+    <Property Type="String" Name="alipayappid" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="amount" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="orderno" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="remark" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="returnurl" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="frontUrl" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="sh_appid" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="sh_appsecret" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="sh_storeid" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="PROC_CreateOrderCheck_Result">
+    <Property Type="Int32" Name="state" Nullable="false" />
+    <Property Type="String" Name="message" Nullable="false" MaxLength="21" />
+  </ComplexType>
+  <ComplexType Name="PROC_CreateOrderCheckByThird_Result">
+    <Property Type="Int32" Name="state" Nullable="false" />
+    <Property Type="String" Name="message" Nullable="false" MaxLength="21" />
+  </ComplexType>
+  <ComplexType Name="PROC_CreateUserid_Result">
+    <Property Type="Int32" Name="state" Nullable="false" />
+    <Property Type="String" Name="message" Nullable="false" MaxLength="4" />
+  </ComplexType>
+  <ComplexType Name="PROC_CustomerAddDespoit_Result">
+    <Property Type="Int32" Name="status_code" Nullable="false" />
+    <Property Type="String" Name="message" Nullable="false" MaxLength="16" />
+  </ComplexType>
+  <ComplexType Name="PROC_CustomerAddDespoitCheck_Result">
+    <Property Type="Int32" Name="status_code" Nullable="false" />
+    <Property Type="String" Name="message" Nullable="false" MaxLength="16" />
+  </ComplexType>
+  <ComplexType Name="PROC_DespoitVoice_Result">
+    <Property Type="Int32" Name="status_code" Nullable="false" />
+    <Property Type="String" Name="message" Nullable="false" MaxLength="18" />
+  </ComplexType>
+  <ComplexType Name="PROC_GetAlipayConfig_Result">
+    <Property Type="String" Name="alipayappid" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="rsaprivate" Nullable="true" />
+    <Property Type="String" Name="rsapublic" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="PROC_GetAppsecert_Result">
+    <Property Type="String" Name="appid" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="appsecret" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="PROC_GetDespoitDetail_Result">
+    <Property Type="String" Name="despoitno" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="amount" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="bankaccountno" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="bankusername" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="bankname" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="bankcode" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="bankeightcode" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="paytype" Nullable="true" />
+    <Property Type="String" Name="bankaddress" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="agentNo" Nullable="false" MaxLength="7" />
+    <Property Type="String" Name="merNo" Nullable="false" MaxLength="15" />
+    <Property Type="String" Name="merkey" Nullable="false" MaxLength="16" />
+    <Property Type="String" Name="mobileno" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="certno" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="province" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="city" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="businesspasstype" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="PROC_GetMerchantbusiness_Result">
+    <Property Type="String" Name="shortname" Nullable="true" MaxLength="300" />
+    <Property Type="String" Name="merchantaddress" Nullable="true" MaxLength="60" />
+    <Property Type="String" Name="servicephone" Nullable="true" MaxLength="300" />
+    <Property Type="String" Name="corpmanname" Nullable="true" MaxLength="100" />
+    <Property Type="Decimal" Name="balance" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="orderamount" Nullable="false" Precision="38" Scale="2" />
+    <Property Type="Decimal" Name="despoitamount" Nullable="false" Precision="38" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="PROC_GetNotifyInfo_Result">
+    <Property Type="String" Name="orderno" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="notifystatus" Nullable="true" />
+    <Property Type="Decimal" Name="realamount" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="memo" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="returnurl" Nullable="true" MaxLength="200" />
+    <Property Type="Int32" Name="notifycount" Nullable="true" />
+    <Property Type="String" Name="notifyid" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="customerappid" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="customerappsecret" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="PROC_GetOrderDepositQuery_Result">
+    <Property Type="String" Name="despoitno" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="appid" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="appsecret" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="PROC_GetOrderQuery_Result">
+    <Property Type="String" Name="orderno" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="appid" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="appsecret" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="PROC_GetSHappinfo_Result">
+    <Property Type="String" Name="sh_appid" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="sh_appsecret" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="sh_storeid" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="amount" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="frontUrl" Nullable="false" MaxLength="500" />
+  </ComplexType>
+  <ComplexType Name="PROC_GetUpdateOrder_Result">
+    <Property Type="Int32" Name="statue" Nullable="false" />
+    <Property Type="String" Name="message" Nullable="false" MaxLength="12" />
+  </ComplexType>
+  <ComplexType Name="PROC_GetUserinfo_Result">
+    <Property Type="String" Name="agentNo" Nullable="false" MaxLength="7" />
+    <Property Type="String" Name="merNo" Nullable="false" MaxLength="15" />
+    <Property Type="String" Name="merkey" Nullable="false" MaxLength="16" />
+  </ComplexType>
+  <ComplexType Name="PROC_OrderAddQrcode_Result">
+    <Property Type="Int32" Name="status" Nullable="false" />
+    <Property Type="String" Name="message" Nullable="false" MaxLength="4" />
+  </ComplexType>
+  <ComplexType Name="PROC_OrderCallBack_Result">
+    <Property Type="Int32" Name="state" Nullable="false" />
+    <Property Type="String" Name="message" Nullable="false" MaxLength="18" />
+  </ComplexType>
+  <ComplexType Name="PROC_OrderPayInfo_Result">
+    <Property Type="Int32" Name="statue" Nullable="false" />
+    <Property Type="String" Name="message" Nullable="false" MaxLength="4" />
+    <Property Type="Decimal" Name="amount" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="remark" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="fronturl" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="orderno" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="alipayappid" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="rsaprivate" Nullable="true" />
+    <Property Type="String" Name="rsapublic" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="PROC_OrderPersonalCallBack_Result">
+    <Property Type="Int32" Name="status" Nullable="false" />
+    <Property Type="String" Name="message" Nullable="false" MaxLength="18" />
+  </ComplexType>
+  <ComplexType Name="PROC_OrderPersonPayInfo_Result">
+    <Property Type="Int32" Name="state" Nullable="false" />
+    <Property Type="String" Name="message" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="amount" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="paytype" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="qrcode" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="time" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="name" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="userid" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="orderno" Nullable="false" MaxLength="1" />
+  </ComplexType>
+  <ComplexType Name="PROC_OrderQueryQrcode_Result">
+    <Property Type="Int32" Name="money" Nullable="true" />
+    <Property Type="String" Name="url" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="channel" Nullable="false" MaxLength="6" />
+    <Property Type="String" Name="task_extra" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="result_extra" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="mark_sell" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="mark_buy" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="order_id" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="status" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="apply_time" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="PROC_OrderUpdateByAdmin_Result">
+    <Property Type="Int32" Name="status_code" Nullable="false" />
+    <Property Type="String" Name="message" Nullable="false" MaxLength="18" />
+  </ComplexType>
+  <ComplexType Name="PROC_PayPassAdd_Result">
+    <Property Type="Int32" Name="status_code" Nullable="false" />
+    <Property Type="String" Name="message" Nullable="false" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="PROC_PayPassUpdate_Result">
+    <Property Type="Int32" Name="status_code" Nullable="false" />
+    <Property Type="String" Name="message" Nullable="false" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="Report_Business_balance_Result">
+    <Property Type="Int32" Name="businessid" Nullable="true" />
+    <Property Type="Decimal" Name="realamount" Nullable="true" Precision="38" Scale="2" />
+    <Property Type="Int32" Name="paytype" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="Report_GetBusinessDespoit_Result">
+    <Property Type="Int32" Name="qty" Nullable="true" />
+    <Property Type="Decimal" Name="amount" Nullable="true" Precision="38" Scale="2" />
+    <Property Type="Decimal" Name="charge" Nullable="true" Precision="38" Scale="2" />
+    <Property Type="Int32" Name="Despoit" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="report_payaccountorderamount_Result">
+    <Property Type="String" Name="account" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="amount" Nullable="true" Precision="38" Scale="2" />
+    <Property Type="Decimal" Name="servicecharge" Nullable="true" Precision="38" Scale="2" />
+    <Property Type="Decimal" Name="realamount" Nullable="true" Precision="38" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="PROC_OrderAlipayRedlCallBack_Result">
+    <Property Type="Int32" Name="status" Nullable="false" />
+    <Property Type="String" Name="message" Nullable="false" MaxLength="18" />
+  </ComplexType>
+  <ComplexType Name="PROC_OrderAlipayRedPayInfo_Result">
+    <Property Type="Int32" Name="statue" Nullable="false" />
+    <Property Type="String" Name="message" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="amount" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="paytype" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="qrcode" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="time" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="name" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="userid" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="orderno" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="alipayaccount" Nullable="false" MaxLength="1" />
+  </ComplexType>
   <EntityType Name="aa_bank_code">
     <Key>
       <PropertyRef Name="id" />
@@ -228,6 +853,7 @@
     <Property Name="memberid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="alipayname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="alipayaccount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="wechatname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="iswechat" Type="Boolean" />
     <Property Name="isalipay" Type="Boolean" />
@@ -655,7 +1281,7 @@
     <Property Name="createtime" Type="DateTime" Precision="3" />
     <Property Name="lastupdateuser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="lastupdatetime" Type="DateTime" Precision="3" />
-    <Property Name="tx" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="tx" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
   </EntityType>
   <EntityType Name="sy_routers">
     <Key>
@@ -673,7 +1299,7 @@
     <Property Name="createtime" Type="DateTime" Precision="3" />
     <Property Name="lastupdateuser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="lastupdatetime" Type="DateTime" Precision="3" />
-    <Property Name="tx" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="tx" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
   </EntityType>
   <EntityType Name="sy_tariff_management">
     <Key>
@@ -698,605 +1324,6 @@
     <Property Name="updatetime" Type="DateTime" Precision="3" />
     <Property Name="updateuser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
-  <EntityContainer Name="ytfEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="aa_bank_code" EntityType="Self.aa_bank_code" />
-    <EntitySet Name="aa_business_balance" EntityType="Self.aa_business_balance" />
-    <EntitySet Name="aa_business_category" EntityType="Self.aa_business_category" />
-    <EntitySet Name="aa_business_coding" EntityType="Self.aa_business_coding" />
-    <EntitySet Name="aa_business_pass" EntityType="Self.aa_business_pass" />
-    <EntitySet Name="aa_business_type" EntityType="Self.aa_business_type" />
-    <EntitySet Name="aa_merchant_city" EntityType="Self.aa_merchant_city" />
-    <EntitySet Name="aa_platbase" EntityType="Self.aa_platbase" />
-    <EntitySet Name="fa_business_bank_card" EntityType="Self.fa_business_bank_card" />
-    <EntitySet Name="fa_business_basic" EntityType="Self.fa_business_basic" />
-    <EntitySet Name="fa_business_merchant" EntityType="Self.fa_business_merchant" />
-    <EntitySet Name="fa_open_payment" EntityType="Self.fa_open_payment" />
-    <EntitySet Name="me_member" EntityType="Self.me_member" />
-    <EntitySet Name="pay_task" EntityType="Self.pay_task" />
-    <EntitySet Name="po_abnormalorder" EntityType="Self.po_abnormalorder" />
-    <EntitySet Name="po_agentwithdraw" EntityType="Self.po_agentwithdraw" />
-    <EntitySet Name="po_businessdateflow" EntityType="Self.po_businessdateflow" />
-    <EntitySet Name="po_despoit" EntityType="Self.po_despoit" />
-    <EntitySet Name="po_order" EntityType="Self.po_order" />
-    <EntitySet Name="sh_business_appinfo" EntityType="Self.sh_business_appinfo" />
-    <EntitySet Name="sh_business_balancelog" EntityType="Self.sh_business_balancelog" />
-    <EntitySet Name="sh_business_bank_card" EntityType="Self.sh_business_bank_card" />
-    <EntitySet Name="sh_business_commison" EntityType="Self.sh_business_commison" />
-    <EntitySet Name="sh_business_replybalance" EntityType="Self.sh_business_replybalance" />
-    <EntitySet Name="sy_admin" EntityType="Self.sy_admin" />
-    <EntitySet Name="sy_agent" EntityType="Self.sy_agent" />
-    <EntitySet Name="sy_agent_commission_audit" EntityType="Self.sy_agent_commission_audit" />
-    <EntitySet Name="sy_agentratio" EntityType="Self.sy_agentratio" />
-    <EntitySet Name="sy_merchant" EntityType="Self.sy_merchant" />
-    <EntitySet Name="sy_mercommision" EntityType="Self.sy_mercommision" />
-    <EntitySet Name="sy_qrcode" EntityType="Self.sy_qrcode" />
-    <EntitySet Name="sy_role" EntityType="Self.sy_role" />
-    <EntitySet Name="sy_router" EntityType="Self.sy_router" />
-    <EntitySet Name="sy_routers" EntityType="Self.sy_routers" />
-    <EntitySet Name="sy_tariff_management" EntityType="Self.sy_tariff_management" />
-    <FunctionImport Name="p_alipaydetail_add">
-      <Parameter Name="businessid" Mode="In" Type="Int32" />
-      <Parameter Name="name" Mode="In" Type="String" />
-    </FunctionImport>
-    <FunctionImport Name="p_auto_closealipay" />
-    <FunctionImport Name="PROC_Agentaddwithdraw" ReturnType="Collection(ytfModel.PROC_Agentaddwithdraw_Result)">
-      <Parameter Name="agid" Mode="In" Type="Int32" />
-      <Parameter Name="commission" Mode="In" Type="Decimal" />
-    </FunctionImport>
-    <FunctionImport Name="PROC_AgentAuditwithdraw" ReturnType="Collection(ytfModel.PROC_AgentAuditwithdraw_Result)">
-      <Parameter Name="id" Mode="In" Type="Int32" />
-      <Parameter Name="reason" Mode="In" Type="String" />
-      <Parameter Name="auditor" Mode="In" Type="String" />
-      <Parameter Name="status" Mode="In" Type="Int32" />
-    </FunctionImport>
-    <FunctionImport Name="PROC_Agentwithdrawlist">
-      <Parameter Name="begindate" Mode="In" Type="String" />
-      <Parameter Name="enddate" Mode="In" Type="String" />
-      <Parameter Name="status" Mode="In" Type="Int32" />
-      <Parameter Name="keyword" Mode="In" Type="String" />
-      <Parameter Name="page" Mode="In" Type="Int32" />
-      <Parameter Name="pagesize" Mode="In" Type="Int32" />
-    </FunctionImport>
-    <FunctionImport Name="PROC_Agentwithdrawlistbyagent" ReturnType="Collection(ytfModel.PROC_Agentwithdrawlistbyagent_Result)">
-      <Parameter Name="begindate" Mode="In" Type="String" />
-      <Parameter Name="enddate" Mode="In" Type="String" />
-      <Parameter Name="agid" Mode="In" Type="Int32" />
-      <Parameter Name="status" Mode="In" Type="Int32" />
-      <Parameter Name="page" Mode="In" Type="Int32" />
-      <Parameter Name="pagesize" Mode="In" Type="Int32" />
-    </FunctionImport>
-    <FunctionImport Name="PROC_AuditOrderDepositByAgent" ReturnType="Collection(ytfModel.PROC_AuditOrderDepositByAgent_Result)">
-      <Parameter Name="despoitno" Mode="In" Type="String" />
-      <Parameter Name="status" Mode="In" Type="Int32" />
-      <Parameter Name="reason" Mode="In" Type="String" />
-    </FunctionImport>
-    <FunctionImport Name="PROC_AuditOrderDepositByNiuchao" ReturnType="Collection(ytfModel.PROC_AuditOrderDepositByNiuchao_Result)">
-      <Parameter Name="despoitno" Mode="In" Type="String" />
-      <Parameter Name="status" Mode="In" Type="Int32" />
-      <Parameter Name="reason" Mode="In" Type="String" />
-    </FunctionImport>
-    <FunctionImport Name="PROC_AutoReleaseFreeamount" />
-    <FunctionImport Name="PROC_BusinessCheckBalance" ReturnType="Collection(ytfModel.PROC_BusinessCheckBalance_Result)">
-      <Parameter Name="businessid" Mode="In" Type="Int32" />
-    </FunctionImport>
-    <FunctionImport Name="PROC_CheckBusinessBalance" ReturnType="Collection(ytfModel.PROC_CheckBusinessBalance_Result)" />
-    <FunctionImport Name="PROC_CheckOrderStatus" ReturnType="Collection(ytfModel.PROC_CheckOrderStatus_Result)">
-      <Parameter Name="orderno" Mode="In" Type="String" />
-    </FunctionImport>
-    <FunctionImport Name="PROC_CreateOrder" ReturnType="Collection(ytfModel.PROC_CreateOrder_Result)">
-      <Parameter Name="amount" Mode="In" Type="Decimal" />
-      <Parameter Name="remark" Mode="In" Type="String" />
-      <Parameter Name="appid" Mode="In" Type="String" />
-      <Parameter Name="paytype" Mode="In" Type="Int32" />
-      <Parameter Name="businesspasstype" Mode="In" Type="Int32" />
-      <Parameter Name="frontUrl" Mode="In" Type="String" />
-    </FunctionImport>
-    <FunctionImport Name="PROC_CreateOrderByPersonal" ReturnType="Collection(ytfModel.PROC_CreateOrderByPersonal_Result)">
-      <Parameter Name="amount" Mode="In" Type="Decimal" />
-      <Parameter Name="remark" Mode="In" Type="String" />
-      <Parameter Name="appid" Mode="In" Type="String" />
-      <Parameter Name="paytype" Mode="In" Type="Int32" />
-      <Parameter Name="frontUrl" Mode="In" Type="String" />
-    </FunctionImport>
-    <FunctionImport Name="PROC_CreateOrderByPersonalThird" ReturnType="Collection(ytfModel.PROC_CreateOrderByPersonalThird_Result)">
-      <Parameter Name="orderno" Mode="In" Type="String" />
-      <Parameter Name="amount" Mode="In" Type="Decimal" />
-      <Parameter Name="remark" Mode="In" Type="String" />
-      <Parameter Name="appid" Mode="In" Type="String" />
-      <Parameter Name="returnurl" Mode="In" Type="String" />
-      <Parameter Name="paytype" Mode="In" Type="Int32" />
-      <Parameter Name="frontUrl" Mode="In" Type="String" />
-    </FunctionImport>
-    <FunctionImport Name="PROC_CreateOrderByThird" ReturnType="Collection(ytfModel.PROC_CreateOrderByThird_Result)">
-      <Parameter Name="orderno" Mode="In" Type="String" />
-      <Parameter Name="amount" Mode="In" Type="Decimal" />
-      <Parameter Name="remark" Mode="In" Type="String" />
-      <Parameter Name="appid" Mode="In" Type="String" />
-      <Parameter Name="returnurl" Mode="In" Type="String" />
-      <Parameter Name="paytype" Mode="In" Type="Int32" />
-      <Parameter Name="frontUrl" Mode="In" Type="String" />
-    </FunctionImport>
-    <FunctionImport Name="PROC_CreateOrderCheck" ReturnType="Collection(ytfModel.PROC_CreateOrderCheck_Result)">
-      <Parameter Name="amount" Mode="In" Type="Decimal" />
-      <Parameter Name="appid" Mode="In" Type="String" />
-      <Parameter Name="paytype" Mode="In" Type="Int32" />
-      <Parameter Name="businesspasstype" Mode="In" Type="Int32" />
-    </FunctionImport>
-    <FunctionImport Name="PROC_CreateOrderCheckByThird" ReturnType="Collection(ytfModel.PROC_CreateOrderCheckByThird_Result)">
-      <Parameter Name="orderno" Mode="In" Type="String" />
-      <Parameter Name="amount" Mode="In" Type="Decimal" />
-      <Parameter Name="appid" Mode="In" Type="String" />
-      <Parameter Name="paytype" Mode="In" Type="Int32" />
-    </FunctionImport>
-    <FunctionImport Name="PROC_CreateUserid" ReturnType="Collection(ytfModel.PROC_CreateUserid_Result)">
-      <Parameter Name="phone" Mode="In" Type="String" />
-      <Parameter Name="userid" Mode="In" Type="String" />
-    </FunctionImport>
-    <FunctionImport Name="PROC_CustomerAddDespoit" ReturnType="Collection(ytfModel.PROC_CustomerAddDespoit_Result)">
-      <Parameter Name="customerappid" Mode="In" Type="String" />
-      <Parameter Name="amount" Mode="In" Type="Decimal" />
-      <Parameter Name="bankno" Mode="In" Type="String" />
-      <Parameter Name="paytype" Mode="In" Type="Int32" />
-      <Parameter Name="businesspasstype" Mode="In" Type="Int32" />
-    </FunctionImport>
-    <FunctionImport Name="PROC_CustomerAddDespoitCheck" ReturnType="Collection(ytfModel.PROC_CustomerAddDespoitCheck_Result)">
-      <Parameter Name="customerappid" Mode="In" Type="String" />
-      <Parameter Name="amount" Mode="In" Type="Decimal" />
-      <Parameter Name="bankno" Mode="In" Type="String" />
-    </FunctionImport>
-    <FunctionImport Name="PROC_DespoitOrderList">
-      <Parameter Name="begindate" Mode="In" Type="String" />
-      <Parameter Name="enddate" Mode="In" Type="String" />
-      <Parameter Name="agid" Mode="In" Type="Int32" />
-      <Parameter Name="businessid" Mode="In" Type="Int32" />
-      <Parameter Name="status" Mode="In" Type="Int32" />
-      <Parameter Name="page" Mode="In" Type="Int32" />
-      <Parameter Name="pagesize" Mode="In" Type="Int32" />
-      <Parameter Name="businesspasstype" Mode="In" Type="Int32" />
-    </FunctionImport>
-    <FunctionImport Name="PROC_DespoitVoice" ReturnType="Collection(ytfModel.PROC_DespoitVoice_Result)">
-      <Parameter Name="agid" Mode="In" Type="Int32" />
-    </FunctionImport>
-    <FunctionImport Name="PROC_GetAlipayConfig" ReturnType="Collection(ytfModel.PROC_GetAlipayConfig_Result)">
-      <Parameter Name="out_trade_no" Mode="In" Type="String" />
-    </FunctionImport>
-    <FunctionImport Name="PROC_GetAppsecert" ReturnType="Collection(ytfModel.PROC_GetAppsecert_Result)">
-      <Parameter Name="appid" Mode="In" Type="String" />
-    </FunctionImport>
-    <FunctionImport Name="PROC_GetDespoitDetail" ReturnType="Collection(ytfModel.PROC_GetDespoitDetail_Result)">
-      <Parameter Name="despoitno" Mode="In" Type="String" />
-    </FunctionImport>
-    <FunctionImport Name="PROC_GetMerchantbusiness" ReturnType="Collection(ytfModel.PROC_GetMerchantbusiness_Result)">
-      <Parameter Name="merchantid" Mode="In" Type="Int32" />
-    </FunctionImport>
-    <FunctionImport Name="PROC_GetNotifyInfo" ReturnType="Collection(ytfModel.PROC_GetNotifyInfo_Result)">
-      <Parameter Name="orderno" Mode="In" Type="String" />
-    </FunctionImport>
-    <FunctionImport Name="PROC_GetOrderDepositQuery" ReturnType="Collection(ytfModel.PROC_GetOrderDepositQuery_Result)" />
-    <FunctionImport Name="PROC_GetOrderQuery" ReturnType="Collection(ytfModel.PROC_GetOrderQuery_Result)" />
-    <FunctionImport Name="PROC_GetRealAppsecert" ReturnType="Collection(String)">
-      <Parameter Name="appid" Mode="In" Type="String" />
-    </FunctionImport>
-    <FunctionImport Name="PROC_GetSHappinfo" ReturnType="Collection(ytfModel.PROC_GetSHappinfo_Result)">
-      <Parameter Name="orderno" Mode="In" Type="String" />
-    </FunctionImport>
-    <FunctionImport Name="PROC_GetUpdateOrder" ReturnType="Collection(ytfModel.PROC_GetUpdateOrder_Result)">
-      <Parameter Name="orderno" Mode="In" Type="String" />
-      <Parameter Name="status" Mode="In" Type="Int32" />
-      <Parameter Name="reason" Mode="In" Type="String" />
-    </FunctionImport>
-    <FunctionImport Name="PROC_GetUpdateOrderDeposit">
-      <Parameter Name="despoitno" Mode="In" Type="String" />
-      <Parameter Name="status" Mode="In" Type="Int32" />
-      <Parameter Name="reason" Mode="In" Type="String" />
-    </FunctionImport>
-    <FunctionImport Name="PROC_GetUserinfo" ReturnType="Collection(ytfModel.PROC_GetUserinfo_Result)" />
-    <FunctionImport Name="PROC_OrderAddQrcode" ReturnType="Collection(ytfModel.PROC_OrderAddQrcode_Result)">
-      <Parameter Name="token" Mode="In" Type="String" />
-      <Parameter Name="url" Mode="In" Type="String" />
-      <Parameter Name="mark_sell" Mode="In" Type="String" />
-    </FunctionImport>
-    <FunctionImport Name="PROC_OrderCallBack" ReturnType="Collection(ytfModel.PROC_OrderCallBack_Result)">
-      <Parameter Name="orderno" Mode="In" Type="String" />
-      <Parameter Name="payno" Mode="In" Type="String" />
-      <Parameter Name="status" Mode="In" Type="Int32" />
-    </FunctionImport>
-    <FunctionImport Name="PROC_OrderList">
-      <Parameter Name="begindate" Mode="In" Type="String" />
-      <Parameter Name="enddate" Mode="In" Type="String" />
-      <Parameter Name="agid" Mode="In" Type="Int32" />
-      <Parameter Name="businessid" Mode="In" Type="Int32" />
-      <Parameter Name="keyword" Mode="In" Type="String" />
-      <Parameter Name="status" Mode="In" Type="Int32" />
-      <Parameter Name="page" Mode="In" Type="Int32" />
-      <Parameter Name="pagesize" Mode="In" Type="Int32" />
-      <Parameter Name="businesspasstype" Mode="In" Type="Int32" />
-      <Parameter Name="paytype" Mode="In" Type="Int32" />
-      <Parameter Name="time" Mode="In" Type="String" />
-    </FunctionImport>
-    <FunctionImport Name="PROC_OrderPayInfo" ReturnType="Collection(ytfModel.PROC_OrderPayInfo_Result)">
-      <Parameter Name="orderno" Mode="In" Type="String" />
-    </FunctionImport>
-    <FunctionImport Name="PROC_OrderPersonalCallBack" ReturnType="Collection(ytfModel.PROC_OrderPersonalCallBack_Result)">
-      <Parameter Name="token" Mode="In" Type="String" />
-      <Parameter Name="mark_sell" Mode="In" Type="String" />
-      <Parameter Name="order_id" Mode="In" Type="String" />
-      <Parameter Name="money" Mode="In" Type="Decimal" />
-    </FunctionImport>
-    <FunctionImport Name="PROC_OrderPersonPayInfo" ReturnType="Collection(ytfModel.PROC_OrderPersonPayInfo_Result)">
-      <Parameter Name="orderno" Mode="In" Type="String" />
-    </FunctionImport>
-    <FunctionImport Name="PROC_OrderQueryQrcode" ReturnType="Collection(ytfModel.PROC_OrderQueryQrcode_Result)">
-      <Parameter Name="token" Mode="In" Type="String" />
-    </FunctionImport>
-    <FunctionImport Name="PROC_OrderSumList">
-      <Parameter Name="begindate" Mode="In" Type="String" />
-      <Parameter Name="enddate" Mode="In" Type="String" />
-    </FunctionImport>
-    <FunctionImport Name="PROC_OrderUpdateByAdmin" ReturnType="Collection(ytfModel.PROC_OrderUpdateByAdmin_Result)">
-      <Parameter Name="orderno" Mode="In" Type="String" />
-      <Parameter Name="panyno" Mode="In" Type="String" />
-      <Parameter Name="reason" Mode="In" Type="String" />
-    </FunctionImport>
-    <FunctionImport Name="PROC_PayPassAdd" ReturnType="Collection(ytfModel.PROC_PayPassAdd_Result)">
-      <Parameter Name="alipayappid" Mode="In" Type="String" />
-      <Parameter Name="rsaprivate" Mode="In" Type="String" />
-      <Parameter Name="rsapublic" Mode="In" Type="String" />
-      <Parameter Name="dayamount" Mode="In" Type="Decimal" />
-      <Parameter Name="memo" Mode="In" Type="String" />
-    </FunctionImport>
-    <FunctionImport Name="PROC_PayPassList">
-      <Parameter Name="keyword" Mode="In" Type="String" />
-      <Parameter Name="status" Mode="In" Type="Int32" />
-      <Parameter Name="page" Mode="In" Type="Int32" />
-      <Parameter Name="pagesize" Mode="In" Type="Int32" />
-    </FunctionImport>
-    <FunctionImport Name="PROC_PayPassUpdate" ReturnType="Collection(ytfModel.PROC_PayPassUpdate_Result)">
-      <Parameter Name="id" Mode="In" Type="Int32" />
-      <Parameter Name="alipayappid" Mode="In" Type="String" />
-      <Parameter Name="rsaprivate" Mode="In" Type="String" />
-      <Parameter Name="rsapublic" Mode="In" Type="String" />
-      <Parameter Name="dayamount" Mode="In" Type="Decimal" />
-      <Parameter Name="memo" Mode="In" Type="String" />
-      <Parameter Name="enable" Mode="In" Type="Boolean" />
-    </FunctionImport>
-    <FunctionImport Name="PROC_SHBusinessAppinfoList">
-      <Parameter Name="keyword" Mode="In" Type="String" />
-      <Parameter Name="status" Mode="In" Type="Int32" />
-      <Parameter Name="page" Mode="In" Type="Int32" />
-      <Parameter Name="pagesize" Mode="In" Type="Int32" />
-    </FunctionImport>
-    <FunctionImport Name="proc_unionbusinessbalance">
-      <Parameter Name="businessid" Mode="In" Type="Int32" />
-    </FunctionImport>
-    <FunctionImport Name="PROC_UpdateBusinessBalance">
-      <Parameter Name="appid" Mode="In" Type="String" />
-      <Parameter Name="balance" Mode="In" Type="Decimal" />
-    </FunctionImport>
-    <FunctionImport Name="PROC_UpdateBusinessWorkkey">
-      <Parameter Name="businessid" Mode="In" Type="Int32" />
-      <Parameter Name="key" Mode="In" Type="String" />
-    </FunctionImport>
-    <FunctionImport Name="PROC_UpdateOrderPayno">
-      <Parameter Name="orderno" Mode="In" Type="String" />
-      <Parameter Name="payno" Mode="In" Type="String" />
-    </FunctionImport>
-    <FunctionImport Name="Report_Business_balance" ReturnType="Collection(ytfModel.Report_Business_balance_Result)" />
-    <FunctionImport Name="report_businessorderamount">
-      <Parameter Name="begindate" Mode="In" Type="String" />
-      <Parameter Name="enddate" Mode="In" Type="String" />
-      <Parameter Name="keyword" Mode="In" Type="String" />
-      <Parameter Name="page" Mode="In" Type="Int32" />
-      <Parameter Name="pagesize" Mode="In" Type="Int32" />
-    </FunctionImport>
-    <FunctionImport Name="Report_GetBusinessDespoit" ReturnType="Collection(ytfModel.Report_GetBusinessDespoit_Result)">
-      <Parameter Name="begindate" Mode="In" Type="String" />
-      <Parameter Name="enddate" Mode="In" Type="String" />
-      <Parameter Name="keyword" Mode="In" Type="String" />
-    </FunctionImport>
-    <FunctionImport Name="Report_GetBusinessTrade">
-      <Parameter Name="begindate" Mode="In" Type="String" />
-      <Parameter Name="enddate" Mode="In" Type="String" />
-      <Parameter Name="keyword" Mode="In" Type="String" />
-    </FunctionImport>
-    <FunctionImport Name="Report_GetPlatTrade">
-      <Parameter Name="begindate" Mode="In" Type="String" />
-      <Parameter Name="enddate" Mode="In" Type="String" />
-      <Parameter Name="keywork" Mode="In" Type="String" />
-    </FunctionImport>
-    <FunctionImport Name="report_ordersuccessrate">
-      <Parameter Name="begindate" Mode="In" Type="String" />
-      <Parameter Name="enddate" Mode="In" Type="String" />
-      <Parameter Name="keyword" Mode="In" Type="String" />
-      <Parameter Name="page" Mode="In" Type="Int32" />
-      <Parameter Name="pagesize" Mode="In" Type="Int32" />
-      <Parameter Name="paytype" Mode="In" Type="Int32" />
-    </FunctionImport>
-    <FunctionImport Name="report_payaccountorderamount" ReturnType="Collection(ytfModel.report_payaccountorderamount_Result)">
-      <Parameter Name="begindate" Mode="In" Type="String" />
-      <Parameter Name="enddate" Mode="In" Type="String" />
-      <Parameter Name="page" Mode="In" Type="Int32" />
-      <Parameter Name="pagesize" Mode="In" Type="Int32" />
-    </FunctionImport>
-    <EntitySet Name="me_member_view" EntityType="ytfModel.me_member_view" />
-  </EntityContainer>
-  <ComplexType Name="PROC_Agentaddwithdraw_Result">
-    <Property Type="Int32" Name="state" Nullable="false" />
-    <Property Type="String" Name="message" Nullable="false" MaxLength="17" />
-  </ComplexType>
-  <ComplexType Name="PROC_AgentAuditwithdraw_Result">
-    <Property Type="Int32" Name="state" Nullable="false" />
-    <Property Type="String" Name="message" Nullable="false" MaxLength="18" />
-  </ComplexType>
-  <ComplexType Name="PROC_Agentwithdrawlistbyagent_Result">
-    <Property Type="Int32" Name="id" Nullable="false" />
-    <Property Type="Int32" Name="agid" Nullable="true" />
-    <Property Type="Decimal" Name="lastcommission" Nullable="true" Precision="18" Scale="2" />
-    <Property Type="Decimal" Name="newcommission" Nullable="true" Precision="18" Scale="2" />
-    <Property Type="Decimal" Name="commission" Nullable="true" Precision="18" Scale="2" />
-    <Property Type="Int32" Name="status" Nullable="true" />
-    <Property Type="String" Name="reason" Nullable="true" MaxLength="100" />
-    <Property Type="DateTime" Name="addtime" Nullable="true" Precision="23" />
-    <Property Type="String" Name="adduser" Nullable="true" MaxLength="50" />
-    <Property Type="DateTime" Name="updatetime" Nullable="true" Precision="23" />
-    <Property Type="String" Name="updateuser" Nullable="true" MaxLength="50" />
-  </ComplexType>
-  <ComplexType Name="PROC_AuditOrderDepositByAgent_Result">
-    <Property Type="Int32" Name="status_code" Nullable="false" />
-    <Property Type="String" Name="message" Nullable="false" MaxLength="12" />
-  </ComplexType>
-  <ComplexType Name="PROC_AuditOrderDepositByNiuchao_Result">
-    <Property Type="Int32" Name="statue" Nullable="false" />
-    <Property Type="String" Name="message" Nullable="false" MaxLength="12" />
-  </ComplexType>
-  <ComplexType Name="PROC_BusinessCheckBalance_Result">
-    <Property Type="Decimal" Name="realamount" Nullable="true" Precision="38" Scale="2" />
-    <Property Type="Decimal" Name="despoitamount" Nullable="true" Precision="38" Scale="2" />
-    <Property Type="Decimal" Name="totalbalance" Nullable="true" Precision="38" Scale="2" />
-    <Property Type="Decimal" Name="differamount" Nullable="true" Precision="38" Scale="2" />
-    <Property Type="String" Name="shortname" Nullable="true" MaxLength="300" />
-    <Property Type="Int32" Name="id" Nullable="false" />
-  </ComplexType>
-  <ComplexType Name="PROC_CheckBusinessBalance_Result">
-    <Property Type="String" Name="appid" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="appsecret" Nullable="true" MaxLength="50" />
-  </ComplexType>
-  <ComplexType Name="PROC_CheckOrderStatus_Result">
-    <Property Type="String" Name="payno" Nullable="true" MaxLength="100" />
-    <Property Type="String" Name="merchant_num" Nullable="true" MaxLength="50" />
-  </ComplexType>
-  <ComplexType Name="PROC_CreateOrder_Result">
-    <Property Type="String" Name="agentno" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="mchid" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="mchkey" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="pfxfile" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="pfxpassword" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="cerfile" Nullable="true" MaxLength="50" />
-    <Property Type="Int32" Name="businesspasstype" Nullable="true" />
-    <Property Type="String" Name="rsaprivate" Nullable="true" />
-    <Property Type="String" Name="rsapublic" Nullable="true" />
-    <Property Type="Boolean" Name="isredirect" Nullable="true" />
-    <Property Type="String" Name="alipayappid" Nullable="true" MaxLength="50" />
-    <Property Type="Decimal" Name="amount" Nullable="true" Precision="18" Scale="2" />
-    <Property Type="String" Name="orderno" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="remark" Nullable="true" MaxLength="500" />
-    <Property Type="String" Name="frontUrl" Nullable="true" MaxLength="500" />
-    <Property Type="String" Name="sh_appid" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="sh_appsecret" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="sh_storeid" Nullable="true" MaxLength="50" />
-  </ComplexType>
-  <ComplexType Name="PROC_CreateOrderByPersonal_Result">
-    <Property Type="String" Name="paytype" Nullable="false" MaxLength="1" />
-    <Property Type="String" Name="orderno" Nullable="false" MaxLength="1" />
-    <Property Type="String" Name="amount" Nullable="false" MaxLength="1" />
-    <Property Type="String" Name="remark" Nullable="false" MaxLength="1" />
-    <Property Type="String" Name="userid" Nullable="false" MaxLength="1" />
-    <Property Type="String" Name="name" Nullable="false" MaxLength="1" />
-    <Property Type="String" Name="qrcode" Nullable="false" MaxLength="1" />
-  </ComplexType>
-  <ComplexType Name="PROC_CreateOrderByPersonalThird_Result">
-    <Property Type="String" Name="paytype" Nullable="false" MaxLength="1" />
-    <Property Type="String" Name="orderno" Nullable="false" MaxLength="1" />
-    <Property Type="String" Name="amount" Nullable="false" MaxLength="1" />
-    <Property Type="String" Name="remark" Nullable="false" MaxLength="1" />
-    <Property Type="String" Name="userid" Nullable="false" MaxLength="1" />
-    <Property Type="String" Name="name" Nullable="false" MaxLength="1" />
-    <Property Type="String" Name="qrcode" Nullable="false" MaxLength="1" />
-  </ComplexType>
-  <ComplexType Name="PROC_CreateOrderByThird_Result">
-    <Property Type="String" Name="agentno" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="mchid" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="mchkey" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="pfxfile" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="pfxpassword" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="cerfile" Nullable="true" MaxLength="50" />
-    <Property Type="Int32" Name="businesspasstype" Nullable="true" />
-    <Property Type="String" Name="rsaprivate" Nullable="true" />
-    <Property Type="String" Name="rsapublic" Nullable="true" />
-    <Property Type="Boolean" Name="isredirect" Nullable="true" />
-    <Property Type="String" Name="alipayappid" Nullable="true" MaxLength="50" />
-    <Property Type="Decimal" Name="amount" Nullable="true" Precision="18" Scale="2" />
-    <Property Type="String" Name="orderno" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="remark" Nullable="true" MaxLength="500" />
-    <Property Type="String" Name="returnurl" Nullable="true" MaxLength="200" />
-    <Property Type="String" Name="frontUrl" Nullable="true" MaxLength="500" />
-    <Property Type="String" Name="sh_appid" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="sh_appsecret" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="sh_storeid" Nullable="true" MaxLength="50" />
-  </ComplexType>
-  <ComplexType Name="PROC_CreateOrderCheck_Result">
-    <Property Type="Int32" Name="state" Nullable="false" />
-    <Property Type="String" Name="message" Nullable="false" MaxLength="21" />
-  </ComplexType>
-  <ComplexType Name="PROC_CreateOrderCheckByThird_Result">
-    <Property Type="Int32" Name="state" Nullable="false" />
-    <Property Type="String" Name="message" Nullable="false" MaxLength="21" />
-  </ComplexType>
-  <ComplexType Name="PROC_CreateUserid_Result">
-    <Property Type="Int32" Name="state" Nullable="false" />
-    <Property Type="String" Name="message" Nullable="false" MaxLength="4" />
-  </ComplexType>
-  <ComplexType Name="PROC_CustomerAddDespoit_Result">
-    <Property Type="Int32" Name="status_code" Nullable="false" />
-    <Property Type="String" Name="message" Nullable="false" MaxLength="16" />
-  </ComplexType>
-  <ComplexType Name="PROC_CustomerAddDespoitCheck_Result">
-    <Property Type="Int32" Name="status_code" Nullable="false" />
-    <Property Type="String" Name="message" Nullable="false" MaxLength="16" />
-  </ComplexType>
-  <ComplexType Name="PROC_DespoitVoice_Result">
-    <Property Type="Int32" Name="status_code" Nullable="false" />
-    <Property Type="String" Name="message" Nullable="false" MaxLength="18" />
-  </ComplexType>
-  <ComplexType Name="PROC_GetAlipayConfig_Result">
-    <Property Type="String" Name="alipayappid" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="rsaprivate" Nullable="true" />
-    <Property Type="String" Name="rsapublic" Nullable="true" />
-  </ComplexType>
-  <ComplexType Name="PROC_GetAppsecert_Result">
-    <Property Type="String" Name="appid" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="appsecret" Nullable="true" MaxLength="50" />
-  </ComplexType>
-  <ComplexType Name="PROC_GetDespoitDetail_Result">
-    <Property Type="String" Name="despoitno" Nullable="true" MaxLength="50" />
-    <Property Type="Decimal" Name="amount" Nullable="true" Precision="18" Scale="2" />
-    <Property Type="String" Name="bankaccountno" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="bankusername" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="bankname" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="bankcode" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="bankeightcode" Nullable="true" MaxLength="50" />
-    <Property Type="Int32" Name="paytype" Nullable="true" />
-    <Property Type="String" Name="bankaddress" Nullable="true" MaxLength="250" />
-    <Property Type="String" Name="agentNo" Nullable="false" MaxLength="7" />
-    <Property Type="String" Name="merNo" Nullable="false" MaxLength="15" />
-    <Property Type="String" Name="merkey" Nullable="false" MaxLength="16" />
-    <Property Type="String" Name="mobileno" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="certno" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="province" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="city" Nullable="true" MaxLength="50" />
-    <Property Type="Int32" Name="businesspasstype" Nullable="true" />
-  </ComplexType>
-  <ComplexType Name="PROC_GetMerchantbusiness_Result">
-    <Property Type="String" Name="shortname" Nullable="true" MaxLength="300" />
-    <Property Type="String" Name="merchantaddress" Nullable="true" MaxLength="60" />
-    <Property Type="String" Name="servicephone" Nullable="true" MaxLength="300" />
-    <Property Type="String" Name="corpmanname" Nullable="true" MaxLength="100" />
-    <Property Type="Decimal" Name="balance" Nullable="false" Precision="18" Scale="2" />
-    <Property Type="Decimal" Name="orderamount" Nullable="false" Precision="38" Scale="2" />
-    <Property Type="Decimal" Name="despoitamount" Nullable="false" Precision="38" Scale="2" />
-  </ComplexType>
-  <ComplexType Name="PROC_GetNotifyInfo_Result">
-    <Property Type="String" Name="orderno" Nullable="true" MaxLength="50" />
-    <Property Type="Int32" Name="notifystatus" Nullable="true" />
-    <Property Type="Decimal" Name="realamount" Nullable="true" Precision="18" Scale="2" />
-    <Property Type="String" Name="memo" Nullable="true" MaxLength="500" />
-    <Property Type="String" Name="returnurl" Nullable="true" MaxLength="200" />
-    <Property Type="Int32" Name="notifycount" Nullable="true" />
-    <Property Type="String" Name="notifyid" Nullable="true" MaxLength="100" />
-    <Property Type="String" Name="customerappid" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="customerappsecret" Nullable="true" MaxLength="50" />
-  </ComplexType>
-  <ComplexType Name="PROC_GetOrderDepositQuery_Result">
-    <Property Type="String" Name="despoitno" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="appid" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="appsecret" Nullable="true" MaxLength="50" />
-  </ComplexType>
-  <ComplexType Name="PROC_GetOrderQuery_Result">
-    <Property Type="String" Name="orderno" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="appid" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="appsecret" Nullable="true" MaxLength="50" />
-  </ComplexType>
-  <ComplexType Name="PROC_GetSHappinfo_Result">
-    <Property Type="String" Name="sh_appid" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="sh_appsecret" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="sh_storeid" Nullable="true" MaxLength="50" />
-    <Property Type="Decimal" Name="amount" Nullable="true" Precision="18" Scale="2" />
-    <Property Type="String" Name="frontUrl" Nullable="false" MaxLength="500" />
-  </ComplexType>
-  <ComplexType Name="PROC_GetUpdateOrder_Result">
-    <Property Type="Int32" Name="statue" Nullable="false" />
-    <Property Type="String" Name="message" Nullable="false" MaxLength="12" />
-  </ComplexType>
-  <ComplexType Name="PROC_GetUserinfo_Result">
-    <Property Type="String" Name="agentNo" Nullable="false" MaxLength="7" />
-    <Property Type="String" Name="merNo" Nullable="false" MaxLength="15" />
-    <Property Type="String" Name="merkey" Nullable="false" MaxLength="16" />
-  </ComplexType>
-  <ComplexType Name="PROC_OrderAddQrcode_Result">
-    <Property Type="Int32" Name="status" Nullable="false" />
-    <Property Type="String" Name="message" Nullable="false" MaxLength="4" />
-  </ComplexType>
-  <ComplexType Name="PROC_OrderCallBack_Result">
-    <Property Type="Int32" Name="state" Nullable="false" />
-    <Property Type="String" Name="message" Nullable="false" MaxLength="18" />
-  </ComplexType>
-  <ComplexType Name="PROC_OrderPayInfo_Result">
-    <Property Type="Int32" Name="statue" Nullable="false" />
-    <Property Type="String" Name="message" Nullable="false" MaxLength="4" />
-    <Property Type="Decimal" Name="amount" Nullable="true" Precision="18" Scale="2" />
-    <Property Type="String" Name="remark" Nullable="true" MaxLength="500" />
-    <Property Type="String" Name="fronturl" Nullable="true" MaxLength="500" />
-    <Property Type="String" Name="orderno" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="alipayappid" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="rsaprivate" Nullable="true" />
-    <Property Type="String" Name="rsapublic" Nullable="true" />
-  </ComplexType>
-  <ComplexType Name="PROC_OrderPersonalCallBack_Result">
-    <Property Type="Int32" Name="status" Nullable="false" />
-    <Property Type="String" Name="message" Nullable="false" MaxLength="18" />
-  </ComplexType>
-  <ComplexType Name="PROC_OrderPersonPayInfo_Result">
-    <Property Type="Int32" Name="state" Nullable="false" />
-    <Property Type="String" Name="message" Nullable="false" MaxLength="10" />
-    <Property Type="String" Name="amount" Nullable="false" MaxLength="1" />
-    <Property Type="String" Name="paytype" Nullable="false" MaxLength="1" />
-    <Property Type="String" Name="qrcode" Nullable="false" MaxLength="1" />
-    <Property Type="String" Name="time" Nullable="false" MaxLength="1" />
-    <Property Type="String" Name="name" Nullable="false" MaxLength="1" />
-    <Property Type="String" Name="userid" Nullable="false" MaxLength="1" />
-    <Property Type="String" Name="orderno" Nullable="false" MaxLength="1" />
-  </ComplexType>
-  <ComplexType Name="PROC_OrderQueryQrcode_Result">
-    <Property Type="Int32" Name="money" Nullable="true" />
-    <Property Type="String" Name="url" Nullable="false" MaxLength="1" />
-    <Property Type="String" Name="channel" Nullable="false" MaxLength="6" />
-    <Property Type="String" Name="task_extra" Nullable="false" MaxLength="1" />
-    <Property Type="String" Name="result_extra" Nullable="false" MaxLength="1" />
-    <Property Type="String" Name="mark_sell" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="mark_buy" Nullable="false" MaxLength="1" />
-    <Property Type="String" Name="order_id" Nullable="false" MaxLength="1" />
-    <Property Type="String" Name="status" Nullable="true" MaxLength="50" />
-    <Property Type="DateTime" Name="apply_time" Nullable="true" Precision="23" />
-  </ComplexType>
-  <ComplexType Name="PROC_OrderUpdateByAdmin_Result">
-    <Property Type="Int32" Name="status_code" Nullable="false" />
-    <Property Type="String" Name="message" Nullable="false" MaxLength="18" />
-  </ComplexType>
-  <ComplexType Name="PROC_PayPassAdd_Result">
-    <Property Type="Int32" Name="status_code" Nullable="false" />
-    <Property Type="String" Name="message" Nullable="false" MaxLength="20" />
-  </ComplexType>
-  <ComplexType Name="PROC_PayPassUpdate_Result">
-    <Property Type="Int32" Name="status_code" Nullable="false" />
-    <Property Type="String" Name="message" Nullable="false" MaxLength="20" />
-  </ComplexType>
-  <ComplexType Name="Report_Business_balance_Result">
-    <Property Type="Int32" Name="businessid" Nullable="true" />
-    <Property Type="Decimal" Name="realamount" Nullable="true" Precision="38" Scale="2" />
-    <Property Type="Int32" Name="paytype" Nullable="true" />
-  </ComplexType>
-  <ComplexType Name="Report_GetBusinessDespoit_Result">
-    <Property Type="Int32" Name="qty" Nullable="true" />
-    <Property Type="Decimal" Name="amount" Nullable="true" Precision="38" Scale="2" />
-    <Property Type="Decimal" Name="charge" Nullable="true" Precision="38" Scale="2" />
-    <Property Type="Int32" Name="Despoit" Nullable="false" />
-  </ComplexType>
-  <ComplexType Name="report_payaccountorderamount_Result">
-    <Property Type="String" Name="account" Nullable="true" MaxLength="50" />
-    <Property Type="Decimal" Name="amount" Nullable="true" Precision="38" Scale="2" />
-    <Property Type="Decimal" Name="servicecharge" Nullable="true" Precision="38" Scale="2" />
-    <Property Type="Decimal" Name="realamount" Nullable="true" Precision="38" Scale="2" />
-  </ComplexType>
   <EntityType Name="me_member_view">
     <Key>
       <PropertyRef Name="memberid" />
@@ -1319,5 +1346,6 @@
     <Property Name="bus_id" Type="Int32" />
     <Property Name="agent_name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="agent_id" Type="Int32" />
+    <Property Name="alipayaccount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
 </Schema>

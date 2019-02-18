@@ -48,7 +48,8 @@ namespace WebAPI.Controllers.Admin
                            a.businessid,
                            a.userid,
                            a.shortName,
-                           a.agent_name
+                           a.agent_name,
+                           a.alipayaccount
                        };
             model.total = temp.Count();
             model.data = temp.OrderByDescending(s => s.memberid).Skip((page - 1) * pagesize).Take(pagesize).ToList();

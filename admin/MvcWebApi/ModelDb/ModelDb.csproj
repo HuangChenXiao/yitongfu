@@ -218,6 +218,12 @@
     <Compile Include="PROC_OrderAddQrcode_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="PROC_OrderAlipayRedlCallBack_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PROC_OrderAlipayRedPayInfo_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="PROC_OrderCallBack_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
