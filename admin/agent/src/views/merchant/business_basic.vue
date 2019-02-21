@@ -189,7 +189,7 @@
         <el-form-item label="联系人手机" prop="mobilePhone">
           <el-input v-model="ruleForm.mobilePhone"></el-input>
         </el-form-item>
-        <el-form-item label="营业开始时间" prop="enabletime">
+        <!-- <el-form-item label="营业开始时间" prop="enabletime">
           <el-time-select style="width:100%" v-model="ruleForm.enabletime" :picker-options="{
               start: '06:00',
               step: '00:10',
@@ -204,7 +204,7 @@
               end: '23:59'
             }" placeholder="选择时间">
           </el-time-select>
-        </el-form-item>
+        </el-form-item> -->
         <el-form-item label="备注">
           <el-input v-model="ruleForm.remark" type="textarea" :rows="2"></el-input>
         </el-form-item>
