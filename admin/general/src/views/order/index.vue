@@ -53,7 +53,7 @@
               <span>{{scope.row.thirdorderno}}</span>
             </template>
           </el-table-column>
-          <el-table-column label="是否扫描" width="100">
+          <el-table-column label="是否扫描" width="120">
             <template scope="scope">
               <span>{{scope.row.isscan?'是':'否'}}</span>
             </template>
@@ -97,11 +97,6 @@
           <el-table-column label="备注" align="center" width="120">
             <template scope="scope">
               {{scope.row.remark}}
-            </template>
-          </el-table-column>
-          <el-table-column label="支付宝订单号" width="180">
-            <template scope="scope">
-              <span>{{scope.row.payno}}</span>
             </template>
           </el-table-column>
           

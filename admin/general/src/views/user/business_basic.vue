@@ -23,11 +23,11 @@
           <span>{{scope.row.agname}}</span>
         </template>
       </el-table-column>
-      <el-table-column label="支付宝账号" align="center">
+      <!-- <el-table-column label="支付宝账号" align="center">
         <template scope="scope">
           <span>{{scope.row.alipayaccount}}</span>
         </template>
-      </el-table-column>
+      </el-table-column> -->
       <!-- <el-table-column label="支付通道" align="center">
         <template scope="scope">
           <span>{{scope.row.businesspasstype|PayMethod}}</span>
@@ -206,7 +206,7 @@
             <el-form-item label="联系人手机" prop="mobilePhone">
               <el-input v-model="ruleForm.mobilePhone"></el-input>
             </el-form-item>
-            <el-form-item label="营业开始时间" prop="enabletime">
+            <!-- <el-form-item label="营业开始时间" prop="enabletime">
               <el-time-select style="width:100%" v-model="ruleForm.enabletime" :picker-options="{
               start: '06:00',
               step: '00:10',
@@ -221,7 +221,7 @@
               end: '23:59'
             }" placeholder="选择时间">
               </el-time-select>
-            </el-form-item>
+            </el-form-item> -->
             <el-form-item label="备注">
               <el-input v-model="ruleForm.remark" type="textarea" :rows="2"></el-input>
             </el-form-item>
