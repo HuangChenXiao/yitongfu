@@ -1,6 +1,6 @@
 import Cookies from 'js-cookie'
 
-const TokenKey = 'Merchant-Token'
+const TokenKey = 'yitongfu-Merchant-Token'
 
 export function getToken() {
   return Cookies.get(TokenKey)
