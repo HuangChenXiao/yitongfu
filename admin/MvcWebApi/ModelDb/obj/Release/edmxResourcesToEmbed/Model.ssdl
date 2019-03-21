@@ -235,6 +235,7 @@
     <Property Name="memberid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="phone" Type="nvarchar" MaxLength="50" />
     <Property Name="alipayname" Type="nvarchar" MaxLength="50" />
+    <Property Name="alipayaccount" Type="nvarchar" MaxLength="50" />
     <Property Name="wechatname" Type="nvarchar" MaxLength="50" />
     <Property Name="iswechat" Type="bit" />
     <Property Name="isalipay" Type="bit" />
@@ -739,6 +740,7 @@
     <Property Name="bus_id" Type="int" />
     <Property Name="agent_name" Type="nvarchar" MaxLength="20" />
     <Property Name="agent_id" Type="int" />
+    <Property Name="alipayaccount" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <Function Name="fn_alipaytime" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
   <Function Name="fn_alipayurl" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="nvarchar">
@@ -907,6 +909,16 @@
     <Parameter Name="token" Type="nvarchar" Mode="In" />
     <Parameter Name="url" Type="nvarchar" Mode="In" />
     <Parameter Name="mark_sell" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="PROC_OrderAlipayRedlCallBack" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="token" Type="nvarchar" Mode="In" />
+    <Parameter Name="userid" Type="nvarchar" Mode="In" />
+    <Parameter Name="mark_sell" Type="nvarchar" Mode="In" />
+    <Parameter Name="order_id" Type="nvarchar" Mode="In" />
+    <Parameter Name="money" Type="decimal" Mode="In" />
+  </Function>
+  <Function Name="PROC_OrderAlipayRedPayInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="orderno" Type="nvarchar" Mode="In" />
   </Function>
   <Function Name="PROC_OrderCallBack" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="orderno" Type="nvarchar" Mode="In" />
@@ -1085,7 +1097,8 @@
     [me_member_view].[shortName] AS [shortName], 
     [me_member_view].[bus_id] AS [bus_id], 
     [me_member_view].[agent_name] AS [agent_name], 
-    [me_member_view].[agent_id] AS [agent_id]
+    [me_member_view].[agent_id] AS [agent_id], 
+    [me_member_view].[alipayaccount] AS [alipayaccount]
     FROM [dbo].[me_member_view] AS [me_member_view]</DefiningQuery>
     </EntitySet>
   </EntityContainer>
